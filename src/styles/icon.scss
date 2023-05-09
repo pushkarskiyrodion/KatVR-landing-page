@@ -1,0 +1,52 @@
+.icon {
+  width: $header-icon-size + 1;
+  height: $header-icon-size;
+
+  @include onTablet {
+    display: flex;
+    align-items: center;
+  }
+
+  &:hover {
+    path {
+      fill: $primary-text-color;
+    }
+  }
+
+  &--polygon {
+
+    &:hover {
+      path {
+        fill: #fff;
+      }
+    }
+  }
+
+  &--menu {
+    background-image: url(../../public/images/icon-menu.svg);
+    background-repeat: no-repeat;
+  }
+
+  &--close {
+    position: absolute;
+    right: 18px;
+    top: 18px;
+    cursor: pointer;
+
+    &:hover {
+      path {
+        stroke: $primary-text-color;
+      }
+
+      line {
+        stroke: $primary-text-color;
+      }
+    }
+  }
+
+  &--hide {
+    @include onDesktop-min-1240 {
+      display: none;
+    }
+  }
+}

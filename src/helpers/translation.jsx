@@ -1,0 +1,8 @@
+const translation = {
+  en: {
+
+  },
+  ua: {
+    
+  }
+}

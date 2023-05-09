@@ -1,0 +1,78 @@
+.modal {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  top: 0;
+  animation-name: showUp;
+  animation-duration: 0.5s;
+  animation-timing-function: ease;
+
+  z-index: 3;
+
+  &__container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    background: rgba(0, 0, 0, 0.7);
+  }
+
+  &--video {
+    padding: 0 0;
+  }
+
+  &--hidden {
+    animation-name: close;
+    animation-duration: $modal-close-time * 1s;
+    animation-timing-function: ease-in;
+  }
+
+  &__content {
+    position: relative;
+    background-color: $dark-shade;
+    padding: 60px 90px;
+    width: 880px;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+  }
+
+  &__contacts {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  &__wrapper {
+    display: flex;
+    gap: 65px;
+
+    margin-top: 25px;
+  }
+
+  &__title {
+    color: $primary-text-color;
+  }
+
+  &--open {
+    height: 100%;
+    overflow: hidden;
+  }
+
+  &__link {
+    color: $primary-text-color;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  &__text {
+    margin-top: 50px;
+  }
+}

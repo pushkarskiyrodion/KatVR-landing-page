@@ -1,0 +1,21 @@
+@import './styles/utils/variables.module.scss';
+@import './styles/utils/mixins';
+@import './styles/utils/animations';
+@import './styles/utils/reset.scss';
+@import './styles/grid.scss';
+
+@import './styles/page.scss';
+@import './styles/icon.scss';
+@import './components/Container/Container.scss';
+@import './components/Header/Header.scss';
+@import './components/Modal/Modal.scss';
+@import './components/Accordion/Faq.scss';
+@import './components/Menu/Menu.scss';
+@import './components/More/More.scss';
+@import './components/Swiper/SwiperControls/SwiperControls.scss';
+@import './components/Swiper/Swiper.scss';
+@import './components/About/About.scss';
+@import './components/Techspecs/Techspecs.scss';
+@import './components/Benefits/Benefits.scss';
+@import './components/Contacts/Contacts.scss';
+@import './components/Footer/Footer.scss';

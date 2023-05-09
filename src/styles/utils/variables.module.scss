@@ -1,0 +1,18 @@
+$primary-section-color: linear-gradient(107.56deg, #191536 0%, #000 100%);
+$secondary-section-color: #05040b;
+
+$primary-text-color: #05c2df;
+$secondary-text-color: #929292;
+$dark-shade: #191536;
+
+$header-icon-size: 17px;
+
+$modal-close-time: 0.3;
+
+$swiper-controls-padding: 10;
+$swiper-controls--border: 2px;
+
+:export {
+  modalCloseTime: $modal-close-time;
+  swiperControlsPadding: $swiper-controls-padding;
+}
