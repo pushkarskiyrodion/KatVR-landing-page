@@ -3,8 +3,8 @@ import PropTypes from "prop-types";
 
 const PaymentSystem = ({ value }) => {
   const systemSrc = value.startsWith("4")
-    ? "../images/payment-systems/visa.png"
-    : "../images/payment-systems/mastercard.png";
+    ? "./images/payment-systems/visa.png"
+    : "./images/payment-systems/mastercard.png";
 
   return (
     <div className="order__payment-system">

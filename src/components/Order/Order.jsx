@@ -14,7 +14,7 @@ const Order = () => {
     <div className="order__product">
       <img
         className="order__image"
-        src="../images/pictures/image-b.png"
+        src="./images/pictures/image-b.png"
         alt="1"
       />
 
