@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/KatVR-landing-page/static/css/main.0fa462a9.css",
-    "main.js": "/KatVR-landing-page/static/js/main.2191a746.js",
+    "main.css": "/KatVR-landing-page/static/css/main.9051b86f.css",
+    "main.js": "/KatVR-landing-page/static/js/main.2905cbd9.js",
     "static/media/techspecs-image.svg": "/KatVR-landing-page/static/media/techspecs-image.e75a0ba09a2ad8132ea7.svg",
     "static/media/image-b.png": "/KatVR-landing-page/static/media/image-b.7c01898bae555b0d05ce.png",
     "index.html": "/KatVR-landing-page/index.html",
@@ -13,11 +13,11 @@
     "static/media/arrowUp.svg": "/KatVR-landing-page/static/media/arrowUp.e6417b2e43f22b89260c.svg",
     "static/media/sensor-vector.svg": "/KatVR-landing-page/static/media/sensor-vector.35d4f797199e421a538d.svg",
     "static/media/Polygon.svg": "/KatVR-landing-page/static/media/Polygon.2ddb197524555e977eaf.svg",
-    "main.0fa462a9.css.map": "/KatVR-landing-page/static/css/main.0fa462a9.css.map",
-    "main.2191a746.js.map": "/KatVR-landing-page/static/js/main.2191a746.js.map"
+    "main.9051b86f.css.map": "/KatVR-landing-page/static/css/main.9051b86f.css.map",
+    "main.2905cbd9.js.map": "/KatVR-landing-page/static/js/main.2905cbd9.js.map"
   },
   "entrypoints": [
-    "static/css/main.0fa462a9.css",
-    "static/js/main.2191a746.js"
+    "static/css/main.9051b86f.css",
+    "static/js/main.2905cbd9.js"
   ]
 }
