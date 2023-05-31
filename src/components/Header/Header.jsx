@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { HashLink } from "react-router-hash-link";
 import PropTypes from "prop-types";
 
 import Menu from "../Menu/Menu";
@@ -129,7 +130,7 @@ const Header = ({ onPlay, onSelect, lang }) => {
               <div className="header__content-bottom">
                 <div className="header__help">
                   <a
-                    href="/#"
+                    href="#"
                     className="header__bottom-text"
                     id="faq"
                     onClick={handleFaqOpen}
@@ -138,7 +139,7 @@ const Header = ({ onPlay, onSelect, lang }) => {
                   </a>
 
                   <a
-                    href="./#"
+                    href="#"
                     className="header__bottom-text"
                     onClick={handleHelpOpen}
                   >
@@ -146,8 +147,8 @@ const Header = ({ onPlay, onSelect, lang }) => {
                   </a>
                 </div>
                 <div className="header__bottom-wrapper header__content-bottom--center">
-                  <a
-                    href="#more"
+                  <HashLink
+                    to="#more"
                     className="header__bottom-advanced icon--polygon"
                   >
                     {translate("menu__more", lang)}
@@ -164,7 +165,7 @@ const Header = ({ onPlay, onSelect, lang }) => {
                         fill="#05C2DF"
                       />
                     </svg>
-                  </a>
+                  </HashLink>
                 </div>
               </div>
 

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { HashLink } from "react-router-hash-link";
 
 const PageScroll = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -20,9 +21,9 @@ const PageScroll = () => {
   return (
     <div className="page__scroll">
       {isVisible && (
-        <a href="/#header" className="page__scroll-button">
+        <HashLink to="/#header" className="page__scroll-button">
           {" "}
-        </a>
+        </HashLink>
       )}
     </div>
   );

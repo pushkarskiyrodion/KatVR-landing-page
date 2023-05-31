@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import { HashLink } from "react-router-hash-link";
 import PropTypes from "prop-types";
 import classNames from "classnames";
 
@@ -32,13 +33,13 @@ const Menu = ({
             modal,
           }) => (
             <li className="menu__item" key={id}>
-              <a
-                href={href}
+              <HashLink
+                to={href}
                 className="menu__link"
-                onClick={(e) => onClick(e, children, value, modal)}
+                onClick={(e) => onClick(e, children, value, modal)}  
               >
                 {translate(classNameForTranslate, lang)}
-              </a>
+              </HashLink>
             </li>
           )
         )}
