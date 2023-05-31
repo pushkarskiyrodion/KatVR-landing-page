@@ -1,70 +1,40 @@
-# Getting Started with Create React App
+# KatVR - Virtual Reality Landing Page
+## Project Overview
+
+KatVR is a personal project that aims to showcase the exciting world of virtual reality (VR) through an engaging landing page. As virtual reality continues to gain popularity, this project serves as a platform to provide information, resources, and inspiration to VR enthusiasts, developers, and curious individuals alike.
+
+[DEMO LINK](https://pushkarskiyrodion.github.io/KatVR-landing-page)
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+# Features
 
-In the project directory, you can run:
+## Sleek and Modern Design
 
-### `npm start`
+The landing page of KatVR boasts a sleek and modern design, capturing the essence of the immersive VR experience. The user interface is visually appealing, with carefully chosen colors, fonts, and layout to enhance user engagement.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Responsive Design
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+KatVR is built with a responsive design approach, making it accessible and optimized for a variety of devices, including desktops, laptops, tablets, and mobile phones. The landing page adapts seamlessly to different screen sizes, ensuring an optimal user experience regardless of the device being used.
 
-### `npm test`
+## Technologies Used
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### React
 
-### `npm run build`
+The KatVR landing page is built using React, a popular JavaScript library for building user interfaces. React allows for the creation of reusable components, making it easier to manage and maintain the codebase. It provides a declarative syntax, efficient rendering, and a virtual DOM for optimal performance.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### SASS
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+To enhance the styling capabilities of the project, SASS (Syntactically Awesome Style Sheets) was utilized. SASS is a CSS preprocessor that extends the capabilities of CSS with variables, mixins, nesting, and other powerful features. It enables modular and maintainable styling, making it easier to style complex components and maintain a consistent design system.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### HTML5 
 
-### `npm run eject`
+The project utilizes HTML5 to structure the content and layout of the landing page. HTML5 provides semantic elements, improved accessibility, and enhanced multimedia support, ensuring a robust foundation for the project.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### CSS3
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Along with SASS, CSS3 is used for styling the KatVR landing page. CSS3 brings a wide range of styling options, including advanced selectors, animations, transitions, and responsive design features, allowing for visually appealing and interactive user interfaces.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### JavaScript
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+In addition to React, JavaScript is used to enhance interactivity and implement dynamic functionality on the landing page. JavaScript enables features such as smooth scrolling, interactive menus, form validation, and other user interactions.
