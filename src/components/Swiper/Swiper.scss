@@ -1,21 +1,40 @@
 .swiper {
+  display: flex;
+  flex-direction: column;
   position: relative;
-  box-sizing: border-box;
   height: 100%;
-  padding: 0 40px;
+  padding: 0 38px;
 
   overflow: hidden;
 
+  @include onTablet {
+    padding: 0;
+  }
+
+  @include onMobile {
+    left: 7%;
+  }
+
   &__list {
+    height: 100%;
     display: flex;
     overflow: hidden;
 
-    transition: all 1s ease;
+    transition: transform 1s ease;
   }
 
   &__item {
     list-style: none;
     margin-right: 40px;
+
+    @include onMobile {
+      margin: 0 20px;
+    }
+  }
+
+  &__image {
+    height: 100%;
+    object-fit: cover;
   }
 
   &__pagination {
@@ -25,5 +44,16 @@
     left: 0;
 
     z-index: 3;
+
+    @include onTablet {
+      left: 50%;
+      bottom: 4%;
+    }
+  }
+
+  &__header {
+    &-list {
+      display: flex;
+    }
   }
 }

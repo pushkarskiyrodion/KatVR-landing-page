@@ -6,7 +6,12 @@
 
   scroll-behavior: smooth;
 
+  &__content {
+    position: relative;
+  }
+
   &__button {
+    display: block;
     width: 200px;
     height: 48px;
     background: $primary-text-color;
@@ -18,8 +23,10 @@
     text-align: center;
     color: #fff;
 
-    transition-property: color background-color;
+    transition-property: color, background-color;
     transition-duration: 0.5s;
+
+    cursor: pointer;
 
     &:hover {
       color: $primary-text-color;
@@ -33,26 +40,51 @@
       border-color: $dark-shade;
     }
 
-    @include onTablet {
-      width: 100%;
-    }
-
     &--switch {
-      display: none;
-
-      @include onMobile {
-        display: block;
-        margin-top: 23px;
+      @include onTablet {
+        display: none;
       }
     }
+
+    &-link {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      color: #fff;
+
+      transition-property: color;
+      transition-duration: 0.5s;
+
+      &:hover {
+        color: $primary-text-color;
+      }
+
+      &:active {
+        color: #2f2f2f;
+      }
+    }
+
+    // &--mobile {
+    //   display: none;
+
+    //   @include onTablet {
+    //     display: block;
+    //     position: sticky;
+    //     z-index: 7;
+    //     bottom: 2%;
+    //     left: 50%;
+    //     transform: translateX(-50%);
+    //   }
+    // }
   }
 
   &__scroll {
     position: relative;
 
     &-button {
-      position: absolute;
-      right: 7%;
+      position: fixed;
+      right: 45px;
       top: 62%;
 
       display: block;
@@ -66,6 +98,8 @@
       background-image: url(../../public/images/arrowUp.svg);
       background-position: center;
       background-repeat: no-repeat;
+
+      z-index: 5;
 
       @include onMobile {
         display: none !important;
@@ -150,8 +184,12 @@
   &__section {
     padding: 80px 0;
 
-    @include onMobile {
+    @include onTablet {
       padding: 50px 0;
+    }
+
+    @include onMobile {
+      padding: 0 0;
     }
   }
 
@@ -233,6 +271,10 @@
       transform: translateX(0%);
     }
   }
+}
+
+.hidden {
+  display: none;
 }
 
 * {

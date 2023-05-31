@@ -1,31 +1,58 @@
-const Menu = () => (
-  <nav className="menu menu__off">
-    <ul className="menu__list">
-      <li className="menu__item">
-        <a href="#about" className="menu__link">
-          About
-        </a>
-      </li>
+import React, { useContext } from "react";
+import PropTypes from "prop-types";
+import classNames from "classnames";
 
-      <li className="menu__item">
-        <a href="#tech" className="menu__link">
-          Tech
-        </a>
-      </li>
+import { LangContext } from "../../context/LangContext";
+import { translate } from "../../helpers/translation";
 
-      <li className="menu__item">
-        <a href="#benefits" className="menu__link">
-          Benefits
-        </a>
-      </li>
+const Menu = ({
+  menuData,
+  className = "",
+  isOffOnMobile,
+  isOffOnTablet,
+  onClick = () => {},
+}) => {
+  const lang = useContext(LangContext);
 
-      <li className="menu__item">
-        <a href="#contacts" className="menu__link">
-          Contact
-        </a>
-      </li>
-    </ul>
-  </nav>
-);
+  return (
+    <nav
+      className={classNames("menu", {
+        "menu__off--mobile": isOffOnMobile,
+        "menu__off--tablet": isOffOnTablet,
+      })}
+    >
+      <ul className={`menu__list ${className}`}>
+        {menuData?.map(
+          ({
+            href = "",
+            classNameForTranslate,
+            id,
+            children,
+            value,
+            modal,
+          }) => (
+            <li className="menu__item" key={id}>
+              <a
+                href={href}
+                className="menu__link"
+                onClick={(e) => onClick(e, children, value, modal)}
+              >
+                {translate(classNameForTranslate, lang)}
+              </a>
+            </li>
+          )
+        )}
+      </ul>
+    </nav>
+  );
+};
+
+Menu.propTypes = {
+  menuData: PropTypes.array,
+  className: PropTypes.string,
+  isOffOnMobile: PropTypes.bool,
+  isOffOnTablet: PropTypes.bool,
+  onClick: PropTypes.func,
+};
 
 export default Menu;

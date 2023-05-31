@@ -13,8 +13,22 @@
   }
 
   &__button {
+    @extend .page__button;
     display: block;
     margin: 0 auto;
+
+    @include onTablet {
+      width: 50%;
+      position: fixed;
+      z-index: 4;
+      bottom: 4.5%;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    @include onMobile {
+      bottom: 4%;
+    }
   }
 
   &__cards {
@@ -24,10 +38,13 @@
 
     margin-bottom: 90px;
 
+    @include onTablet {
+      margin-bottom: 0;
+    }
+
     @include onMobile {
       flex-direction: column;
       gap: 25px;
-      margin-bottom: 50px;
     }
   }
 }

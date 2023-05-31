@@ -3,8 +3,27 @@
   background: $primary-section-color;
   box-shadow: 4px 4px 40px rgba(0, 0, 0, 0.25);
 
+  &__title {
+    @extend .page__title;
+    margin-top: 110px;
+    margin-bottom: 0;
+
+    @include onTablet {
+      margin-top: 0;
+      width: auto;
+    }
+
+    @include onMobile {
+      margin-bottom: 0;
+    }
+  }
+
   @include onTablet {
-    height: fit-content;
+    height: 70vh;
+  }
+
+  @include onMobile {
+    height: 100vh;
   }
 
   &__wrapper {
@@ -21,7 +40,7 @@
 
     @include onTablet {
       display: grid;
-      grid-template-columns: 80px 1fr $header-icon-size;
+      grid-template-columns: 150px 1fr $header-icon-size;
       margin-bottom: 55px;
     }
 
@@ -37,7 +56,7 @@
   &__right {
     display: flex;
     gap: 37px;
-    
+
     @include onTablet {
       grid-column: 3;
       transition: transform 0.5s ease;
@@ -48,119 +67,56 @@
     }
   }
 
-  &__logo {
-    margin-right: 26px;
+  &__help {
+    display: flex;
+    gap: 50px;
   }
 
-  &__select-language {
-    appearance: none;
-    position: relative;
-    background-color: inherit;
-
-    width: 30px;
-    border: none;
-    color: $primary-text-color;
-
-    background-image: url(../../../public/images/Polygon.svg);
-    background-repeat: no-repeat;
-    background-position: right 80%;
-
-    &:focus {
-      outline: none;
-    }
-
-    @include onTablet {
-      display: none;
-    }
-  }
-
-  &__option {
-    background-color: $dark-shade;
+  &__swiper {
+    padding: 0;
   }
 
   &__content {
+    height: 90%;
     position: relative;
-
-    @include onMobile {
-      padding-top: 50%;
-    }
-  }
-
-  &__about {
     display: flex;
-    width: 300px;
-    margin-left: 80px;
-    flex-direction: column;
+    align-items: center;
 
     @include onTablet {
-      margin-left: 0;
+      margin-bottom: 50px;
+      gap: 0;
     }
 
     @include onMobile {
-      width: fit-content;
-    }
-
-    &-paragraph {
-      line-height: 150%;
-      color: $secondary-text-color;
-
-      margin-bottom: 18px;
-    }
-
-    &-price {
-      font-size: 18px;
-      line-height: 22px;
-      color: #fff;
-
-      margin-bottom: 19px;
-
-      @include onMobile {
-        text-align: center;
-      }
-    }
-  }
-
-  &__image {
-    position: absolute;
-    bottom: 0;
-    top: 0;
-    right: 0;
-    left: 50%;
-
-    background-image: url(../../../public/images/pictures/image-b.png);
-    background-repeat: no-repeat;
-    background-size: 130%;
-    background-position: center;
-
-    @include onMobile {
-      width: 100%;
-      position: absolute;
-      bottom: 100%;
-      top: 0;
-      left: -5%;
-      right: 20px;
-      background-image: url(../../../public/images/pictures/image-b.png);
-      background-repeat: no-repeat;
-      background-size: 131%;
-      background-position: center;
-      padding-bottom: 50%;
-    }
-  }
-
-  &__bottom {
-    display: flex;
-    justify-content: space-between;
-    line-height: 150%;
-
-    @include onTablet {
-      display: none;
+      height: 95%;
+      flex-direction: column-reverse;
+      margin-bottom: 15px;
     }
 
     &-wrapper {
+      height: 100%;
       display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 50%;
 
-      &--left {
-        gap: 39px;
+      @include onTablet {
+        width: auto;
+      }
+
+      @include onMobile {
+        justify-content: space-evenly;
+        margin-top: 50%;
+      }
+    }
+
+    &-bottom {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px;
+
+      @include onTablet {
+        display: none;
       }
 
       &--center {
@@ -170,18 +126,80 @@
           transform: scale(1.1);
         }
       }
+    }
+  }
 
-      &--right {
-        padding-bottom: 10px;
-        border-bottom: 1px solid #212121;
-        gap: 50px;
+  &__about {
+    display: flex;
+    height: 50%;
+    width: 300px;
+    margin-left: 80px;
+    flex-direction: column;
+    gap: 20px;
 
-        &:hover {
-          border-color: $primary-text-color;
-        }
-      }
+    @include onTablet {
+      height: 65%;
+      margin-left: 0;
     }
 
+    @include onMobile {
+      height: auto;
+      width: fit-content;
+    }
+
+    &-paragraph {
+      line-height: 150%;
+      color: $secondary-text-color;
+    }
+
+    &-price {
+      font-size: 18px;
+      line-height: 22px;
+      color: #fff;
+
+      @include onMobile {
+        text-align: center;
+      }
+    }
+  }
+
+  &__some {
+    height: 100%;
+    width: 50%;
+  }
+
+  &__image {
+    align-self: flex-end;
+    width: 210px;
+
+    &-wrapper {
+      overflow: hidden;
+
+      @include onTablet {
+        position: absolute;
+        top: 15%;
+        left: 40%;
+        right: 0;
+        background-image: url(../../../public/images/pictures/image-b.png);
+        background-repeat: no-repeat;
+        background-size: 100%;
+        background-position: right;
+        padding-bottom: 25%;
+      }
+
+      @include onMobile {
+        left: 0;
+        top: 0;
+        padding-bottom: 50%;
+        background-position: center;
+        background-size: 120%;
+
+        transform: translate(-5%);
+      }
+    }
+  }
+
+  &__bottom {
     &-text {
       color: #fff;
 
@@ -202,7 +220,7 @@
 
       &--icon {
         position: absolute;
-        bottom: 0;
+        bottom: -10px;
         left: 40%;
       }
     }

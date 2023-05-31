@@ -1,120 +1,195 @@
+import React, { useContext, useState } from "react";
+import classNames from "classnames";
+
+import ContactUs from "../Contact-us/Contact-us";
 import Container from "../Container/Container";
+import FormInput from "../Order/Form/FormInput";
+import Message from "./Message";
+import MessageText from "./MessageText";
 
-const Contacts = () => (
-  <section className="contacts page__section" id="contacts">
-  <Container>
-    <div className="contacts__wrapper">
-      <div className="contacts__info">
-        <p className="contacts__subtitle">
-          Have any questions?
-        </p>
+import { checkValidity } from "../../helpers/checkValidity";
+import { translate } from "../../helpers/translation";
+import { LangContext } from "../../context/LangContext";
 
-        <h2 className="contacts__title">
-          Get In
-          <span className="page__title--secondary">
-            &nbsp;Touch
-          </span>
-        </h2>
+const inputs = [
+  {
+    id: 1,
+    classNameForTranslate: "name",
+    name: "name",
+    type: "text",
+    classNameForTranslateError: "nameError",
+    pattern: "^[A-Za-z]{3,16}$",
+  },
+  {
+    id: 2,
+    classNameForTranslate: "email",
+    name: "email",
+    type: "email",
+    classNameForTranslateError: "emailError",
+    pattern: "^[a-zA-Z0-9]+@[a-zA-Z0-9]+$",
+  },
+  {
+    id: 3,
+    classNameForTranslate: "phone",
+    name: "phone",
+    type: "number",
+    pattern: "^[0-9]{5,16}$",
+    classNameForTranslateError: "phoneError",
+  },
+];
 
-        <p className="contacts__callback page__text contacts__callback--before">
-          Our manager will reply you within 15 minutes
-        </p>
+const Contacts = () => {
+  const [fieldInputs] = useState(inputs);
+  const [isError, setIsError] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isSelected, setIsSelected] = useState(false);
+  const lang = useContext(LangContext);
+  const [info, setInfo] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    message: "",
+  });
 
-        <div className="contacts__contacts-us">
-          <a href="tel: +86-0571-86105373" className="contacts__text">
-            +86-0571-86105373
-          </a>
+  const handleChange = (e) => {
+    const { name, value } = e.target;
 
-          <a href="mailto:global@katvr.com" className="contacts__text">
-            global@katvr.com
-          </a>
+    setInfo((current) => ({
+      ...current,
+      [name]: value,
+    }));
 
-          <a href="mailto:overseas@katvr.com" className="contacts__text">
-            overseas@katvr.com
-          </a>
+    setIsError(false);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    if (checkValidity(inputs, setIsError, info)) {
+      setIsSubmitted(true);
+
+      setInfo({
+        message: "",
+        email: "",
+        name: "",
+        phone: "",
+      });
+    }
+  };
+
+  const handleClosePopUp = () => {
+    setIsSubmitted(false);
+  };
+
+  const handleMessageFocus = () => {
+    setIsSelected(true);
+  };
+
+  const handleMessageBlur = () => {
+    setIsSelected(false);
+  };
+
+  return (
+    <section className="contacts page__section" id="contacts">
+      <Container>
+        <div className="contacts__wrapper">
+          <div className="contacts__info">
+            <p className="contacts__subtitle">
+              {translate("contacts__questions", lang)}
+            </p>
+
+            <h2 className="contacts__title">
+              {translate("contactsTitle", lang)}
+              <span className="page__title--secondary">
+                &nbsp;{translate("contactsTitle--secondary", lang)}
+              </span>
+            </h2>
+
+            <p className="contacts__callback page__text contacts__callback--before">
+              {translate("contacts__reply", lang)}
+            </p>
+
+            <ContactUs />
+          </div>
+
+          <div className="contacts__form">
+            <form action="#" onSubmit={handleSubmit}>
+              {fieldInputs.map(
+                ({
+                  id,
+                  name,
+                  classNameForTranslate,
+                  type,
+                  pattern,
+                  classNameForTranslateError,
+                }) => (
+                  <FormInput
+                    name={name}
+                    key={id}
+                    classNameForTranslate={classNameForTranslate}
+                    type={type}
+                    onChange={handleChange}
+                    pattern={pattern}
+                    classNameForTranslateError={classNameForTranslateError}
+                    value={info[name]}
+                  />
+                )
+              )}
+
+              <fieldset className="form__field">
+                <legend className="form__label">
+                  <label
+                    htmlFor="message"
+                    className={classNames({
+                      form__selected: isSelected,
+                    })}
+                  >
+                    {translate("message", lang)}
+                  </label>
+                </legend>
+
+                <textarea
+                  name="message"
+                  id="message"
+                  cols="3"
+                  rows="3"
+                  className={classNames("form__message", {
+                    "form__selected-input": isSelected,
+                  })}
+                  required
+                  spellCheck
+                  onChange={handleChange}
+                  onFocus={handleMessageFocus}
+                  onBlur={handleMessageBlur}
+                  value={info["message"]}
+                />
+              </fieldset>
+
+              {isError && (
+                <span className="form__error">
+                  {translate("errorFill", lang)}
+                </span>
+              )}
+
+              <button className="contacts__button" type="submit">
+                {translate("contactsUs", lang)}
+              </button>
+
+              <p className="contacts__callback page__text contacts__callback--after">
+                {translate("contacts__reply", lang)}
+              </p>
+            </form>
+          </div>
         </div>
-      </div>
 
-      <div className="contacts__form">
-        <form action="#">
-          <fieldset className="contacts__form-field">
-            <legend className="contacts__form-label">
-              <label for="name">
-                Name*
-              </label>
-            </legend>
-
-            <input
-              name="name"
-              id="name"
-              type="text"
-              className="contacts__form-input"
-              required
-            />
-          </fieldset>
-
-          <fieldset className="contacts__form-field">
-            <legend className="contacts__form-label">
-              <label for="email">
-                Email*
-              </label>
-            </legend>
-
-            <input
-              type="email"
-              id="email"
-              name="email"
-              className="contacts__form-input"
-              required
-            />
-          </fieldset>
-
-          <fieldset className="contacts__form-field">
-            <legend className="contacts__form-label">
-              <label for="phone">
-                Phone*
-              </label>
-            </legend>
-
-            <input
-              type="tel"
-              id="phone"
-              name="tel"
-              className="contacts__form-input"
-              required
-              />
-          </fieldset>
-
-          <fieldset className="contacts__form-field">
-            <legend className="contacts__form-label">
-              <label for="message">
-                Message*
-              </label>
-            </legend>
-
-            <textarea
-              name="message"
-              id="message"
-              cols="3"
-              rows="3"
-              className="contacts__form-input contacts__form-message"
-              required
-              spellcheck
-            ></textarea>
-          </fieldset>
-
-          <button className="page__button" type="submit">
-            Contact Us
-          </button>
-
-          <p className="contacts__callback page__text contacts__callback--after">
-            Our manager will reply you within 15 minutes
-          </p>
-        </form>
-      </div>
-    </div>
-  </Container>
-</section>
-);
+        {isSubmitted && (
+          <Message isSubmitted={isSubmitted} onClose={handleClosePopUp}>
+            <MessageText />
+          </Message>
+        )}
+      </Container>
+    </section>
+  );
+};
 
 export default Contacts;

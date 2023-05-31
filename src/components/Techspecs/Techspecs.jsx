@@ -1,83 +1,119 @@
+import React, { useContext, useState } from "react";
+
 import Container from "../Container/Container";
+import classNames from "classnames";
+import CloseIcon from "../Icons/CloseIcon";
 
-const Techspecs = () => (
-  <section className="techspecs page__section" id="tech">
-    <Container>
-      <h2 className="page__title techspecs__title">
-        Tech
-        <span className="page__title--secondary">
-          &nbsp;Specs
-        </span>
-      </h2>
+import { LangContext } from "../../context/LangContext";
+import { translate } from "../../helpers/translation";
+import { touchIcons } from "../../data/data";
 
-      <div className="techspecs__content">
-        <i className="techspecs__touch techspecs__touch--sensor">+</i>
-        <i className="techspecs__touch techspecs__touch--connection">+</i>
-        <i className="techspecs__touch techspecs__touch--batterries">+</i>
+const Techspecs = () => {
+  const [opened, setOpened] = useState(0);
+  const lang = useContext(LangContext);
 
-        <div className="techspecs__description techspecs__description--sensor" id="sensor">
-          <a href="./#sensor" className="techspecs__icon-close"> </a>
+  const handleClose = () => {
+    setOpened(0);
+  };
 
-          <h3 className="techspecs__description-title">
-            Sensor
-          </h3>
+  return (
+    <section className="techspecs page__section" id="tech">
+      <Container>
+        <h2 className="page__title techspecs__title">
+          {translate("tech__title", lang)}
+          <span className="page__title--secondary">
+            &nbsp;{translate("tech__title--secondary", lang)}
+          </span>
+        </h2>
 
-          <p className="page__text">
-            Weight: 35g/1.23oz each
-            <br />
-            Dimension: 50mm/1.97in
-            <br />
-            24mm/0.94in
-            <br />
-            Light: LED lights
-          </p>
+        <div className="techspecs__content">
+          {touchIcons.map(({ id, nameOfClass }) => (
+            <i
+              className={`techspecs__touch ${nameOfClass}`}
+              key={id}
+              onClick={() => setOpened(id)}
+            />
+          ))}
+
+          <div
+            className={classNames(
+              "techspecs__description techspecs__description--sensor",
+              { open: opened === 1 }
+            )}
+            id="sensor"
+          >
+            <i className="techspecs__icon-close">
+              <CloseIcon onClose={handleClose} />
+            </i>
+
+            <h3 className="techspecs__description-title">
+              {translate("tech__sensor", lang)}
+            </h3>
+
+            <p
+              className="page__text"
+              dangerouslySetInnerHTML={{
+                __html: translate("tech__sensor-text", lang),
+              }}
+            />
+          </div>
+
+          <div
+            className={classNames(
+              "techspecs__description techspecs__description--connection",
+              { open: opened === 2 }
+            )}
+            id="connection"
+          >
+            <i className="techspecs__icon-close">
+              <CloseIcon onClose={handleClose} />
+            </i>
+
+            <h3 className="techspecs__description-title">
+              {translate("tech__connection", lang)}
+            </h3>
+
+            <p
+              className="page__text"
+              dangerouslySetInnerHTML={{
+                __html: translate("tech__connection-text", lang),
+              }}
+            />
+          </div>
+
+          <div
+            className={classNames(
+              "techspecs__description techspecs__description--batterries",
+              { open: opened === 3 }
+            )}
+            id="batterries"
+          >
+            <i className="techspecs__icon-close">
+              <CloseIcon onClose={handleClose} />
+            </i>
+
+            <h3 className="techspecs__description-title">
+              {translate("tech__battery", lang)}
+            </h3>
+
+            <p
+              className="page__text"
+              dangerouslySetInnerHTML={{
+                __html: translate("tech__battery-text", lang),
+              }}
+            />
+          </div>
+
+          <div className="techspecs__vectors">
+            <div className="techspecs__vector techspecs__vector--1"></div>
+            <div className="techspecs__vector techspecs__vector--2"></div>
+            <div className="techspecs__vector techspecs__vector--3"></div>
+            <div className="techspecs__vector techspecs__vector--4"></div>
+          </div>
         </div>
-
-        <div className="techspecs__description techspecs__description--connection" id="connection">
-          <a href="#connection" className="techspecs__icon-close"> </a>
-
-          <h3 className="techspecs__description-title">
-            Connection
-          </h3>
-
-          <p className="page__text">
-            Wireless: Bluetooth 4.2
-            <br />
-            Signal range: 5m
-            <br />
-            Receiver: USB 2.0 and above
-          </p>
-        </div>
-
-        <div className="techspecs__description techspecs__description--batterries" id="batterries">
-          <a href="#batterries" className="techspecs__icon-close"> </a>
-
-          <h3 className="techspecs__description-title">
-            Batterries
-          </h3>
-
-          <p className="page__text">
-            Type: Lthium-lon polymer batteries
-            <br />
-            Capacity: 370mAh
-            <br />
-            Battery life: 10h of continuous use 150 hours on stand by
-            <br />
-            Charging: Fast charging - 1 hour
-            <br />
-            Charging voltage and current: 5V = 0.5A
-          </p>
-        </div>
-
-        <div className="techspecs__vectors">
-          <div className="techspecs__vector techspecs__vector--1"></div>
-          <div className="techspecs__vector techspecs__vector--2"></div>
-          <div className="techspecs__vector techspecs__vector--3"></div>
-          <div className="techspecs__vector techspecs__vector--4"></div>
-        </div>
-      </div>
-    </Container>
-  </section>
-);
+      </Container>
+    </section>
+  );
+};
 
 export default Techspecs;

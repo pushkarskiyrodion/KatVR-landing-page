@@ -8,7 +8,7 @@
   animation-duration: 0.5s;
   animation-timing-function: ease;
 
-  z-index: 3;
+  z-index: 6;
 
   &__container {
     display: flex;
@@ -40,6 +40,10 @@
     display: flex;
     flex-direction: column;
     margin: 0 auto;
+
+    @include onMobile {
+      padding: 60px 60px;
+    }
   }
 
   &__contacts {
@@ -53,6 +57,10 @@
     gap: 65px;
 
     margin-top: 25px;
+
+    @include onTablet {
+      margin-top: 70px;
+    }
   }
 
   &__title {
@@ -73,6 +81,14 @@
   }
 
   &__text {
+    @extend .page__text;
     margin-top: 50px;
+  }
+
+  &__tablet {
+    @include onTablet {
+      height: 100%;
+      width: 100%;
+    }
   }
 }

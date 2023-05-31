@@ -8,20 +8,26 @@
   }
 
   &__wrapper {
-    width: 61%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-    @include onTablet {
-      width: 70%;
-    }
+    display: none;
+    flex-direction: column;
+    gap: 15px;
 
     @include onMobile {
-      width: auto;
-      gap: 15px;
-      flex-direction: column;
-      align-items: flex-start;
+      display: flex;
+    }
+  }
+
+  &__logo {
+    @include onMobile {
+      display: none;
+    }
+  }
+
+  &__menu {
+    display: block;
+
+    &--tablet {
+      gap: 25px;
     }
   }
 
@@ -29,6 +35,11 @@
     display: flex;
     flex-direction: column;
     gap: 40px;
+
+    @include onMobile {
+      gap: 20px;
+      margin-bottom: 25px;
+    }
   }
 
   &__socials {

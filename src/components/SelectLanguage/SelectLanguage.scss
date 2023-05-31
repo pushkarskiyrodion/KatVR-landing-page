@@ -1,0 +1,30 @@
+.select-language {
+  background-color: inherit;
+  width: 50px;
+  margin: 0;
+
+  @include onTablet {
+    display: none;
+  }
+
+  &__value {
+    padding: 0;
+    background-position: right bottom;
+    color: $primary-text-color;
+  }
+
+  &__list {
+    background-color: inherit;
+    overflow: visible;
+    left: 0;
+    right: 0;
+
+    & > li {
+      color: $primary-text-color;
+
+      &:hover {
+        color: #fff;
+      }
+    }
+  }
+}

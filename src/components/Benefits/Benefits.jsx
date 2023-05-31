@@ -1,76 +1,55 @@
+import React, { useContext, useState } from "react";
+import { Link } from "react-router-dom";
+
+import { LangContext } from "../../context/LangContext";
+
 import Container from "../Container/Container";
 
-const Benefits = () => (
-  <section className="benefits page__section" id="benefits">
-  <Container>
-    <h2 className="page__title benefits__title">
-      Why
-      <span className="page__title--secondary">
-        &nbsp;Kat Loco
-      </span>
-    </h2>
+import { translate } from "../../helpers/translation";
+import { benefits } from "../../data/data";
 
-    <div className="benefits__cards">
-      <div className="page__card">
-        <img
-          src="./images/compatible.svg"
-          alt="universally-compatible"
-          className="page__card-image"
-        />
+const Benefits = () => {
+  const [items] = useState(benefits);
+  const lang = useContext(LangContext);
 
-        <h3 className="page__card-title">
-          universally compatible
-        </h3>
+  return (
+    <section className="benefits page__section" id="benefits">
+      <Container>
+        <h2 className="page__title benefits__title">
+          {translate("benefits__title", lang)}
+          <span className="page__title--secondary">
+            &nbsp;{translate("benefits__title--secondary", lang)}
+          </span>
+        </h2>
 
-        <p className="page__card-text">
-          KAT Loco offers universal compatibility across all major
-          VR headsets and platforms allowing you to play any
-          VR game with support for Free Locomotion
-        </p>
-      </div>
+        <div className="benefits__cards">
+          {items.map(({ id, textClassName, titleClassName, src }) => (
+            <div className="page__card" key={id}>
+              <img
+                src={src}
+                alt={titleClassName}
+                className="page__card-image"
+              />
 
-      <div className="page__card">
-        <img
-          src="./images/pc-control-panel.svg"
-          alt="pc-control-panel"
-          className="page__card-image"
-        />
+              <h3 className="page__card-title">
+                {translate(titleClassName, lang)}
+              </h3>
 
-        <h3 className="page__card-title">
-          VR/PC Control panel
-        </h3>
+              <p className="page__card-text">
+                {translate(textClassName, lang)}
+              </p>
+            </div>
+          ))}
+        </div>
 
-        <p className="page__card-text">
-          Our Multifunctional Software allows for quick access to KAT
-          Loco's control panel both from a computer desktop, and
-          directly from your VR headset.
-        </p>
-      </div>
-
-      <div className="page__card">
-        <img
-          src="./images/wireless-sensors.svg"
-          alt="wireless-sensors"
-          className="page__card-image"
-        />
-
-        <h3 className="page__card-title">
-          Wireless Sensors
-        </h3>
-
-        <p className="page__card-text">
-          What makes it even more advanced, KAT Loco is entirely wireless,
-          and comes with a complete system of algorithms,
-          super durable batteries and more!
-        </p>
-      </div>
-    </div>
-
-    <button className="page__button benefits__button">
-      Buy Now
-    </button>
-  </Container>
-</section>
-);
+        <button className="benefits__button">
+          <Link to="order/place-order" className="page__button-link">
+            {translate("buy-now", lang)}
+          </Link>
+        </button>
+      </Container>
+    </section>
+  );
+};
 
 export default Benefits;

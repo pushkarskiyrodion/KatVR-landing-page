@@ -1,0 +1,20 @@
+.contact-us {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  @include onMobile {
+    display: none;
+  }
+
+  &__text {
+    @extend .page__text;
+    width: max-content;
+
+    transition: opacity 0.4s;
+
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+}

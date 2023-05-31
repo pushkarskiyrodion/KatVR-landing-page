@@ -1,0 +1,14 @@
+.video {
+  width: 1000px;
+  height: 480px;
+
+  @include onTablet {
+    width: 500px;
+    height: 300px;
+  }
+
+  @include onMobile {
+    width: 400px;
+    height: 300px;
+  }
+}

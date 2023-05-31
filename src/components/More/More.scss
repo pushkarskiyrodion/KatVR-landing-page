@@ -6,9 +6,25 @@
 
     margin-bottom: 130px;
 
+    @include onTablet {
+      margin-bottom: 80px;
+    }
+
     @include onMobile {
       margin-bottom: 50px;
     }
+  }
+
+  &__title {
+    @extend .page__title;
+
+    &--secondary {
+      @extend .page__title--secondary;
+    }
+  }
+
+  &__subtitle {
+    @extend .page__subtitle;
   }
 
   &__content {

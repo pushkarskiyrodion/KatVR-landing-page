@@ -1,87 +1,96 @@
-import { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
+import PropTypes from "prop-types";
 import SwiperControls from "./SwiperControls/SwiperControls";
 
-const pictures = [
-  {
-    src: './images/pictures/slide-image.png',
-    id: 1,
-  },
-  {
-    src: './images/pictures/slide-image.png',
-    id: 2,
-  },
-  {
-    src: './images/pictures/slide-image.png',
-    id: 3,
-  },
-  {
-    src: './images/pictures/slide-image.png',
-    id: 4,
-  },
-  {
-    src: './images/pictures/slide-image.png',
-    id: 5,
-  },
-];
-
-const IMAGE_WIDTH = 500;
-
-const Swiper = () => {
-  const [images] = useState(pictures);
-  const [current, setCurrent] = useState(1)
+const Swiper = ({
+  items,
+  controlsClassName = "",
+  swiperClassName = "",
+  isPaginationVisible,
+}) => {
+  const [images] = useState(items);
+  const [current, setCurrent] = useState(1);
   const [position, setPosition] = useState(0);
+  const [parentWidth, setParentWidth] = useState(0);
+  const parentRef = useRef();
 
-  const isEnd = IMAGE_WIDTH * images.length + (40 * images.length);
-  let total = IMAGE_WIDTH + 40;
+  useEffect(() => {
+    const parentElement = parentRef.current;
+    const resizeObserver = new ResizeObserver((entries) => {
+      const { width } = entries[0].contentRect;
+      setCurrent(1);
+      setPosition(0);
+      setParentWidth(width);
+    });
+
+    resizeObserver.observe(parentElement);
+
+    return () => {
+      resizeObserver.unobserve(parentElement);
+    };
+  }, []);
+
+  const totalWidth = parentWidth * items.length + 40 * images.length;
+  let total = parentWidth + 40;
   let pos = position;
 
   const next = () => {
     pos += total;
-    pos = Math.min(pos , (pos >= isEnd ? 0 : isEnd));
+    pos = Math.min(pos, pos >= totalWidth ? 0 : totalWidth);
 
     setPosition(pos);
-    setCurrent(curr => curr !== images.length ? curr + 1 : 1)
-  }
+    setCurrent((curr) => (curr !== images.length ? curr + 1 : 1));
+  };
 
   const prev = () => {
     pos -= total;
-    pos = Math.max(pos, (pos >= 0 ? 0 : isEnd - total));
+    pos = Math.max(pos, pos >= 0 ? 0 : totalWidth - total);
 
     setPosition(pos);
-    setCurrent(curr => curr !== 1 ? curr - 1 : images.length)
-  }
+    setCurrent((curr) => (curr !== 1 ? curr - 1 : images.length));
+  };
 
   return (
-    <div className="swiper">
-      <div className="swiper__pagination">
-        {`${current} / ${images.length}`}
-      </div>
+    <div className={`swiper ${swiperClassName}`} ref={parentRef}>
+      {isPaginationVisible && (
+        <div className="swiper__pagination">
+          {`${current} / ${images.length}`}
+        </div>
+      )}
 
-      <ul 
-        className="swiper__list" 
-        style={{ 
-          width: `${isEnd}px`,
+      <ul
+        className="swiper__list"
+        style={{
+          width: `${totalWidth}px`,
           transform: `translateX(${-position}px)`,
         }}
       >
-        {images.map(({ src, id}) => (
-          <li 
-            key={id} 
-            className="swiper__item"
-            style={{ width: `${IMAGE_WIDTH}px`}}
-          >
-            <img 
-              src={src} 
+        {images.map(({ src, id }) => (
+          <li key={id} className="swiper__item">
+            <img
+              src={src}
+              className="swiper__image"
               alt={id}
-              width={IMAGE_WIDTH}
+              width={parentWidth}
             />
           </li>
         ))}
       </ul>
 
-      <SwiperControls onPrev={prev} onNext={next} />
+      <SwiperControls
+        onPrev={prev}
+        onNext={next}
+        className={controlsClassName}
+      />
     </div>
-  ) 
-}
+  );
+};
+
+Swiper.propTypes = {
+  items: PropTypes.array,
+  controlsClassName: PropTypes.string,
+  swiperClassName: PropTypes.string,
+  isPaginationVisible: PropTypes.bool,
+};
 
 export default Swiper;

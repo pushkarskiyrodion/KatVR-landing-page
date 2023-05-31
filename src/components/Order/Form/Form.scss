@@ -1,0 +1,216 @@
+.form {
+  width: 60%;
+  justify-content: space-evenly;
+  margin-top: 130px;
+
+  @include onTablet {
+    width: 100%;
+    margin-top: 40px;
+  }
+
+  &__wrapper {
+    display: flex;
+    gap: 22px;
+  }
+
+  &__input-wrapper {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+  }
+
+  &__label {
+    @extend .page__text;
+    font-size: 14px;
+  }
+
+  &__input {
+    border: none;
+    width: 100%;
+    padding: 6px 0;
+    border-bottom: 1px solid #2f2f2f;
+    background-color: transparent;
+
+    font: inherit;
+    color: #fff;
+
+    outline: none;
+  }
+
+  &__button {
+    display: block;
+    width: 200px;
+    height: 48px;
+    background: $secondary-text-color;
+    border-radius: 4px;
+    border-width: 0px;
+
+    font: inherit;
+    line-height: inherit;
+    text-align: center;
+    color: #fff;
+  }
+
+  &__error {
+    @extend .text-error;
+    display: block;
+    margin: 10px 0;
+  }
+
+  &__controls {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column-reverse;
+  }
+
+  &__field {
+    border: none;
+    margin-bottom: 24px;
+
+    @include onTablet {
+      margin-bottom: 10px;
+    }
+
+    &:nth-child(4n) {
+      margin-bottom: 90px;
+
+      @include onTablet {
+        margin-bottom: 10px;
+      }
+    }
+  }
+
+  &__label {
+    @extend .page__text;
+    font-size: 14px;
+  }
+
+  &__input {
+    border: none;
+    width: 100%;
+    padding: 6px 0;
+    border-bottom: 1px solid #2f2f2f;
+    background-color: transparent;
+
+    font: inherit;
+    color: #fff;
+
+    outline: none;
+  }
+
+  &__message {
+    @extend .form__input;
+    resize: none;
+  }
+
+  &__card {
+    width: 45%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 150px;
+
+    @include onTablet {
+      width: 100%;
+      margin-top: 10px;
+    }
+
+    &-number {
+      display: flex;
+      margin: 20px 0 70px;
+
+      @include onTablet {
+        margin: 10px 0 10px;
+      }
+
+      &__wrapper {
+        display: flex;
+        flex-grow: 1;
+      }
+    }
+
+    &-input {
+      @extend .form__input;
+      letter-spacing: 5px;
+      text-indent: 3px;
+      margin-right: 25px;
+      max-width: 60px;
+
+      &::placeholder {
+        letter-spacing: 3px;
+        text-align: center;
+
+        @include onMobile {
+          letter-spacing: 0;
+        }
+      }
+
+      @include onTablet {
+        letter-spacing: 5px;
+        text-indent: 0;
+        margin-right: 11%;
+
+        @include onMobile {
+          margin-right: 4%;
+        }
+      }
+
+      &-cvv {
+        @extend .form__card-input;
+        width: 47px;
+        text-indent: 4px;
+
+        @include onMobile {
+          text-indent: 3px;
+        }
+      }
+    }
+
+    &-date {
+      display: flex;
+      justify-content: space-between;
+      width: 60%;
+      margin: 50px 0 100px 0;
+
+      @include onTablet {
+        margin: 10px 0 0 0;
+      }
+
+      @include onMobile {
+        margin-top: 15px;
+      }
+    }
+
+    &-expiration {
+      display: flex;
+      flex-direction: column;
+
+      &-input {
+        @extend .form__card-input;
+        width: 67px;
+        text-align: center;
+        text-indent: 0;
+
+        &::placeholder {
+          letter-spacing: 0;
+        }
+      }
+    }
+  }
+
+  &__selected {
+    color: $primary-text-color;
+
+    &-input {
+      border-color: $primary-text-color;
+    }
+  }
+}
+
+.text-error {
+  color: $error-color;
+}
+
+.input-error {
+  border-bottom: 1px solid $error-color;
+}

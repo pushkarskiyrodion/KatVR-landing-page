@@ -1,75 +1,87 @@
+import React, { useContext } from "react";
+import PropTypes from "prop-types";
+
+import { LangContext } from "../../context/LangContext";
+
 import Container from "../Container/Container";
 import PlayButton from "../PlayButton/PlayButton";
 import Swiper from "../Swiper/Swiper";
 
-const About = ({ onPlay }) => (
-  <section className="about page__section" id="about">
-    <Container>
-      <div className="about__wrapper">
-        <div className="grid grid--switch">
-          <h2 className="page__title page__title--before">
-            About
-            <span className="page__title--secondary">
-              &nbsp;Product
-            </span>
-          </h2>
+import { pictures } from "../../data/data";
+import { translate } from "../../helpers/translation";
 
-          <div className="grid__item--onDesktopMax1240-1-3 grid__item--onDesktopMin1240-2-6">
-            <Swiper />
-          </div>
+const About = ({ onPlay }) => {
+  const lang = useContext(LangContext);
 
-          <div className="grid__item--onDesktopMax1240-4-6 grid__item--onDesktopMin1240-8-12">
-            <div className="about__header-wrapper">
-              <h2 className="page__title page__title--after">
-                About
-                <span className="page__title--secondary">
-                  &nbsp;Product
-                </span>
-              </h2>
+  return (
+    <section className="about page__section" id="about">
+      <Container>
+        <div className="about__wrapper">
+          <div className="grid grid--switch">
+            <h2 className="page__title page__title--before">
+              {translate("about__title", lang)}
+              <span className="page__title--secondary">
+                &nbsp;{translate("about__title--secondary", lang)}
+              </span>
+            </h2>
 
-              <p className="about__text">
-                KAT loco is a foot-based VR locomotion system that gives complete physical
-                control over lower-body actions, allowing you to freely walk, run, and
-                carry out just any other movement in virtual reality.
-              </p>
-              
-              <PlayButton onPlay={onPlay} />
+            <div className="grid__swiper grid__item--onDesktopMax1240-1-4 grid__item--onDesktopMin1240-2-6">
+              <Swiper
+                items={pictures}
+                controlsClassName={"swiper-controls__grid"}
+                isPaginationVisible={true}
+                swiperClassName={"grid__item--mobile-1-7"}
+              />
+            </div>
+
+            <div className="grid__item--onDesktopMax1240-5-8 grid__item--onDesktopMin1240-8-12">
+              <div className="about__header-wrapper">
+                <h2 className="page__title page__title--after">
+                  {translate("about__title", lang)}
+                  <span className="page__title--secondary">
+                    &nbsp;{translate("about__title--secondary", lang)}
+                  </span>
+                </h2>
+
+                <p className="about__text">{translate("about__text", lang)}</p>
+
+                <PlayButton onPlay={onPlay} />
+              </div>
             </div>
           </div>
         </div>
-      </div>
 
-      <div className="about__bottom">
-        <div className="about__greeting">
-          <span className="page__subtitle">
-            Hello,
-          </span>
-
-          <h2 className="page__title">
-            Nice to meet
-            <span className="page__title--secondary">
-              &nbsp;you
+        <div className="about__bottom">
+          <div className="about__greeting">
+            <span className="page__subtitle">
+              {translate("about__hello", lang)}
             </span>
-          </h2>
 
-          <p className="page__text">
-            KAT VR is an independent company dedicated to the research, development,
-            and sales of VR Locomotion products and solutions. Founded in 2013,
-            we have quickly grown to become one of the world's leading professional
-            suppliers of VR games' & simulations' equipment
-          </p>
-        </div>
+            <h2 className="page__title">
+              {translate("about__subtitle", lang)}
+              <span className="page__title--secondary">
+                &nbsp;{translate("about__subtitle--secondary", lang)}
+              </span>
+            </h2>
 
-        <div className="about__us">
-          <div className="about__us-text about__us--invisible">About us</div>
-          <div className="about__us-text about__us--invisible">About us</div>
-          <div className="about__us-text">About us</div>
-          <div className="about__us-text">About us</div>
-          <div className="about__us-text">About us</div>
+            <p className="page__text">{translate("about__subtext", lang)}</p>
+          </div>
+
+          <div className="about__us">
+            <div className="about__us-text about__us--invisible">About us</div>
+            <div className="about__us-text about__us--invisible">About us</div>
+            <div className="about__us-text">About us</div>
+            <div className="about__us-text">About us</div>
+            <div className="about__us-text">About us</div>
+          </div>
         </div>
-      </div>
-    </Container>
-  </section>
-);
+      </Container>
+    </section>
+  );
+};
+
+About.propTypes = {
+  onPlay: PropTypes.func,
+};
 
 export default About;

@@ -1,8 +1,9 @@
 .grid {
   display: grid;
+  gap: 30px;
 
   @include onDesktop-max-1240 {
-    grid-template-columns: repeat(6, 1fr);
+    grid-template-columns: repeat(8, 1fr);
   }
 
   @include onDesktop-min-1240 {
@@ -23,7 +24,21 @@
             grid-column: #{$start} / #{$end + 1};
           }
         }
+
+        @include onMobile {
+          &--mobile-#{$start}-#{$end} {
+            justify-items: center;
+            grid-column: #{$start} / #{$end + 1};
+          }
+        }
       }
+    }
+  }
+
+  &__swiper {
+    @include onMobile {
+      display: grid;
+      grid-template-columns: repeat(8, 1fr);
     }
   }
 

@@ -56,6 +56,11 @@ select:-webkit-autofill:focus {
     }
   }
 
+  &__button {
+    position: static;
+    @extend .page__button;
+  }
+
   &__text {
     @extend .page__text;
 

@@ -2,8 +2,16 @@
   display: flex;
 
   &__off {
-    @include onTablet {
-      display: none;
+    &--mobile {
+      @include onMobile {
+        display: none;
+      }
+    }
+
+    &--tablet {
+      @include onTablet {
+        display: none;
+      }
     }
   }
 
@@ -16,6 +24,8 @@
   &__item {
     height: 40px;
     list-style: none;
+
+    cursor: pointer;
   }
 
   &__link {

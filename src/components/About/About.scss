@@ -55,6 +55,10 @@
     @include onDesktop-max-1240 {
       margin: 15px 0;
     }
+
+    @include onMobile {
+      margin: 15px 0 50px;
+    }
   }
 
   &__greeting {

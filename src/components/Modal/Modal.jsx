@@ -1,35 +1,33 @@
-import { useState } from "react";
+import React, { useState } from "react";
+import PropTypes from "prop-types";
+import classNames from "classnames";
 
-import classNames from 'classnames';
+import SCSSVariables from "../../styles/utils/variables.module.scss";
 
-import SCSSVariables from '../../styles/utils/variables.module.scss';
+import CloseIcon from "../Icons/CloseIcon";
 
 const Modal = ({ onClose, isOpen, children, className }) => {
-  const [isVisible, setIsVisible] = useState(isOpen)
-
-  console.log(isVisible)
+  const [isVisible, setIsVisible] = useState(isOpen);
 
   const handleClose = () => {
-    setIsVisible(false)
-    setTimeout(() => onClose(), parseFloat(SCSSVariables.modalCloseTime) * 1000)
-  } 
-  
+    setIsVisible(false);
+    setTimeout(
+      () => onClose(),
+      parseFloat(SCSSVariables.modalCloseTime) * 1000
+    );
+  };
+
   return (
     <>
       {isOpen && (
-        <div 
-          className={classNames('modal', {
-            'modal--hidden': !isVisible
+        <div
+          className={classNames("modal", {
+            "modal--hidden": !isVisible,
           })}
         >
           <div className="modal__container">
             <div className={className}>
-              <i onClick={handleClose} className="icon icon--close">
-                <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <line x1="1.35355" y1="0.995568" x2="18.2206" y2="17.8626" stroke="white"/>
-                  <path d="M1.13405 17.8672L18.0011 1.00011" stroke="white"/>
-                </svg>
-              </i>
+              <CloseIcon onClose={handleClose} />
               {children}
             </div>
           </div>
@@ -37,6 +35,13 @@ const Modal = ({ onClose, isOpen, children, className }) => {
       )}
     </>
   );
+};
+
+Modal.propTypes = {
+  onClose: PropTypes.func,
+  isOpen: PropTypes.bool,
+  children: PropTypes.node,
+  className: PropTypes.string,
 };
 
 export default Modal;
