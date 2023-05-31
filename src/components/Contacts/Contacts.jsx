@@ -18,7 +18,7 @@ const inputs = [
     name: "name",
     type: "text",
     classNameForTranslateError: "nameError",
-    pattern: "^[A-Za-z]{3,16}$",
+    pattern: "^[A-Za-zА-Яа-яЁёІіЇїЄєҐґ]{3,16}$",
   },
   {
     id: 2,
@@ -26,7 +26,7 @@ const inputs = [
     name: "email",
     type: "email",
     classNameForTranslateError: "emailError",
-    pattern: "^[a-zA-Z0-9]+@[a-zA-Z0-9]+$",
+    pattern: "^[a-zA-Z0-9]+@[a-zA-Z0-9.]+$",
   },
   {
     id: 3,

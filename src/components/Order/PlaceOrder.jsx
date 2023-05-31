@@ -37,7 +37,7 @@ const PlaceOrder = () => {
       type: "text",
       errorText: "Name should be 3-16 characters and include only letters",
       classNameForTranslateError: "nameError",
-      pattern: "^[A-Za-z]{3,16}$",
+      pattern: "^[A-Za-zА-Яа-яЁёІіЇїЄєҐґ]{3,16}$",
     },
     {
       id: 2,
@@ -45,7 +45,7 @@ const PlaceOrder = () => {
       name: "email",
       type: "email",
       errorText: "Please, enter correct data",
-      pattern: "^[a-zA-Z0-9]+@[a-zA-Z0-9]+$",
+      pattern: "^[a-zA-Z0-9]+@[a-zA-Z0-9.]+$",
       classNameForTranslateError: "emailError",
     },
     {
@@ -74,7 +74,7 @@ const PlaceOrder = () => {
       classNameForTranslate: "lastName",
       name: "lastName",
       type: "text",
-      pattern: "^[A-Za-z]{3,16}$",
+      pattern: "^[A-Za-zА-Яа-яЁёІіЇїЄєҐґ]{3,16}$",
       errorText: "Name should be 3-16 characters and include only letters",
       classNameForTranslateError: "nameError",
     },
