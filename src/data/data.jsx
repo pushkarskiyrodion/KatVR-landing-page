@@ -40,25 +40,21 @@ export const answers = [
   {
     id: 1,
     classNameForTranslateText: "answers-text",
-    title: "What makes KAT loco different from other systems?",
     classNameForTranslateTitle: "answers1",
   },
   {
     id: 2,
     classNameForTranslateText: "answers-text",
-    title: "Will it decrease my motion sickness?",
     classNameForTranslateTitle: "answers2",
   },
   {
     id: 3,
     classNameForTranslateText: "answers-text",
-    title: "Which VR headsets is it compatible with?",
     classNameForTranslateTitle: "answers3",
   },
   {
     id: 4,
     classNameForTranslateText: "answers-text",
-    title: "Is it compatible with Oculus Quest?",
     classNameForTranslateTitle: "answers4",
   },
 ];
