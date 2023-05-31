@@ -5,6 +5,7 @@ import { LangContext } from "../../context/LangContext";
 import ContactUs from "../Contact-us/Contact-us";
 
 import { translate } from "../../helpers/translation";
+import { HashLink } from "react-router-hash-link";
 
 const Help = ({ onFAQ, onHelpClose }) => {
   const lang = useContext(LangContext);
@@ -31,13 +32,13 @@ const Help = ({ onFAQ, onHelpClose }) => {
         <span className="help__please">
           {translate("help__please", lang)}&nbsp;
         </span>
-        <a
+        <HashLink
           onClick={onHelpClose}
-          href="./#contacts"
+          to="./#contacts"
           className="modal__link help__contact"
         >
           {translate("help__contact", lang)}
-        </a>
+        </HashLink>
         <span className="help__you">&nbsp;{translate("help__you", lang)}</span>
       </p>
 
