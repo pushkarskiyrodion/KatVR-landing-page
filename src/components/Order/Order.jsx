@@ -1,13 +1,13 @@
 import React, { useContext, useState } from "react";
-import DropDown from "../DropDown/DropDown";
-import { LangContext } from "../../context/LangContext";
-import { translate } from "../../helpers/translation";
+import { DropDown } from "@components/DropDown";
+import { LangContext } from "@context/LangContext";
+import { translate } from "@helpers/translation";
 
 const quantity = ["1", "2", "3", "4"];
 const PRICE = 1200;
 
-const Order = () => {
-  const [value, setValue] = useState(1);
+export const Order = () => {
+  const [value, setValue] = useState(quantity[0]);
   const lang = useContext(LangContext);
 
   return (
@@ -25,7 +25,7 @@ const Order = () => {
           </span>
 
           <DropDown
-            entities={quantity}
+            dropdownList={quantity}
             className="dropdown__quantities"
             selectedValue={value}
             onSelect={setValue}
@@ -41,5 +41,3 @@ const Order = () => {
     </div>
   );
 };
-
-export default Order;

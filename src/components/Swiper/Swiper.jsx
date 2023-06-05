@@ -1,8 +1,8 @@
 import React, { useEffect, useRef, useState } from "react";
 import PropTypes from "prop-types";
-import SwiperControls from "./SwiperControls/SwiperControls";
+import { SwiperControls } from "./SwiperControls";
 
-const Swiper = ({
+export const Swiper = ({
   items,
   controlsClassName = "",
   swiperClassName = "",
@@ -92,5 +92,3 @@ Swiper.propTypes = {
   swiperClassName: PropTypes.string,
   isPaginationVisible: PropTypes.bool,
 };
-
-export default Swiper;

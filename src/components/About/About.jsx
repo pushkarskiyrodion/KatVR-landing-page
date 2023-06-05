@@ -1,16 +1,16 @@
 import React, { useContext } from "react";
 import PropTypes from "prop-types";
 
-import { LangContext } from "../../context/LangContext";
+import { LangContext } from "@context/LangContext";
 
-import Container from "../Container/Container";
-import PlayButton from "../PlayButton/PlayButton";
-import Swiper from "../Swiper/Swiper";
+import { Container } from "@components/Container";
+import { PlayButton } from "@components/PlayButton";
+import { Swiper } from "@components/Swiper";
 
-import { pictures } from "../../data/data";
-import { translate } from "../../helpers/translation";
+import { pictures } from "@data/data";
+import { translate } from "@helpers/translation";
 
-const About = ({ onPlay }) => {
+export const About = ({ onPlay }) => {
   const lang = useContext(LangContext);
 
   return (
@@ -57,7 +57,7 @@ const About = ({ onPlay }) => {
               {translate("about__hello", lang)}
             </span>
 
-            <h2 className="page__title">
+            <h2 className="page__title about__greeting__title">
               {translate("about__subtitle", lang)}
               <span className="page__title--secondary">
                 &nbsp;{translate("about__subtitle--secondary", lang)}
@@ -83,5 +83,3 @@ const About = ({ onPlay }) => {
 About.propTypes = {
   onPlay: PropTypes.func,
 };
-
-export default About;

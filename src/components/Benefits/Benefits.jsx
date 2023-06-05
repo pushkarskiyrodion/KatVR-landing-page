@@ -1,14 +1,14 @@
 import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 
-import { LangContext } from "../../context/LangContext";
+import { LangContext } from "@context/LangContext";
 
-import Container from "../Container/Container";
+import { Container } from "@components/Container";
 
-import { translate } from "../../helpers/translation";
-import { benefits } from "../../data/data";
+import { translate } from "@helpers/translation";
+import { benefits } from "@data/data";
 
-const Benefits = () => {
+export const Benefits = () => {
   const [items] = useState(benefits);
   const lang = useContext(LangContext);
 
@@ -51,5 +51,3 @@ const Benefits = () => {
     </section>
   );
 };
-
-export default Benefits;

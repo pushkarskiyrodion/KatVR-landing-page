@@ -69,5 +69,11 @@
     @include onTablet {
       width: auto;
     }
+
+    &__title {
+      @include onMobile {
+        margin-top: 0;
+      }
+    }
   }
 }

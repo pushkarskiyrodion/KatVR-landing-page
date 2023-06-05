@@ -3,10 +3,10 @@ import { HashLink } from "react-router-hash-link";
 import PropTypes from "prop-types";
 import classNames from "classnames";
 
-import { LangContext } from "../../context/LangContext";
-import { translate } from "../../helpers/translation";
+import { LangContext } from "@context/LangContext";
+import { translate } from "@helpers/translation";
 
-const Menu = ({
+export const Menu = ({
   menuData,
   className = "",
   isOffOnMobile,
@@ -24,24 +24,28 @@ const Menu = ({
     >
       <ul className={`menu__list ${className}`}>
         {menuData?.map(
-          ({
-            href = "",
-            classNameForTranslate,
-            id,
-            children,
-            value,
-            modal,
-          }) => (
-            <li className="menu__item" key={id}>
-              <HashLink
-                to={href}
-                className="menu__link"
-                onClick={(e) => onClick(e, children, value, modal)}  
-              >
-                {translate(classNameForTranslate, lang)}
-              </HashLink>
-            </li>
-          )
+          ({ href, classNameForTranslate, id, children, value, modal }) =>
+            href ? (
+              <li className="menu__item" key={id}>
+                <HashLink
+                  to={href}
+                  className="menu__link"
+                  onClick={(e) => onClick(e, children, value, modal)}
+                >
+                  {translate(classNameForTranslate, lang)}
+                </HashLink>
+              </li>
+            ) : (
+              <li className="menu__item" key={id}>
+                <a
+                  href=""
+                  className="menu__link"
+                  onClick={(e) => onClick(e, children, value, modal)}
+                >
+                  {translate(classNameForTranslate, lang)}
+                </a>
+              </li>
+            )
         )}
       </ul>
     </nav>
@@ -55,5 +59,3 @@ Menu.propTypes = {
   isOffOnTablet: PropTypes.bool,
   onClick: PropTypes.func,
 };
-
-export default Menu;

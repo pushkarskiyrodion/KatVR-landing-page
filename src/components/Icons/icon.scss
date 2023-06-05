@@ -60,4 +60,17 @@
       display: block;
     }
   }
+
+  &--links {
+    width: 20px;
+    height: 17px;
+
+    background-color: #fff;
+    mask-position: center;
+    mask-repeat: no-repeat;
+
+    &:hover {
+      background-color: $primary-text-color;
+    }
+  }
 }

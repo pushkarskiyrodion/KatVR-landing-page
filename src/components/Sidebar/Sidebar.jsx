@@ -1,11 +1,11 @@
 import React, { useState } from "react";
+import classNames from "classnames";
 import PropTypes from "prop-types";
 
-import CloseIcon from "../Icons/CloseIcon";
-import Menu from "../Menu/Menu";
-import SubMenu from "../Menu/Submenu";
-import BackIcone from "../Icons/BackIcon";
-import classNames from "classnames";
+import { CloseIcon } from "@components/Icons/CloseIcon";
+import { Menu } from "@components/Menu";
+import { Submenu } from "@components/Menu/Submenu";
+import { BackIcone } from "@components/Icons/BackIcon";
 
 import { languages, menuData } from "../../data/data";
 
@@ -13,22 +13,25 @@ const sidebarData = [
   ...menuData,
   {
     id: 5,
+    href: null,
     classNameForTranslate: "menu__language",
     children: languages,
   },
   {
     id: 6,
+    href: null,
     classNameForTranslate: "menu__faq",
     modal: "faq",
   },
   {
     id: 7,
+    href: null,
     classNameForTranslate: "menu__help",
     modal: "help",
   },
 ];
 
-const Sidebar = ({ isOpen, onToggle, onFaq, onHelp, onSelect }) => {
+export const Sidebar = ({ isOpen, onToggle, onFaq, onHelp, onSelect }) => {
   const [items] = useState(sidebarData);
   const [children, setChildren] = useState(null);
   const [showSubMenu, setShowSubMenu] = useState(false);
@@ -96,7 +99,7 @@ const Sidebar = ({ isOpen, onToggle, onFaq, onHelp, onSelect }) => {
           </div>
 
           {showSubMenu ? (
-            <SubMenu
+            <Submenu
               data={children}
               onClick={handleClick}
               onClose={handleClose}
@@ -121,5 +124,3 @@ Sidebar.propTypes = {
   onHelp: PropTypes.func,
   onSelect: PropTypes.func,
 };
-
-export default Sidebar;

@@ -1,10 +1,11 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import classNames from "classnames";
 import PropTypes from "prop-types";
-import { isArrayofObjects } from "../../helpers/isArrayOfObjects";
 
-const DropDown = ({
-  entities,
+import { isArrayofObjects } from "@helpers/isArrayOfObjects";
+
+export const DropDown = ({
+  dropdownList,
   parentClassName = "",
   valueClassName = "",
   listClassName = "",
@@ -19,7 +20,7 @@ const DropDown = ({
   const [inputValue, setInputValue] = useState(selectedValue);
   const containerRef = useRef();
 
-  const isNeedSearch = entities?.length > 10;
+  const isNeedSearch = dropdownList?.length > 10;
 
   useEffect(() => {
     const handleClickOutside = (e) => {
@@ -34,11 +35,11 @@ const DropDown = ({
     return () => {
       document.removeEventListener("click", handleClickOutside);
     };
-  }, [selectedValue, toggleSelected]);
+  }, [selectedValue]);
 
   useEffect(() => {
     setInputValue(selectedValue);
-  }, [entities, selectedValue]);
+  }, [dropdownList, selectedValue]);
 
   const toggle = () => {
     setIsOpen((current) => !current);
@@ -62,18 +63,18 @@ const DropDown = ({
   };
 
   const visibleItems = useMemo(() => {
-    return entities?.filter((item) => {
+    return dropdownList?.filter((item) => {
       if (!isNaN(item) || inputValue === selectedValue || !isNeedSearch) {
         return item;
       }
 
       return item.toLowerCase().startsWith(inputValue.toLowerCase());
     });
-  }, [entities, inputValue, selectedValue]);
+  }, [dropdownList, inputValue, selectedValue]);
 
   return (
     <>
-      {entities ? (
+      {dropdownList ? (
         <div className={`dropdown ${parentClassName}`} ref={containerRef}>
           {isNeedSearch ? (
             <input
@@ -86,7 +87,9 @@ const DropDown = ({
             />
           ) : (
             <div
-              className={`dropdown__value ${valueClassName}`}
+              className={classNames(`dropdown__value ${valueClassName}`, {
+                "select-language__value--opened": valueClassName && isOpen,
+              })}
               onClick={toggle}
             >
               {selectedValue[0]
@@ -122,6 +125,7 @@ const DropDown = ({
                   className={classNames({
                     dropdown__item: !isNeedSearch,
                     hidden: selectedValue === value && !isNeedSearch,
+                    "select-language__list--opened": isOpen,
                   })}
                   key={id}
                   onClick={() => handleClick(value)}
@@ -140,7 +144,7 @@ const DropDown = ({
 };
 
 DropDown.propTypes = {
-  entities: PropTypes.array,
+  dropdownList: PropTypes.array,
   parentClassName: PropTypes.string,
   valueClassName: PropTypes.string,
   listClassName: PropTypes.string,
@@ -151,5 +155,3 @@ DropDown.propTypes = {
   toggleSelected: PropTypes.func,
   onEmpty: PropTypes.func,
 };
-
-export default DropDown;

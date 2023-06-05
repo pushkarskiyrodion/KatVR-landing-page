@@ -1,8 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
-import Modal from "../Modal/Modal";
+import { Modal } from "@components/Modal";
 
-const Message = ({ isSubmitted, onClose, children }) => {
+export const Message = ({ isSubmitted, onClose, children }) => {
   const closeAfterDelay = () => {
     setTimeout(() => onClose(), 2700);
   };
@@ -10,7 +10,7 @@ const Message = ({ isSubmitted, onClose, children }) => {
   closeAfterDelay();
 
   return (
-    <Modal isOpen={isSubmitted} onClose={onClose}>
+    <Modal isOpen={isSubmitted} onClose={onClose} className={"message__wrapper"}>
       {children}
     </Modal>
   );
@@ -21,5 +21,3 @@ Message.propTypes = {
   onClose: PropTypes.func,
   children: PropTypes.node,
 };
-
-export default Message;

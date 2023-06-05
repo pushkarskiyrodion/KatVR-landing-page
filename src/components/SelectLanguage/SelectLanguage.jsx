@@ -1,12 +1,12 @@
 import React from "react";
 import PropTypes from "prop-types";
-import DropDown from "../DropDown/DropDown";
-import { languages } from "../../data/data";
+import { DropDown } from "@components/DropDown";
+import { languages } from "@data/data";
 
-const SelectLanguage = ({ onSelect, lang }) => {
+export const SelectLanguage = ({ onSelect, lang }) => {
   return (
     <DropDown
-      entities={languages}
+      dropdownList={languages}
       onSelect={onSelect}
       selectedValue={lang}
       parentClassName="select-language"
@@ -20,5 +20,3 @@ SelectLanguage.propTypes = {
   onSelect: PropTypes.func,
   lang: PropTypes.string,
 };
-
-export default SelectLanguage;

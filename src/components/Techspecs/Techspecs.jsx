@@ -1,14 +1,14 @@
 import React, { useContext, useState } from "react";
-
-import Container from "../Container/Container";
 import classNames from "classnames";
-import CloseIcon from "../Icons/CloseIcon";
 
-import { LangContext } from "../../context/LangContext";
-import { translate } from "../../helpers/translation";
-import { touchIcons } from "../../data/data";
+import { Container } from "@components/Container";
+import { CloseIcon } from "@components/Icons/CloseIcon";
 
-const Techspecs = () => {
+import { LangContext } from "@context/LangContext";
+import { translate } from "@helpers/translation";
+import { touchIcons } from "@data/data";
+
+export const Techspecs = () => {
   const [opened, setOpened] = useState(0);
   const lang = useContext(LangContext);
 
@@ -115,5 +115,3 @@ const Techspecs = () => {
     </section>
   );
 };
-
-export default Techspecs;

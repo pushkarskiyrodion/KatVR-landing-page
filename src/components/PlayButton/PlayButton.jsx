@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-const PlayButton = ({ onPlay }) => {
+export const PlayButton = ({ onPlay }) => {
   const handleClick = () => {
     onPlay(true);
   };
@@ -176,5 +176,3 @@ const PlayButton = ({ onPlay }) => {
 PlayButton.propTypes = {
   onPlay: PropTypes.func,
 };
-
-export default PlayButton;

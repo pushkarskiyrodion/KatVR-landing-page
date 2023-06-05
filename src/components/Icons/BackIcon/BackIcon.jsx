@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-const BackIcone = ({ onBack, className }) => (
+export const BackIcone = ({ onBack, className }) => (
   <i className={`icon--back ${className}`} onClick={onBack}>
     <svg
       width="10"
@@ -19,5 +19,3 @@ BackIcone.propTypes = {
   onBack: PropTypes.func,
   className: PropTypes.string,
 };
-
-export default BackIcone;

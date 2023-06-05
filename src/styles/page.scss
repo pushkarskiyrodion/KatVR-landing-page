@@ -139,6 +139,10 @@
       font-size: 26px;
     }
 
+    @include onMobile {
+      margin-top: 30px;
+    }
+
     &--secondary {
       font-weight: 400;
       color: $primary-text-color;

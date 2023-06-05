@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-const PaymentSystem = ({ value }) => {
+export const PaymentSystem = ({ value }) => {
   const systemSrc = value.startsWith("4")
     ? "./images/payment-systems/visa.png"
     : "./images/payment-systems/mastercard.png";
@@ -16,5 +16,3 @@ const PaymentSystem = ({ value }) => {
 PaymentSystem.propTypes = {
   value: PropTypes.string,
 };
-
-export default PaymentSystem;

@@ -1,6 +1,7 @@
 {
   "env": {
     "browser": true,
+    "node": true,
     "es2021": true
   },
   "extends": ["eslint:recommended", "plugin:react/recommended"],
@@ -10,5 +11,17 @@
     "sourceType": "module"
   },
   "plugins": ["react"],
-  "rules": {}
+  "rules": {},
+  "settings": {
+    "import/resolver": {
+      "alias": {
+        "map": [
+          ["@components", "./src/components"],
+          ["@pages", "./src/pages"],
+          ["@store", "./src/store"]
+        ],
+        "extensions": [".ts", ".js", ".jsx", ".json"]
+      }
+    }
+  }
 }

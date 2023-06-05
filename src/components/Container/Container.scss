@@ -5,11 +5,11 @@
   margin: 0 auto;
 
   @include onDesktop-max-1240 {
-    padding: 35px 50px;
+    padding: 25px 50px;
   }
 
   @include onMobile {
-    padding: 40px;
+    padding: 25px;
   }
 
   &__menu {

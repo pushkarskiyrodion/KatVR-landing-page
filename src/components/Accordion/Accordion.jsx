@@ -1,10 +1,10 @@
 import React, { useContext, useState } from "react";
 
-import { answers } from "../../data/data";
-import { translate } from "../../helpers/translation";
-import { LangContext } from "../../context/LangContext";
+import { answers } from "@data/data";
+import { translate } from "@helpers/translation";
+import { LangContext } from "@context/LangContext";
 
-const Accordion = () => {
+export const Accordion = () => {
   const [items] = useState(answers);
   const [opened, setOpened] = useState(0);
   const lang = useContext(LangContext);
@@ -69,5 +69,3 @@ const Accordion = () => {
     </>
   );
 };
-
-export default Accordion;

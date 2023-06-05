@@ -42,12 +42,17 @@
   }
 
   &__list {
+    z-index: 2;
     position: absolute;
     max-height: 230px;
     overflow: scroll;
     left: 0;
     right: 0;
     background-color: $dark-shade;
+
+    @include onTablet {
+      max-height: 118px;
+    }
 
     &::-webkit-scrollbar {
       width: 1px;

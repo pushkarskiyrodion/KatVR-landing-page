@@ -40,22 +40,22 @@ export const answers = [
   {
     id: 1,
     classNameForTranslateText: "answers-text",
-    classNameForTranslateTitle: "answers1",
+    classNameForTranslateTitle: "answers__first",
   },
   {
     id: 2,
     classNameForTranslateText: "answers-text",
-    classNameForTranslateTitle: "answers2",
+    classNameForTranslateTitle: "answers__second",
   },
   {
     id: 3,
     classNameForTranslateText: "answers-text",
-    classNameForTranslateTitle: "answers3",
+    classNameForTranslateTitle: "answers__third",
   },
   {
     id: 4,
     classNameForTranslateText: "answers-text",
-    classNameForTranslateTitle: "answers4",
+    classNameForTranslateTitle: "answers__fourth",
   },
 ];
 
@@ -79,6 +79,77 @@ export const pictures = [
   {
     src: "./images/pictures/slide-image.png",
     id: 5,
+  },
+];
+
+export const placeOrderInputs = [
+  {
+    id: 1,
+    classNameForTranslate: "firstName",
+    name: "firstName",
+    isEmpty: false,
+    type: "text",
+    errorText: "Name should be 3-16 characters and include only letters",
+    classNameForTranslateError: "nameError",
+    pattern: "^[A-Za-zА-Яа-яЁёІіЇїЄєҐґ]{3,16}$",
+  },
+  {
+    id: 2,
+    classNameForTranslate: "lastName",
+    name: "lastName",
+    isEmpty: false,
+    type: "text",
+    pattern: "^[A-Za-zА-Яа-яЁёІіЇїЄєҐґ]{3,16}$",
+    errorText: "Name should be 3-16 characters and include only letters",
+    classNameForTranslateError: "nameError",
+  },
+  {
+    id: 3,
+    classNameForTranslate: "email",
+    name: "email",
+    isEmpty: false,
+    type: "email",
+    errorText: "Please, enter correct data",
+    pattern: "^[a-zA-Z0-9]+@[a-zA-Z0-9.]+$",
+    classNameForTranslateError: "emailError",
+  },
+  {
+    id: 4,
+    classNameForTranslate: "phone",
+    name: "phone",
+    isEmpty: false,
+    type: "number",
+    pattern: "^[0-9]{5,16}$",
+    errorText: "Should be 5-16 characters and only digits",
+    classNameForTranslateError: "phoneError",
+  },
+  {
+    id: 5,
+    classNameForTranslate: "country",
+    name: "country",
+    isEmpty: false,
+    children: null,
+  },
+  {
+    id: 6,
+    classNameForTranslate: "city",
+    name: "city",
+    isEmpty: false,
+    children: null,
+  },
+  {
+    id: 7,
+    classNameForTranslate: "shipAddres__first",
+    isEmpty: false,
+    name: "shipAddres__first",
+    type: "text",
+  },
+  {
+    id: 8,
+    classNameForTranslate: "shipAddres__second",
+    name: "shipAddres__second",
+    isEmpty: false,
+    type: "text",
   },
 ];
 

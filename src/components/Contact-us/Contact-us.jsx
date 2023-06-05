@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-const ContactUs = ({ className = "contact-us" }) => (
+export const ContactUs = ({ className = "contact-us" }) => (
   <div className={className}>
     <a href="tel: +86-0571-86105373" className="contact-us__text">
       +86-0571-86105373
@@ -20,5 +20,3 @@ const ContactUs = ({ className = "contact-us" }) => (
 ContactUs.propTypes = {
   className: PropTypes.string,
 };
-
-export default ContactUs;

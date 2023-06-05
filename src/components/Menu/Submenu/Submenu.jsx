@@ -1,15 +1,13 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import Menu from "./Menu";
+import { Menu } from "@components/Menu";
 
-const SubMenu = ({ data, onClick }) => {
+export const Submenu = ({ data, onClick }) => {
   return <Menu menuData={data} className={"sidebar__list"} onClick={onClick} />;
 };
 
-SubMenu.propTypes = {
+Submenu.propTypes = {
   data: PropTypes.node,
   onClick: PropTypes.func,
 };
-
-export default SubMenu;

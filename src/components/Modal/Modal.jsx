@@ -4,9 +4,9 @@ import classNames from "classnames";
 
 import SCSSVariables from "../../styles/utils/variables.module.scss";
 
-import CloseIcon from "../Icons/CloseIcon";
+import { CloseIcon } from "@components/Icons/CloseIcon";
 
-const Modal = ({ onClose, isOpen, children, className }) => {
+export const Modal = ({ onClose, isOpen, children, className }) => {
   const [isVisible, setIsVisible] = useState(isOpen);
 
   const handleClose = () => {
@@ -43,5 +43,3 @@ Modal.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
 };
-
-export default Modal;

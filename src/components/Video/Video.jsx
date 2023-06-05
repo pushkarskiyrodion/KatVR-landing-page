@@ -1,8 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
-import Modal from "../Modal/Modal";
+import { Modal } from "@components/Modal";
 
-const Video = ({ onClose, isClick }) => (
+export const Video = ({ onClose, isClick }) => (
   <Modal isOpen={isClick} onClose={onClose} className="modal--video">
     <iframe
       className="video"
@@ -19,5 +19,3 @@ Video.propTypes = {
   onClose: PropTypes.func,
   isClick: PropTypes.bool,
 };
-
-export default Video;

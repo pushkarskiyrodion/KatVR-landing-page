@@ -8,9 +8,14 @@
   }
 
   &__value {
-    padding: 0;
+    padding: 5px;
     background-position: right bottom;
     color: $primary-text-color;
+
+    &--opened {
+      background-color: $dark-shade;
+      background-image: none;
+    }
   }
 
   &__list {
@@ -24,6 +29,14 @@
 
       &:hover {
         color: #fff;
+      }
+    }
+
+    &--opened {
+      background-color: $dark-shade;
+
+      &:hover {
+        background-color: $dark-shade;
       }
     }
   }

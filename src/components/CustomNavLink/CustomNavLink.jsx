@@ -3,10 +3,10 @@ import { NavLink } from "react-router-dom";
 import classNames from "classnames";
 import PropTypes from "prop-types";
 
-import { LangContext } from "../../context/LangContext";
-import { translate } from "../../helpers/translation";
+import { LangContext } from "@context/LangContext";
+import { translate } from "@helpers/translation";
 
-const CustomNavLink = ({ to, classNameForTranslate }) => {
+export const CustomNavLink = ({ to, classNameForTranslate }) => {
   const lang = useContext(LangContext);
 
   return (
@@ -28,5 +28,3 @@ CustomNavLink.propTypes = {
   to: PropTypes.string,
   classNameForTranslate: PropTypes.string,
 };
-
-export default CustomNavLink;

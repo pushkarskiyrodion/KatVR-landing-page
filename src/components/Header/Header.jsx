@@ -3,21 +3,21 @@ import { Link } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
 import PropTypes from "prop-types";
 
-import Menu from "../Menu/Menu";
-import Modal from "../Modal/Modal";
-import Accordion from "../Accordion/Accordion";
-import Sidebar from "../Sidebar/Sidebar";
-import SelectLanguage from "../SelectLanguage/SelectLanguage";
-import PlayButton from "../PlayButton/PlayButton";
-import Container from "../Container/Container";
-import Help from "../Help/Help";
-import Swiper from "../Swiper/Swiper";
-import Logo from "../Logo/Logo";
+import { Menu } from "@components/Menu";
+import { Modal } from "@components/Modal";
+import { Accordion } from "@components/Accordion";
+import { Sidebar } from "@components/Sidebar";
+import { SelectLanguage } from "@components/SelectLanguage";
+import { PlayButton } from "@components/PlayButton";
+import { Container } from "@components/Container";
+import { Help } from "@components/Help";
+import { Swiper } from "@components/Swiper";
+import { Logo } from "@components/Logo";
 
-import { translate } from "../../helpers/translation";
-import { menuData, productPhotos } from "../../data/data";
+import { translate } from "@helpers/translation";
+import { menuData, productPhotos } from "@data/data";
 
-const Header = ({ onPlay, onSelect, lang }) => {
+export const Header = ({ onPlay, onSelect, lang }) => {
   const [photos] = useState(productPhotos);
   const [menuItems] = useState(menuData);
   const [isFaqOpen, setIsFaqOpen] = useState(false);
@@ -215,5 +215,3 @@ Header.propTypes = {
   onSelect: PropTypes.func,
   lang: PropTypes.string,
 };
-
-export default Header;

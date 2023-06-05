@@ -1,23 +1,23 @@
 import React, { useContext } from "react";
+import { HashLink } from "react-router-hash-link";
 import PropTypes from "prop-types";
 
-import { LangContext } from "../../context/LangContext";
-import ContactUs from "../Contact-us/Contact-us";
+import { LangContext } from "@context/LangContext";
+import { ContactUs } from "@components/Contact-us";
 
-import { translate } from "../../helpers/translation";
-import { HashLink } from "react-router-hash-link";
+import { translate } from "@helpers/translation";
 
-const Help = ({ onFAQ, onHelpClose }) => {
+export const Help = ({ onFAQ, onHelpClose }) => {
   const lang = useContext(LangContext);
 
   return (
     <>
       <h2 className="page__title">
-        {translate("helpTitle1", lang)}&nbsp;
+        {translate("helpTitle__first", lang)}&nbsp;
         <span className="page__title--secondary">
           {translate("helpTitle--secondary", lang)}
         </span>
-        &nbsp;{translate("helpTitle2", lang)}
+        &nbsp;{translate("helpTitle__second", lang)}
       </h2>
 
       <p className="modal__text help__text">
@@ -63,5 +63,3 @@ Help.propTypes = {
   onFAQ: PropTypes.func,
   onHelpClose: PropTypes.func,
 };
-
-export default Help;

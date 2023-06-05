@@ -46,6 +46,22 @@
     display: flex;
     gap: 15px;
     align-items: center;
+
+    &--youtube {
+      mask-image: url(../../../public/images/social/youtube.svg);
+    }
+
+    &--reddit {
+      mask-image: url(../../../public/images/social/reddit.svg);
+    }
+
+    &--twitter {
+      mask-image: url(../../../public/images/social/twitter.svg);
+    }
+
+    &--facebook {
+      mask-image: url(../../../public/images/social/facebook.svg);
+    }
   }
 
   &__contacts {

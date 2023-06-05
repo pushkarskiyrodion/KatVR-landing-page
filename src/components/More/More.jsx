@@ -1,12 +1,12 @@
 import React, { useContext } from "react";
 
-import { LangContext } from "../../context/LangContext";
+import { LangContext } from "@context/LangContext";
 
-import Container from "../Container/Container";
+import { Container } from "@components/Container";
 
-import { translate } from "../../helpers/translation";
+import { translate } from "@helpers/translation";
 
-const More = () => {
+export const More = () => {
   const lang = useContext(LangContext);
 
   return (
@@ -92,5 +92,3 @@ const More = () => {
     </section>
   );
 };
-
-export default More;

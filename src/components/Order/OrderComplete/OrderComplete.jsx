@@ -1,9 +1,9 @@
-import { useContext } from "react";
-import React, { Link } from "react-router-dom";
-import { LangContext } from "../../context/LangContext";
-import { translate } from "../../helpers/translation";
+import React, { useContext } from "react";
+import { Link } from "react-router-dom";
+import { LangContext } from "@context/LangContext";
+import { translate } from "@helpers/translation";
 
-const OrderComplete = () => {
+export const OrderComplete = () => {
   const lang = useContext(LangContext);
 
   return (
@@ -28,5 +28,3 @@ const OrderComplete = () => {
     </>
   );
 };
-
-export default OrderComplete;

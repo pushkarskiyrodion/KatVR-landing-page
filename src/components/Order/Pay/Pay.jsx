@@ -1,11 +1,13 @@
 import React, { useContext, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import PaymentSystem from "./PaymentSystem";
-import classNames from "../../../node_modules/classnames/index";
-import { LangContext } from "../../context/LangContext";
-import { translate } from "../../helpers/translation";
+import classNames from "classnames";
 
-const Pay = () => {
+import { PaymentSystem } from "../PaymentSystem";
+import { LangContext } from "@context/LangContext";
+
+import { translate } from "@helpers/translation";
+
+export const Pay = () => {
   const [expirationDate, setExpirationDate] = useState("");
   const [firstCardNumber, setFirstCardNumber] = useState("");
   const [selectedInput, setSelectedInput] = useState(null);
@@ -13,25 +15,28 @@ const Pay = () => {
   const navigate = useNavigate();
   const expirationDateRef = useRef();
   const cardholderNameRef = useRef();
-  const cardNumber1Ref = useRef();
-  const cardNumber2Ref = useRef();
-  const cardNumber3Ref = useRef();
-  const cardNumber4Ref = useRef();
+  const cardNumbersRef = useRef([]);
   const cvvRef = useRef();
 
-  function handleInputChange(event, nextInputRef) {
+  const handleInputChange = (event, nexInputIndex) => {
     if (event.target.value.length === event.target.maxLength) {
-      nextInputRef.current.focus();
+      cardNumbersRef.current[nexInputIndex].focus();
     }
-  }
+  };
+
+  const handleNextInputFocus = (e, ref) => {
+    if (e.target.value.length === e.target.maxLength) {
+      ref.current.focus();
+    }
+  };
 
   const handleFirstCardInputChange = (e) => {
-    handleInputChange(e, cardNumber2Ref);
+    handleInputChange(e, 1);
     setFirstCardNumber(e.target.value);
   };
 
   const handleExpirationChange = (e) => {
-    handleInputChange(e, cvvRef);
+    handleNextInputFocus(e, cvvRef);
     const { value } = e.target;
     const formattedValue = value
       .replace(/\D/g, "")
@@ -49,6 +54,12 @@ const Pay = () => {
     navigate("../order-complete");
   };
 
+  const handleCardFocus = (e, ref) => {
+    if (e.target === ref) {
+      setSelectedInput(ref);
+    }
+  };
+
   const handleFocus = (e, ref) => {
     if (e.target === ref.current) {
       setSelectedInput(ref.current);
@@ -61,7 +72,7 @@ const Pay = () => {
 
   return (
     <form className="form__card" onSubmit={handleSubmit}>
-      <label htmlFor="card_number1" className="form__label">
+      <label htmlFor="cardNumber-first" className="form__label">
         {translate("cardNumber", lang)}
       </label>
 
@@ -69,66 +80,70 @@ const Pay = () => {
         <div className="form__card-number__wrapper">
           <input
             type="number"
-            id="card_number1"
-            name="card_number1"
+            id="cardNumber-first"
+            name="cardNumber-first"
             className={classNames("form__card-input", {
-              "form__selected-input": selectedInput === cardNumber1Ref.current,
+              "form__selected-input":
+                selectedInput === cardNumbersRef.current[0],
             })}
             placeholder="0000"
             value={firstCardNumber}
             required
             maxLength="4"
-            ref={cardNumber1Ref}
+            ref={(el) => (cardNumbersRef.current[0] = el)}
             onChange={handleFirstCardInputChange}
-            onFocus={(e) => handleFocus(e, cardNumber1Ref)}
+            onFocus={(e) => handleCardFocus(e, cardNumbersRef.current[0])}
             onBlur={handleBlur}
           />
 
           <input
             type="number"
-            id="card_number2"
-            name="card_number2"
+            id="cardNumber-second"
+            name="cardNumber-second"
             className={classNames("form__card-input", {
-              "form__selected-input": selectedInput === cardNumber2Ref.current,
+              "form__selected-input":
+                selectedInput === cardNumbersRef.current[1],
             })}
             placeholder="0000"
             required
             maxLength="4"
-            ref={cardNumber2Ref}
-            onChange={(e) => handleInputChange(e, cardNumber3Ref)}
-            onFocus={(e) => handleFocus(e, cardNumber2Ref)}
+            ref={(el) => (cardNumbersRef.current[1] = el)}
+            onChange={(e) => handleInputChange(e, 2)}
+            onFocus={(e) => handleCardFocus(e, cardNumbersRef.current[1])}
             onBlur={handleBlur}
           />
 
           <input
             type="number"
-            id="card_number3"
-            name="card_number3"
+            id="cardNumber-third"
+            name="cardNumber-third"
             className={classNames("form__card-input", {
-              "form__selected-input": selectedInput === cardNumber3Ref.current,
+              "form__selected-input":
+                selectedInput === cardNumbersRef.current[2],
             })}
             placeholder="0000"
             required
             maxLength="4"
-            ref={cardNumber3Ref}
-            onChange={(e) => handleInputChange(e, cardNumber4Ref)}
-            onFocus={(e) => handleFocus(e, cardNumber3Ref)}
+            ref={(el) => (cardNumbersRef.current[2] = el)}
+            onChange={(e) => handleInputChange(e, 3)}
+            onFocus={(e) => handleCardFocus(e, cardNumbersRef.current[2])}
             onBlur={handleBlur}
           />
 
           <input
             type="number"
-            id="card_number4"
-            name="card_number4"
+            id="cardNumber-fourth"
+            name="cardNumber-fourth"
             className={classNames("form__card-input", {
-              "form__selected-input": selectedInput === cardNumber4Ref.current,
+              "form__selected-input":
+                selectedInput === cardNumbersRef.current[3],
             })}
             placeholder="0000"
             required
             maxLength="4"
-            ref={cardNumber4Ref}
-            onChange={(e) => handleInputChange(e, cardholderNameRef)}
-            onFocus={(e) => handleFocus(e, cardNumber4Ref)}
+            ref={(el) => (cardNumbersRef.current[3] = el)}
+            onChange={(e) => handleNextInputFocus(e, cardholderNameRef)}
+            onFocus={(e) => handleCardFocus(e, cardNumbersRef.current[3])}
             onBlur={handleBlur}
           />
         </div>
@@ -136,13 +151,14 @@ const Pay = () => {
         {firstCardNumber && <PaymentSystem value={firstCardNumber} />}
       </div>
 
-      <label htmlFor="cardholder_name" className="form__label">
+      <label htmlFor="cardholder-name" className="form__label">
         {translate("cardHolder", lang)}
       </label>
+
       <input
         type="text"
-        id="cardholder_name"
-        name="cardholder_name"
+        id="cardholder-name"
+        name="cardholder-name"
         className={classNames("form__input", {
           "form__selected-input": selectedInput === cardholderNameRef.current,
         })}
@@ -154,13 +170,13 @@ const Pay = () => {
 
       <div className="form__card-date">
         <div className="form__card-expiration">
-          <label htmlFor="expiration_date" className="form__label">
+          <label htmlFor="expiration-date" className="form__label">
             {translate("expiration", lang)}
           </label>
           <input
             type="text"
-            id="expiration_date"
-            name="expiration_date"
+            id="expiration-date"
+            name="expiration-date"
             className={classNames("form__card-expiration-input", {
               "form__selected-input":
                 selectedInput === expirationDateRef.current,
@@ -202,5 +218,3 @@ const Pay = () => {
     </form>
   );
 };
-
-export default Pay;

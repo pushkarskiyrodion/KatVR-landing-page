@@ -2,10 +2,10 @@ import React, { useContext, useRef, useState } from "react";
 import PropTypes from "prop-types";
 
 import SCSSVariables from "../../../styles/utils/variables.module.scss";
-import { LangContext } from "../../../context/LangContext";
-import { translate } from "../../../helpers/translation";
+import { LangContext } from "@context/LangContext";
+import { translate } from "@helpers/translation";
 
-const SwiperControls = ({ onPrev, onNext, className }) => {
+export const SwiperControls = ({ onPrev, onNext, className }) => {
   const lang = useContext(LangContext);
   const [isHovering, setIsHovering] = useState(false);
   const [borderPosition, setBorderPosition] = useState({ x: 0 });
@@ -59,5 +59,3 @@ SwiperControls.propTypes = {
   onNext: PropTypes.func,
   className: PropTypes.string,
 };
-
-export default SwiperControls;

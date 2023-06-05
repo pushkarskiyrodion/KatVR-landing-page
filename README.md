@@ -1,4 +1,5 @@
 # KatVR - Virtual Reality Landing Page
+
 ## Project Overview
 
 KatVR is a personal project that aims to showcase the exciting world of virtual reality (VR) through an engaging landing page. As virtual reality continues to gain popularity, this project serves as a platform to provide information, resources, and inspiration to VR enthusiasts, developers, and curious individuals alike.
@@ -27,7 +28,7 @@ The KatVR landing page is built using React, a popular JavaScript library for bu
 
 To enhance the styling capabilities of the project, SASS (Syntactically Awesome Style Sheets) was utilized. SASS is a CSS preprocessor that extends the capabilities of CSS with variables, mixins, nesting, and other powerful features. It enables modular and maintainable styling, making it easier to style complex components and maintain a consistent design system.
 
-### HTML5 
+### HTML5
 
 The project utilizes HTML5 to structure the content and layout of the landing page. HTML5 provides semantic elements, improved accessibility, and enhanced multimedia support, ensuring a robust foundation for the project.
 

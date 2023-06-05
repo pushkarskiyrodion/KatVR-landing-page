@@ -3,10 +3,10 @@ import { useLocation } from "react-router-dom";
 import classNames from "classnames";
 import PropTypes from "prop-types";
 
-import Logo from "../components/Logo/Logo";
-import Order from "../components/Order/Order";
-import Container from "../components/Container/Container";
-import CustomNavLink from "../components/CustomNavLink/CustomNavLink";
+import { Logo } from "@components/Logo";
+import { Order } from "@components/Order";
+import { Container } from "@components/Container";
+import { CustomNavLink } from "@components/CustomNavLink";
 
 const OrderPage = ({ children }) => {
   const currentUrl = useLocation();

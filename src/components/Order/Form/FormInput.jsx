@@ -1,10 +1,11 @@
 import React, { useContext, useId, useState } from "react";
 import classNames from "classnames";
 import PropsTypes from "prop-types";
-import { translate } from "../../../helpers/translation";
-import { LangContext } from "../../../context/LangContext";
 
-const FormInput = ({
+import { translate } from "@helpers/translation";
+import { LangContext } from "@context/LangContext";
+
+export const FormInput = ({
   onChange,
   classNameForTranslate,
   classNameForTranslateError,
@@ -13,30 +14,31 @@ const FormInput = ({
   children,
   pattern,
   value,
+  isInputEmpty,
 }) => {
   const [isValid, setIsValid] = useState(true);
   const [isEmpty, setIsEmpty] = useState(false);
   const [isSelected, setIsSelected] = useState(false);
-  const [errorMessage, setErrorMessage] = useState("");
-  const lang = useContext(LangContext);
   const uniqueId = useId();
+  const lang = useContext(LangContext);
+  const errorFill = translate("errorFillInput", lang);
+  const [errorMessage, setErrorMessage] = useState(errorFill);
 
   const handleValidate = () => {
     setIsSelected(false);
     const regex = new RegExp(pattern);
 
     if (!regex.test(value)) {
-      const errorText = translate(classNameForTranslateError, lang);
+      const errorValidation = translate(classNameForTranslateError, lang);
       setIsValid(false);
-      setErrorMessage(errorText);
+      setErrorMessage(errorValidation);
     } else {
       setIsValid(true);
     }
 
     if (value.trim() === "") {
-      const errorText = translate("errorFillInput", lang);
       setIsEmpty(true);
-      setErrorMessage(errorText);
+      setErrorMessage(errorFill);
     } else {
       setIsEmpty(false);
     }
@@ -54,13 +56,13 @@ const FormInput = ({
         <label
           htmlFor={uniqueId}
           className={classNames({
-            "text-error": isEmpty || !isValid,
+            "text-error": isEmpty || !isValid || isInputEmpty,
             form__selected: isSelected,
           })}
         >
-          {!isEmpty && isValid
-            ? translate(classNameForTranslate, lang)
-            : errorMessage}
+          {isInputEmpty || !isValid || isEmpty
+            ? errorMessage
+            : translate(classNameForTranslate, lang)}
           *
         </label>
       </legend>
@@ -75,7 +77,7 @@ const FormInput = ({
       ) : (
         <input
           className={classNames("form__input", {
-            "input-error": isEmpty || !isValid,
+            "input-error": isEmpty || !isValid || isInputEmpty,
             "form__selected-input": isSelected,
           })}
           name={name}
@@ -101,6 +103,5 @@ FormInput.propTypes = {
   children: PropsTypes.node,
   pattern: PropsTypes.string,
   value: PropsTypes.string,
+  isInputEmpty: PropsTypes.bool,
 };
-
-export default FormInput;

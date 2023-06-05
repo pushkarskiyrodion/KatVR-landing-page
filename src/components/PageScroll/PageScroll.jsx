@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { HashLink } from "react-router-hash-link";
 
-const PageScroll = () => {
+export const PageScroll = () => {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
@@ -28,5 +28,3 @@ const PageScroll = () => {
     </div>
   );
 };
-
-export default PageScroll;

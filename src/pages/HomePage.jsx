@@ -1,15 +1,15 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 
-import Video from "../components/Video/Video";
-import PageScroll from "../components/PageScroll/PageScroll";
-import Header from "../components/Header/Header";
-import More from "../components/More/More";
-import About from "../components/About/About";
-import Techspecs from "../components/Techspecs/Techspecs";
-import Benefits from "../components/Benefits/Benefits";
-import Contacts from "../components/Contacts/Contacts";
-import Footer from "../components/Footer/Footer";
+import { Video } from "@components//Video";
+import { PageScroll } from "@components/PageScroll";
+import { Header } from "@components/Header";
+import { More } from "@components/More";
+import { About } from "@components/About";
+import { Techspecs } from "@components/Techspecs";
+import { Benefits } from "@components/Benefits";
+import { Contacts } from "@components/Contacts";
+import { Footer } from "@components/Footer";
 
 const HomePage = ({ lang, selectLang }) => {
   const [isPlayButtonClicked, setIsPlayButtonClicked] = useState(false);

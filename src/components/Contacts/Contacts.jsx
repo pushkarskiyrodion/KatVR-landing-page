@@ -1,15 +1,15 @@
 import React, { useContext, useState } from "react";
 import classNames from "classnames";
 
-import ContactUs from "../Contact-us/Contact-us";
-import Container from "../Container/Container";
-import FormInput from "../Order/Form/FormInput";
-import Message from "./Message";
-import MessageText from "./MessageText";
+import { ContactUs } from "@components/Contact-us";
+import { Container } from "@components/Container";
+import { FormInput } from "@components/Order/Form/FormInput";
+import { Message } from "./Message";
+import { MessageText } from "./Message/MessageText";
 
-import { checkValidity } from "../../helpers/checkValidity";
-import { translate } from "../../helpers/translation";
-import { LangContext } from "../../context/LangContext";
+import { checkValidity } from "@helpers/checkValidity";
+import { translate } from "@helpers/translation";
+import { LangContext } from "@context/LangContext";
 
 const inputs = [
   {
@@ -17,6 +17,7 @@ const inputs = [
     classNameForTranslate: "name",
     name: "name",
     type: "text",
+    isEmpty: false,
     classNameForTranslateError: "nameError",
     pattern: "^[A-Za-zА-Яа-яЁёІіЇїЄєҐґ]{3,16}$",
   },
@@ -25,6 +26,7 @@ const inputs = [
     classNameForTranslate: "email",
     name: "email",
     type: "email",
+    isEmpty: false,
     classNameForTranslateError: "emailError",
     pattern: "^[a-zA-Z0-9]+@[a-zA-Z0-9.]+$",
   },
@@ -33,16 +35,18 @@ const inputs = [
     classNameForTranslate: "phone",
     name: "phone",
     type: "number",
+    isEmpty: false,
     pattern: "^[0-9]{5,16}$",
     classNameForTranslateError: "phoneError",
   },
 ];
 
-const Contacts = () => {
-  const [fieldInputs] = useState(inputs);
+export const Contacts = () => {
+  const [formField, setFormFields] = useState(inputs);
   const [isError, setIsError] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isSelected, setIsSelected] = useState(false);
+  const [isSubmitClicked, setIsSubmitClicked] = useState(false);
   const lang = useContext(LangContext);
   const [info, setInfo] = useState({
     name: "",
@@ -51,13 +55,24 @@ const Contacts = () => {
     message: "",
   });
 
+  const isMessage = info.message === "" && isSubmitClicked;
+  const messageTextClass = isMessage ? "errorFillInput" : "message";
+
   const handleChange = (e) => {
     const { name, value } = e.target;
+    setIsSubmitClicked(false);
 
     setInfo((current) => ({
       ...current,
       [name]: value,
     }));
+
+    setFormFields((current) =>
+      current.map((input) => ({
+        ...input,
+        isEmpty: false,
+      }))
+    );
 
     setIsError(false);
   };
@@ -65,8 +80,11 @@ const Contacts = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (checkValidity(inputs, setIsError, info)) {
+    setIsSubmitClicked(true);
+
+    if (checkValidity(inputs, setIsError, info) && info.message !== "") {
       setIsSubmitted(true);
+      setIsSubmitClicked(false);
 
       setInfo({
         message: "",
@@ -74,10 +92,22 @@ const Contacts = () => {
         name: "",
         phone: "",
       });
+    } else {
+      Object.entries(info).forEach(([prop, value]) => {
+        setFormFields((current) =>
+          current.map((input) => {
+            if (input.name === prop && !value) {
+              return { ...input, isEmpty: true };
+            }
+
+            return input;
+          })
+        );
+      });
     }
   };
 
-  const handleClosePopUp = () => {
+  const handleCloseMessage = () => {
     setIsSubmitted(false);
   };
 
@@ -88,6 +118,7 @@ const Contacts = () => {
   const handleMessageBlur = () => {
     setIsSelected(false);
   };
+
 
   return (
     <section className="contacts page__section" id="contacts">
@@ -114,7 +145,7 @@ const Contacts = () => {
 
           <div className="contacts__form">
             <form action="#" onSubmit={handleSubmit}>
-              {fieldInputs.map(
+              {formField.map(
                 ({
                   id,
                   name,
@@ -122,6 +153,7 @@ const Contacts = () => {
                   type,
                   pattern,
                   classNameForTranslateError,
+                  isEmpty,
                 }) => (
                   <FormInput
                     name={name}
@@ -129,6 +161,7 @@ const Contacts = () => {
                     classNameForTranslate={classNameForTranslate}
                     type={type}
                     onChange={handleChange}
+                    isInputEmpty={isEmpty}
                     pattern={pattern}
                     classNameForTranslateError={classNameForTranslateError}
                     value={info[name]}
@@ -142,9 +175,10 @@ const Contacts = () => {
                     htmlFor="message"
                     className={classNames({
                       form__selected: isSelected,
+                      "text-error": isMessage,
                     })}
                   >
-                    {translate("message", lang)}
+                    {translate(messageTextClass, lang)}
                   </label>
                 </legend>
 
@@ -155,8 +189,8 @@ const Contacts = () => {
                   rows="3"
                   className={classNames("form__message", {
                     "form__selected-input": isSelected,
+                    "input-error": isMessage,
                   })}
-                  required
                   spellCheck
                   onChange={handleChange}
                   onFocus={handleMessageFocus}
@@ -183,7 +217,7 @@ const Contacts = () => {
         </div>
 
         {isSubmitted && (
-          <Message isSubmitted={isSubmitted} onClose={handleClosePopUp}>
+          <Message isSubmitted={isSubmitted} onClose={handleCloseMessage}>
             <MessageText />
           </Message>
         )}
@@ -191,5 +225,3 @@ const Contacts = () => {
     </section>
   );
 };
-
-export default Contacts;
