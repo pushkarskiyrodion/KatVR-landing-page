@@ -1,23 +1,27 @@
 {
   "files": {
-    "main.css": "/KatVR-landing-page/static/css/main.9051b86f.css",
-    "main.js": "/KatVR-landing-page/static/js/main.41be747c.js",
+    "main.css": "/KatVR-landing-page/static/css/main.28ae41d0.css",
+    "main.js": "/KatVR-landing-page/static/js/main.8b83ed42.js",
     "static/media/techspecs-image.svg": "/KatVR-landing-page/static/media/techspecs-image.e75a0ba09a2ad8132ea7.svg",
     "static/media/image-b.png": "/KatVR-landing-page/static/media/image-b.7c01898bae555b0d05ce.png",
+    "static/media/twitter.svg": "/KatVR-landing-page/static/media/twitter.53c05e1e8f04e30ace38.svg",
+    "static/media/reddit.svg": "/KatVR-landing-page/static/media/reddit.cbeb1efb960e4a8b04a8.svg",
     "index.html": "/KatVR-landing-page/index.html",
     "static/media/connection-vector.svg": "/KatVR-landing-page/static/media/connection-vector.9dc76d0445926b5e5de7.svg",
     "static/media/batterries-vector.svg": "/KatVR-landing-page/static/media/batterries-vector.7503ad671c83c374e3a9.svg",
+    "static/media/youtube.svg": "/KatVR-landing-page/static/media/youtube.d4fa819801b196304537.svg",
     "static/media/icon-menu.svg": "/KatVR-landing-page/static/media/icon-menu.8d1d39fd99f8baba39ee.svg",
+    "static/media/facebook.svg": "/KatVR-landing-page/static/media/facebook.3bb8156edca6f6f5751d.svg",
     "static/media/ellipse.svg": "/KatVR-landing-page/static/media/ellipse.2b0096073a31a68f839d.svg",
     "static/media/plus.svg": "/KatVR-landing-page/static/media/plus.e2190e9216be82220006.svg",
     "static/media/arrowUp.svg": "/KatVR-landing-page/static/media/arrowUp.e6417b2e43f22b89260c.svg",
     "static/media/sensor-vector.svg": "/KatVR-landing-page/static/media/sensor-vector.35d4f797199e421a538d.svg",
     "static/media/Polygon.svg": "/KatVR-landing-page/static/media/Polygon.2ddb197524555e977eaf.svg",
-    "main.9051b86f.css.map": "/KatVR-landing-page/static/css/main.9051b86f.css.map",
-    "main.41be747c.js.map": "/KatVR-landing-page/static/js/main.41be747c.js.map"
+    "main.28ae41d0.css.map": "/KatVR-landing-page/static/css/main.28ae41d0.css.map",
+    "main.8b83ed42.js.map": "/KatVR-landing-page/static/js/main.8b83ed42.js.map"
   },
   "entrypoints": [
-    "static/css/main.9051b86f.css",
-    "static/js/main.41be747c.js"
+    "static/css/main.28ae41d0.css",
+    "static/js/main.8b83ed42.js"
   ]
 }
