@@ -15,7 +15,7 @@ import { Swiper } from "@components/Swiper";
 import { Logo } from "@components/Logo";
 
 import { translate } from "@helpers/translation";
-import { menuData, productPhotos } from "@data/data";
+import { menuData, productPhotos } from "@data";
 
 export const Header = ({ onPlay, onSelect, lang }) => {
   const [photos] = useState(productPhotos);
@@ -113,8 +113,8 @@ export const Header = ({ onPlay, onSelect, lang }) => {
             <div className="header__content-wrapper">
               <h1 className="header__title">
                 {translate("header__title", lang)}
-                <br />
-                <span className="page__title--secondary">VR Locomotion</span>
+
+                <div className="page__title--secondary">VR Locomotion</div>
               </h1>
 
               <div className="header__about">
@@ -129,22 +129,17 @@ export const Header = ({ onPlay, onSelect, lang }) => {
 
               <div className="header__content-bottom">
                 <div className="header__help">
-                  <a
-                    href="#"
+                  <div
                     className="header__bottom-text"
                     id="faq"
                     onClick={handleFaqOpen}
                   >
                     {translate("menu__faq", lang)}
-                  </a>
+                  </div>
 
-                  <a
-                    href="#"
-                    className="header__bottom-text"
-                    onClick={handleHelpOpen}
-                  >
+                  <div className="header__bottom-text" onClick={handleHelpOpen}>
                     {translate("menu__help", lang)}
-                  </a>
+                  </div>
                 </div>
                 <div className="header__bottom-wrapper header__content-bottom--center">
                   <HashLink

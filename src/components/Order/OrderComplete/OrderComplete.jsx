@@ -9,13 +9,13 @@ export const OrderComplete = () => {
   return (
     <>
       <h2 className="page__title order__complete__title">
-        {translate("orderCompleteTitle1", lang)}
+        {translate("orderCompleteTitle__first", lang)}
         <span className="page__title--secondary">
           &nbsp;
           {translate("orderCompleteTitle--secondary", lang)}
           &nbsp;
         </span>
-        {translate("orderCompleteTitle2", lang)}
+        {translate("orderCompleteTitle__second", lang)}
       </h2>
 
       <p className="page__text">{translate("orderCompleteText", lang)}</p>

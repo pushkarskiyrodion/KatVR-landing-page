@@ -1,7 +1,7 @@
 .dropdown {
   position: relative;
   width: 100%;
-  background-color: $dark-shade;
+  background-color: $dark-shade-color;
 
   margin-top: 13px;
 
@@ -11,7 +11,7 @@
 
   &__value {
     width: 100%;
-    color: #fff;
+    color: $white-color;
     text-align: center;
     padding: 8px 0;
 
@@ -23,7 +23,7 @@
 
   &__input {
     @extend .dropdown__value;
-    background-color: $dark-shade;
+    background-color: $dark-shade-color;
     padding: 14px 24px;
 
     text-align: start;
@@ -32,6 +32,12 @@
 
     font: inherit;
     cursor: pointer;
+
+    &::placeholder {
+      opacity: 0.5;
+      font-weight: 500;
+      color: $white-color;
+    }
   }
 
   &__temporary {
@@ -48,7 +54,7 @@
     overflow: scroll;
     left: 0;
     right: 0;
-    background-color: $dark-shade;
+    background-color: $dark-shade-color;
 
     @include onTablet {
       max-height: 118px;
@@ -69,7 +75,7 @@
 
   &__item {
     list-style: none;
-    color: #fff;
+    color: $white-color;
     padding: 8px 0;
     flex-grow: 1;
 

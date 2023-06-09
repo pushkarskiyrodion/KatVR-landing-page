@@ -3,7 +3,7 @@ import { Container } from "@components/Container";
 import { Logo } from "@components/Logo";
 import { ContactUs } from "@components/Contact-us";
 import { Menu } from "@components/Menu";
-import { menuData } from "@data/data";
+import { menuData } from "@data";
 
 export const Footer = () => (
   <footer className="footer">

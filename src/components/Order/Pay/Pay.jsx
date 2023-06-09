@@ -7,8 +7,11 @@ import { LangContext } from "@context/LangContext";
 
 import { translate } from "@helpers/translation";
 
+const expirationDateRegex = /^(0[1-9]|1[0-2])\/?([0-9]{4}|[0-9]{2})$/;
+
 export const Pay = () => {
   const [expirationDate, setExpirationDate] = useState("");
+  const [isValid, setIsValid] = useState(true);
   const [firstCardNumber, setFirstCardNumber] = useState("");
   const [selectedInput, setSelectedInput] = useState(null);
   const lang = useContext(LangContext);
@@ -17,6 +20,10 @@ export const Pay = () => {
   const cardholderNameRef = useRef();
   const cardNumbersRef = useRef([]);
   const cvvRef = useRef();
+
+  const isCardNumbersSelected = cardNumbersRef.current.some(
+    (ref) => ref === selectedInput
+  );
 
   const handleInputChange = (event, nexInputIndex) => {
     if (event.target.value.length === event.target.maxLength) {
@@ -36,7 +43,7 @@ export const Pay = () => {
   };
 
   const handleExpirationChange = (e) => {
-    handleNextInputFocus(e, cvvRef);
+    setIsValid(true);
     const { value } = e.target;
     const formattedValue = value
       .replace(/\D/g, "")
@@ -44,14 +51,18 @@ export const Pay = () => {
       .replace(/(\d{2})(\d)/, "$1/$2");
 
     setExpirationDate(formattedValue);
+    handleNextInputFocus(e, cvvRef);
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setExpirationDate("");
 
-    e.target.reset();
-    navigate("../order-complete");
+    if (expirationDateRegex.test(expirationDate)) {
+      setExpirationDate("");
+
+      e.target.reset();
+      navigate("../order-complete");
+    }
   };
 
   const handleCardFocus = (e, ref) => {
@@ -66,14 +77,23 @@ export const Pay = () => {
     }
   };
 
-  const handleBlur = () => {
+  const handleBlur = (e) => {
+    if (expirationDateRef.current === e.target) {
+      setIsValid(expirationDateRegex.test(expirationDateRef.current.value));
+    }
+
     setSelectedInput(null);
   };
 
   return (
     <form className="form__card" onSubmit={handleSubmit}>
-      <label htmlFor="cardNumber-first" className="form__label">
-        {translate("cardNumber", lang)}
+      <label
+        className={classNames("page__text", {
+          form__selected: isCardNumbersSelected,
+        })}
+        htmlFor="cardNumber-first"
+      >
+        {translate("cardNumber", lang)}*
       </label>
 
       <div className="form__card-number">
@@ -151,8 +171,13 @@ export const Pay = () => {
         {firstCardNumber && <PaymentSystem value={firstCardNumber} />}
       </div>
 
-      <label htmlFor="cardholder-name" className="form__label">
-        {translate("cardHolder", lang)}
+      <label
+        className={classNames("page__text", {
+          form__selected: selectedInput === cardholderNameRef.current,
+        })}
+        htmlFor="cardholder-name"
+      >
+        {translate("cardHolder", lang)}*
       </label>
 
       <input
@@ -170,9 +195,19 @@ export const Pay = () => {
 
       <div className="form__card-date">
         <div className="form__card-expiration">
-          <label htmlFor="expiration-date" className="form__label">
-            {translate("expiration", lang)}
+          <label
+            className={classNames("page__text", {
+              "text-error": !isValid,
+              form__selected: selectedInput === expirationDateRef.current,
+            })}
+            htmlFor="expiration-date"
+          >
+            {!isValid
+              ? translate("emailError", lang)
+              : translate("expiration", lang)}
+            *
           </label>
+
           <input
             type="text"
             id="expiration-date"
@@ -180,6 +215,7 @@ export const Pay = () => {
             className={classNames("form__card-expiration-input", {
               "form__selected-input":
                 selectedInput === expirationDateRef.current,
+              "form__card-expiration-input--error": !isValid,
             })}
             maxLength="5"
             required
@@ -193,9 +229,15 @@ export const Pay = () => {
         </div>
 
         <div className="form__card-expiration">
-          <label htmlFor="cvv" className="form__label">
+          <label
+            className={classNames("page__text", {
+              form__selected: selectedInput === cvvRef.current,
+            })}
+            htmlFor="cvv"
+          >
             CVV*
           </label>
+
           <input
             type="password"
             className={classNames("form__card-input-cvv", {

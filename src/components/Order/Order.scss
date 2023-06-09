@@ -54,7 +54,7 @@
   }
 
   &__link {
-    font-size: 14px;
+    font-size: $text-font-size;
     color: $secondary-text-color;
 
     @include onTablet {
@@ -125,10 +125,6 @@
       @include onTablet {
         margin: 0;
       }
-
-      // @include onMobile {
-      //   margin-bottom: 5px;
-      // }
     }
   }
 

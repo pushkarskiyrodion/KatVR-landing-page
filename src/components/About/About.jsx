@@ -7,7 +7,7 @@ import { Container } from "@components/Container";
 import { PlayButton } from "@components/PlayButton";
 import { Swiper } from "@components/Swiper";
 
-import { pictures } from "@data/data";
+import { pictures } from "@data";
 import { translate } from "@helpers/translation";
 
 export const About = ({ onPlay }) => {

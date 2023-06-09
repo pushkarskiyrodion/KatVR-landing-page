@@ -1,4 +1,4 @@
-import axios from "../../node_modules/axios/index";
+import axios from "axios";
 
 const BASE_URL = process.env.REACT_APP_BASE_URL;
 
@@ -17,13 +17,11 @@ export const getCities = async (selectedCounty) => {
 };
 
 export const getCountries = async () => {
-  return await axios
-    .get(BASE_URL + "/countries")
-    .then((response) => {
-      if (response.data.error) {
-        throw new Error();
-      }
+  return await axios.get(BASE_URL + "/countries").then((response) => {
+    if (response.data.error) {
+      throw new Error();
+    }
 
-      return response.data;
-    });
+    return response.data;
+  });
 };

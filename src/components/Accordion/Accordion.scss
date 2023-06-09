@@ -1,4 +1,4 @@
-.faq {
+.accordion {
   margin: 50px 0;
 
   &__content {
@@ -33,17 +33,23 @@
         padding: 15px 20px;
       }
     }
-  }
 
-  &__icon {
-    display: block;
-    position: absolute;
-    right: 30px;
-    top: 25px;
+    &::after {
+      position: absolute;
+      content: url(../../../public/images/Polygon.svg);
+      right: 3%;
+      transform: rotate(0);
+
+      transition: transform 0.2s ease-in-out;
+    }
+
+    &[aria-expanded="false"]::after {
+      transform: rotate(90deg);
+    }
   }
 
   &__updated {
-    font-size: 14px;
+    font-size: $text-font-size;
     line-height: 150%;
     color: #545454;
   }

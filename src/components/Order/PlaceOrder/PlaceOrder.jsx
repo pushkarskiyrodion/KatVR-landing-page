@@ -8,7 +8,7 @@ import { FormInput } from "../Form";
 import { getCities, getCountries } from "@api/CountriesAndCities";
 import { checkValidity } from "@helpers/checkValidity";
 import { translate } from "@helpers/translation";
-import { placeOrderInputs } from "@data/data";
+import { placeOrderInputs } from "@data";
 
 export const PlaceOrder = () => {
   const [countries, setCountries] = useState(null);
@@ -194,6 +194,7 @@ export const PlaceOrder = () => {
               classNameForTranslateError={classNameForTranslateError}
               isInputEmpty={isEmpty}
               value={info[name]}
+              lang={lang}
             >
               {children}
             </FormInput>
@@ -209,11 +210,10 @@ export const PlaceOrder = () => {
         )}
 
         {isRequestError && (
-          <span className="form__error">
+          <div className="form__error">
             {translate("requestError__first", lang)}
-            <br />
-            {translate("requestError__second", lang)}
-          </span>
+            <div>{translate("requestError__second", lang)}</div>
+          </div>
         )}
       </div>
     </form>

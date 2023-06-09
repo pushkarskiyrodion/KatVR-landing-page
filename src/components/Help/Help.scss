@@ -1,5 +1,11 @@
-.help__contacts {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
+.help {
+  &__contacts {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  &__please {
+    margin-top: 25px;
+  }
 }

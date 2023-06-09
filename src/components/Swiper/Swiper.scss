@@ -25,7 +25,7 @@
 
   &__item {
     list-style: none;
-    margin-right: 40px;
+    margin-right: $swiper-item-margin * 1px;
 
     @include onMobile {
       margin: 0 20px;

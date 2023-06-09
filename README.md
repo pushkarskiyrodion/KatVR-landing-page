@@ -4,7 +4,7 @@
 
 KatVR is a personal project that aims to showcase the exciting world of virtual reality (VR) through an engaging landing page. As virtual reality continues to gain popularity, this project serves as a platform to provide information, resources, and inspiration to VR enthusiasts, developers, and curious individuals alike.
 
-[DEMO LINK](https://pushkarskiyrodion.github.io/KatVR-landing-page)
+[DEMO LINK](https://pushkarskiyrodion.github.io/katVR-landing-page)
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 

@@ -21,7 +21,7 @@
     font: inherit;
     line-height: inherit;
     text-align: center;
-    color: #fff;
+    color: $white-color;
 
     transition-property: color, background-color;
     transition-duration: 0.5s;
@@ -30,14 +30,14 @@
 
     &:hover {
       color: $primary-text-color;
-      background-color: #fff;
+      background-color: $white-color;
       border-color: $primary-text-color;
     }
 
     &:active {
-      color: #2f2f2f;
-      background-color: $dark-shade;
-      border-color: $dark-shade;
+      color: $dark-gray-color;
+      background-color: $dark-shade-color;
+      border-color: $dark-shade-color;
     }
 
     &--switch {
@@ -51,7 +51,7 @@
       align-items: center;
       justify-content: center;
       height: 100%;
-      color: #fff;
+      color: $white-color;
 
       transition-property: color;
       transition-duration: 0.5s;
@@ -93,7 +93,7 @@
       }
 
       &:hover {
-        box-shadow: 0 0 20px -4px #fff;
+        box-shadow: 0 0 20px -4px $white-color;
       }
 
       &:active {
@@ -113,7 +113,7 @@
       transform: scale(1.1);
 
       path[d="M45 35L27.75 45.3923L27.75 24.6077L45 35Z"] {
-        fill: #fff;
+        fill: $white-color;
       }
     }
   }
@@ -133,7 +133,7 @@
     font-weight: 900;
     font-size: 42px;
     line-height: 130%;
-    color: #fff;
+    color: $white-color;
 
     @include onTablet {
       font-size: 26px;
@@ -200,7 +200,7 @@
     }
 
     &:hover {
-      box-shadow: 0 0 10px -1px #fff;
+      box-shadow: 0 0 10px -1px $white-color;
     }
 
     &-image {
@@ -219,7 +219,7 @@
       font-weight: 900;
       font-size: 16px;
       line-height: 19px;
-      color: #fff;
+      color: $white-color;
       text-transform: uppercase;
 
       margin-bottom: 20px;
@@ -240,6 +240,7 @@
   }
 
   &__text {
+    font-size: $text-font-size;
     font-weight: 400;
     line-height: 150%;
     color: $secondary-text-color;

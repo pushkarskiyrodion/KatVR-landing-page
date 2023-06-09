@@ -1,9 +1,10 @@
-import React, { useContext, useId, useState } from "react";
+import React, { useEffect, useId, useState } from "react";
 import classNames from "classnames";
 import PropsTypes from "prop-types";
 
+import { PhoneInput } from "@components/Contacts/PhoneInput";
+
 import { translate } from "@helpers/translation";
-import { LangContext } from "@context/LangContext";
 
 export const FormInput = ({
   onChange,
@@ -15,14 +16,18 @@ export const FormInput = ({
   pattern,
   value,
   isInputEmpty,
+  lang,
 }) => {
   const [isValid, setIsValid] = useState(true);
   const [isEmpty, setIsEmpty] = useState(false);
   const [isSelected, setIsSelected] = useState(false);
   const uniqueId = useId();
-  const lang = useContext(LangContext);
   const errorFill = translate("errorFillInput", lang);
   const [errorMessage, setErrorMessage] = useState(errorFill);
+
+  useEffect(() => {
+    setErrorMessage(errorFill);
+  }, [lang]);
 
   const handleValidate = () => {
     setIsSelected(false);
@@ -50,9 +55,29 @@ export const FormInput = ({
     setIsValid(true);
   };
 
+  if (name === "phone") {
+    return (
+      <PhoneInput
+        id={uniqueId}
+        name={name}
+        lang={lang}
+        isInputEmpty={isInputEmpty}
+        classNameForTranslate={classNameForTranslate}
+        onChange={onChange}
+        value={value}
+        isSelected={isSelected}
+        isValid={isValid}
+        isEmpty={isEmpty}
+        handleValidate={handleValidate}
+        handleResetError={handleResetError}
+        errorMessage={errorMessage}
+      />
+    );
+  }
+
   return (
     <fieldset className="form__field">
-      <legend className="form__label">
+      <legend className="page__text">
         <label
           htmlFor={uniqueId}
           className={classNames({
@@ -104,4 +129,5 @@ FormInput.propTypes = {
   pattern: PropsTypes.string,
   value: PropsTypes.string,
   isInputEmpty: PropsTypes.bool,
+  lang: PropsTypes.string,
 };

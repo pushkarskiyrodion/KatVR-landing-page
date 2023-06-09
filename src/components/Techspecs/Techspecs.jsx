@@ -6,7 +6,7 @@ import { CloseIcon } from "@components/Icons/CloseIcon";
 
 import { LangContext } from "@context/LangContext";
 import { translate } from "@helpers/translation";
-import { touchIcons } from "@data/data";
+import { touchIcons } from "@data";
 
 export const Techspecs = () => {
   const [opened, setOpened] = useState(0);

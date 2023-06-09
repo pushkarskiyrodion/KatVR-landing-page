@@ -2,22 +2,22 @@ export const menuData = [
   {
     id: 1,
     classNameForTranslate: "menu__about",
-    href: "/#about",
+    href: "#about",
   },
   {
     id: 2,
     classNameForTranslate: "menu__tech",
-    href: "/#tech",
+    href: "#tech",
   },
   {
     id: 3,
     classNameForTranslate: "menu__benefits",
-    href: "/#benefits",
+    href: "#benefits",
   },
   {
     id: 4,
     classNameForTranslate: "menu__contact",
-    href: "/#contacts",
+    href: "#contacts",
   },
 ];
 
@@ -89,7 +89,6 @@ export const placeOrderInputs = [
     name: "firstName",
     isEmpty: false,
     type: "text",
-    errorText: "Name should be 3-16 characters and include only letters",
     classNameForTranslateError: "nameError",
     pattern: "^[A-Za-zА-Яа-яЁёІіЇїЄєҐґ]{3,16}$",
   },
@@ -100,7 +99,6 @@ export const placeOrderInputs = [
     isEmpty: false,
     type: "text",
     pattern: "^[A-Za-zА-Яа-яЁёІіЇїЄєҐґ]{3,16}$",
-    errorText: "Name should be 3-16 characters and include only letters",
     classNameForTranslateError: "nameError",
   },
   {
@@ -109,8 +107,7 @@ export const placeOrderInputs = [
     name: "email",
     isEmpty: false,
     type: "email",
-    errorText: "Please, enter correct data",
-    pattern: "^[a-zA-Z0-9]+@[a-zA-Z0-9.]+$",
+    pattern: "^[a-zA-Z0-9]+(?:.[a-zA-Z0-9]+)*@[a-zA-Z0-9.]+$",
     classNameForTranslateError: "emailError",
   },
   {
@@ -119,8 +116,7 @@ export const placeOrderInputs = [
     name: "phone",
     isEmpty: false,
     type: "number",
-    pattern: "^[0-9]{5,16}$",
-    errorText: "Should be 5-16 characters and only digits",
+    pattern: "^.{19}$",
     classNameForTranslateError: "phoneError",
   },
   {

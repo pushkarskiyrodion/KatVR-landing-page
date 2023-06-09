@@ -10,7 +10,11 @@ export const Message = ({ isSubmitted, onClose, children }) => {
   closeAfterDelay();
 
   return (
-    <Modal isOpen={isSubmitted} onClose={onClose} className={"message__wrapper"}>
+    <Modal
+      isOpen={isSubmitted}
+      onClose={onClose}
+      className={"message__wrapper"}
+    >
       {children}
     </Modal>
   );

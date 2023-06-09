@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { DropDown } from "@components/DropDown";
-import { languages } from "@data/data";
+import { languages } from "@data";
 
 export const SelectLanguage = ({ onSelect, lang }) => {
   return (

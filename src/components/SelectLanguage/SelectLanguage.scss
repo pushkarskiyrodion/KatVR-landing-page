@@ -8,13 +8,26 @@
   }
 
   &__value {
+    position: relative;
     padding: 5px;
-    background-position: right bottom;
+    margin-top: 4px;
+    background: none;
     color: $primary-text-color;
 
+    &::after {
+      position: absolute;
+      content: url(../../../public/images/Polygon.svg);
+      bottom: 20%;
+      right: 1px;
+    }
+
     &--opened {
-      background-color: $dark-shade;
+      background-color: $dark-shade-color;
       background-image: none;
+
+      &::after {
+        content: none;
+      }
     }
   }
 
@@ -28,15 +41,15 @@
       color: $primary-text-color;
 
       &:hover {
-        color: #fff;
+        color: $white-color;
       }
     }
 
     &--opened {
-      background-color: $dark-shade;
+      background-color: $dark-shade-color;
 
       &:hover {
-        background-color: $dark-shade;
+        background-color: $dark-shade-color;
       }
     }
   }

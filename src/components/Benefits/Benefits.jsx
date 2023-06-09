@@ -6,7 +6,7 @@ import { LangContext } from "@context/LangContext";
 import { Container } from "@components/Container";
 
 import { translate } from "@helpers/translation";
-import { benefits } from "@data/data";
+import { benefits } from "@data";
 
 export const Benefits = () => {
   const [items] = useState(benefits);

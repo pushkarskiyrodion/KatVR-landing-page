@@ -82,7 +82,7 @@
     border: 2px solid rgba(255, 255, 255, 0.14);
     border-radius: 50%;
 
-    color: #fff;
+    color: $white-color;
     font-size: 25px;
 
     cursor: pointer;
@@ -128,7 +128,7 @@
       padding: 10px;
       display: none;
       width: fit-content;
-      background: $dark-shade;
+      background: $dark-shade-color;
       border-radius: 4px;
       z-index: 2;
     }
@@ -190,7 +190,7 @@
     font-weight: 900;
     font-size: 18px;
     line-height: 22px;
-    color: #fff;
+    color: $white-color;
 
     margin-bottom: 21px;
   }

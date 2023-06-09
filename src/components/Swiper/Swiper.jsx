@@ -2,6 +2,8 @@ import React, { useEffect, useRef, useState } from "react";
 import PropTypes from "prop-types";
 import { SwiperControls } from "./SwiperControls";
 
+import SCSSVariables from "../../styles/utils/variables.module.scss";
+
 export const Swiper = ({
   items,
   controlsClassName = "",
@@ -13,6 +15,8 @@ export const Swiper = ({
   const [position, setPosition] = useState(0);
   const [parentWidth, setParentWidth] = useState(0);
   const parentRef = useRef();
+
+  const margin = parseInt(SCSSVariables.swiperItemMargin);
 
   useEffect(() => {
     const parentElement = parentRef.current;
@@ -30,8 +34,8 @@ export const Swiper = ({
     };
   }, []);
 
-  const totalWidth = parentWidth * items.length + 40 * images.length;
-  let total = parentWidth + 40;
+  const totalWidth = parentWidth * items.length + margin * images.length;
+  let total = parentWidth + margin;
   let pos = position;
 
   const next = () => {
@@ -70,7 +74,7 @@ export const Swiper = ({
             <img
               src={src}
               className="swiper__image"
-              alt={id}
+              alt={`slide-${id}`}
               width={parentWidth}
             />
           </li>

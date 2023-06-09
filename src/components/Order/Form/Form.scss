@@ -19,11 +19,6 @@
     }
   }
 
-  &__label {
-    @extend .page__text;
-    font-size: 14px;
-  }
-
   &__input {
     border: none;
     width: 100%;
@@ -32,7 +27,7 @@
     background-color: transparent;
 
     font: inherit;
-    color: #fff;
+    color: $white-color;
 
     outline: none;
   }
@@ -48,7 +43,7 @@
     font: inherit;
     line-height: inherit;
     text-align: center;
-    color: #fff;
+    color: $white-color;
   }
 
   &__error {
@@ -73,13 +68,8 @@
     }
 
     @include onMobile {
-      margin: 0
+      margin: 0;
     }
-  }
-
-  &__label {
-    @extend .page__text;
-    font-size: 14px;
   }
 
   &__input {
@@ -90,7 +80,7 @@
     background-color: transparent;
 
     font: inherit;
-    color: #fff;
+    color: $white-color;
 
     outline: none;
   }
@@ -183,12 +173,20 @@
 
       &-input {
         @extend .form__card-input;
-        width: 67px;
+        max-width: 67px;
         text-align: center;
         text-indent: 0;
 
         &::placeholder {
           letter-spacing: 0;
+        }
+
+        &--error {
+          @extend .input-error;
+
+          &::placeholder {
+            color: $error-color;
+          }
         }
       }
     }

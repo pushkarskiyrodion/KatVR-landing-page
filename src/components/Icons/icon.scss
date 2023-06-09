@@ -16,7 +16,7 @@
   &--polygon {
     &:hover {
       path {
-        fill: #fff;
+        fill: $white-color;
       }
     }
   }
@@ -65,7 +65,7 @@
     width: 20px;
     height: 17px;
 
-    background-color: #fff;
+    background-color: $white-color;
     mask-position: center;
     mask-repeat: no-repeat;
 

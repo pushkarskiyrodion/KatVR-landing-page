@@ -8,6 +8,6 @@ export const Submenu = ({ data, onClick }) => {
 };
 
 Submenu.propTypes = {
-  data: PropTypes.node,
+  data: PropTypes.array,
   onClick: PropTypes.func,
 };

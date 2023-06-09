@@ -6,7 +6,7 @@
       "@components": ["./components"],
       "@pages": ["./pages"],
       "@context": ["./context"],
-      "@data": ["./data"],
+      "@data": ["./data/data"],
       "@helpers": ["./helpers"],
       "@api": ["./api"]
     }

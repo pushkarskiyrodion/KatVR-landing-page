@@ -28,7 +28,7 @@ const inputs = [
     type: "email",
     isEmpty: false,
     classNameForTranslateError: "emailError",
-    pattern: "^[a-zA-Z0-9]+@[a-zA-Z0-9.]+$",
+    pattern: "^[a-zA-Z0-9]+(?:.[a-zA-Z0-9]+)*@[a-zA-Z0-9.]+$",
   },
   {
     id: 3,
@@ -36,7 +36,7 @@ const inputs = [
     name: "phone",
     type: "number",
     isEmpty: false,
-    pattern: "^[0-9]{5,16}$",
+    pattern: "^.{19}$",
     classNameForTranslateError: "phoneError",
   },
 ];
@@ -119,7 +119,6 @@ export const Contacts = () => {
     setIsSelected(false);
   };
 
-
   return (
     <section className="contacts page__section" id="contacts">
       <Container>
@@ -165,12 +164,13 @@ export const Contacts = () => {
                     pattern={pattern}
                     classNameForTranslateError={classNameForTranslateError}
                     value={info[name]}
+                    lang={lang}
                   />
                 )
               )}
 
               <fieldset className="form__field">
-                <legend className="form__label">
+                <legend className="page__text">
                   <label
                     htmlFor="message"
                     className={classNames({
@@ -178,7 +178,7 @@ export const Contacts = () => {
                       "text-error": isMessage,
                     })}
                   >
-                    {translate(messageTextClass, lang)}
+                    {translate(messageTextClass, lang)}*
                   </label>
                 </legend>
 

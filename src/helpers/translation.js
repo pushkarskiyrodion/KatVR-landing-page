@@ -99,9 +99,9 @@ const translation = {
     BackToHomepage: "Back to homepage",
     orderCompleteText:
       "Your order has been placed and is being processed. You will recive an email with the order details",
-    orderCompleteTitle1: "Thank you for",
+    orderCompleteTitle__first: "Thank you for",
     "orderCompleteTitle--secondary": "your",
-    orderCompleteTitle2: "order",
+    orderCompleteTitle__second: "order",
     sentMessageText:
       "Your message has been succesfully submitted. Our manager will reply you within 15 minutes",
     sentMessageTitle__primary: "Thank",
@@ -123,9 +123,10 @@ const translation = {
     requestError__first: "Something went wrong. ",
     requestError__second: "Please choose another country",
     nameError: "Name should be 3-16 characters and include only letters",
-    phoneError: "Should be 5-16 characters and only digits",
+    phoneError: "Should be 12 characters",
     emailError: "Please, enter correct data",
     errorFillInput: "Please, fill in this field",
+    dropdownCity: "Choose a city",
   },
   ua: {
     page__english: "Англійська",
@@ -224,9 +225,9 @@ const translation = {
     BackToHomepage: "Повернутися на головну",
     orderCompleteText:
       "Ваше замовлення було прийнято і обробляється. Ви отримаєте електронного листа з деталями замовлення.",
-    orderCompleteTitle1: "Дякуємо Вам за",
+    orderCompleteTitle__first: "Дякуємо Вам за",
     "orderCompleteTitle--secondary": "ваше",
-    orderCompleteTitle2: "замовлення",
+    orderCompleteTitle__second: "замовлення",
     sentMessageText:
       "Ваше повідомлення було успішно надіслано. Наш менеджер відповість вам протягом 15 хвилин.",
     sentMessageTitle__primary: "Дякую",
@@ -249,8 +250,9 @@ const translation = {
     requestError__second: "Виберіть будь-ласка іншу країну",
     nameError:
       "Ім'я повинно містити від 3 до 16 символів і складатися тільки з літер.",
-    phoneError: "Має містити від 5 до 16 символів і складатися тільки з цифр.",
-    emailError: "Будь ласка, введіть правильні дані.",
+    phoneError: "Повинен складатися з 12 символів",
+    emailError: "Будь-ласка, введіть правильні дані.",
     errorFillInput: "Будь-ласка заповніть це поле",
+    dropdownCity: "Виберіть Ваше місто",
   },
 };

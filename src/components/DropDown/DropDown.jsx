@@ -1,8 +1,11 @@
-import React, { useEffect, useMemo, useRef, useState } from "react";
+import React, { useContext, useEffect, useMemo, useRef, useState } from "react";
 import classNames from "classnames";
 import PropTypes from "prop-types";
 
+import { LangContext } from "context/LangContext";
+
 import { isArrayofObjects } from "@helpers/isArrayOfObjects";
+import { translate } from "helpers/translation";
 
 export const DropDown = ({
   dropdownList,
@@ -18,6 +21,7 @@ export const DropDown = ({
 }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [inputValue, setInputValue] = useState(selectedValue);
+  const lang = useContext(LangContext);
   const containerRef = useRef();
 
   const isNeedSearch = dropdownList?.length > 10;
@@ -84,6 +88,7 @@ export const DropDown = ({
               onChange={handleChange}
               onFocus={handleResetError}
               onBlur={handleValidate}
+              placeholder={translate("dropdownCity", lang)}
             />
           ) : (
             <div

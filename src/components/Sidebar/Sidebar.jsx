@@ -118,7 +118,7 @@ export const Sidebar = ({ isOpen, onToggle, onFaq, onHelp, onSelect }) => {
 };
 
 Sidebar.propTypes = {
-  isOpen: PropTypes.func,
+  isOpen: PropTypes.bool,
   onToggle: PropTypes.func,
   onFaq: PropTypes.func,
   onHelp: PropTypes.func,

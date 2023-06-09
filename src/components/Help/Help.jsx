@@ -20,27 +20,26 @@ export const Help = ({ onFAQ, onHelpClose }) => {
         &nbsp;{translate("helpTitle__second", lang)}
       </h2>
 
-      <p className="modal__text help__text">
+      <div className="modal__text help__text">
         {translate("help__text", lang)}
-        <a href="./#" className="modal__link" onClick={onFAQ}>
-          {" "}
-          FAQs
-        </a>
-        .
-        <br />
-        <br />
-        <span className="help__please">
-          {translate("help__please", lang)}&nbsp;
+        <span className="modal__link" onClick={onFAQ}>
+          &nbsp;FAQs.
         </span>
-        <HashLink
-          onClick={onHelpClose}
-          to="./#contacts"
-          className="modal__link help__contact"
-        >
-          {translate("help__contact", lang)}
-        </HashLink>
-        <span className="help__you">&nbsp;{translate("help__you", lang)}</span>
-      </p>
+
+        <div className="help__please">
+          {translate("help__please", lang)}&nbsp;
+          <HashLink
+            onClick={onHelpClose}
+            to="./#contacts"
+            className="modal__link help__contact"
+          >
+            {translate("help__contact", lang)}
+          </HashLink>
+          <span className="help__you">
+            &nbsp;{translate("help__you", lang)}
+          </span>
+        </div>
+      </div>
 
       <div className="modal__wrapper">
         <div className="modal__contacts">
