@@ -13,18 +13,21 @@
     width: 100%;
     color: $white-color;
     text-align: center;
-    padding: 8px 0;
+    padding: 14px 24px;
 
     background-image: url(../../../public/images/Polygon.svg);
     background-repeat: no-repeat;
     background-position-y: 51%;
     background-position-x: 90%;
+
+    &--opened {
+      background-image: none
+    }
   }
 
   &__input {
     @extend .dropdown__value;
     background-color: $dark-shade-color;
-    padding: 14px 24px;
 
     text-align: start;
     outline: none;
@@ -37,6 +40,10 @@
       opacity: 0.5;
       font-weight: 500;
       color: $white-color;
+    }
+
+    &--opened {
+      background-image: none
     }
   }
 
@@ -76,7 +83,7 @@
   &__item {
     list-style: none;
     color: $white-color;
-    padding: 8px 0;
+    padding: 8px 24px;
     flex-grow: 1;
 
     text-align: center;
@@ -85,7 +92,7 @@
     transition-duration: 0.2s;
     transition-timing-function: ease;
 
-    &-input {
+    &__input {
       @extend .dropdown__item;
       text-align: start;
       padding: 8px 24px;
@@ -98,6 +105,29 @@
   }
 
   &__quantities {
-    width: 90px;
+    &__item {
+      padding: 8px 0;
+    }
+  }
+
+  &__placeholder {
+    &::before {
+      display: block;
+      content: "Choose a city";
+      text-align: start;
+      opacity: 0.5;
+      font-weight: 500;
+      color: $white-color;
+    }
+  }
+
+  &__form {
+    &__item {
+      text-align: start;
+    }
+
+    &__value {
+      text-align: start;
+    }
   }
 }

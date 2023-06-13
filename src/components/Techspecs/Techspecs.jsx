@@ -8,6 +8,10 @@ import { LangContext } from "@context/LangContext";
 import { translate } from "@helpers/translation";
 import { touchIcons } from "@data";
 
+const SENSOR_ID = 1;
+const CONNECTION_ID = 2;
+const BATTERIES_ID = 3;
+
 export const Techspecs = () => {
   const [opened, setOpened] = useState(0);
   const lang = useContext(LangContext);
@@ -38,7 +42,7 @@ export const Techspecs = () => {
           <div
             className={classNames(
               "techspecs__description techspecs__description--sensor",
-              { open: opened === 1 }
+              { open: opened === SENSOR_ID }
             )}
             id="sensor"
           >
@@ -61,7 +65,7 @@ export const Techspecs = () => {
           <div
             className={classNames(
               "techspecs__description techspecs__description--connection",
-              { open: opened === 2 }
+              { open: opened === CONNECTION_ID }
             )}
             id="connection"
           >
@@ -84,7 +88,7 @@ export const Techspecs = () => {
           <div
             className={classNames(
               "techspecs__description techspecs__description--batterries",
-              { open: opened === 3 }
+              { open: opened === BATTERIES_ID }
             )}
             id="batterries"
           >

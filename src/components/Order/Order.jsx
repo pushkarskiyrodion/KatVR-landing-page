@@ -26,9 +26,10 @@ export const Order = () => {
 
           <DropDown
             dropdownList={quantity}
-            className="dropdown__quantities"
             selectedValue={value}
             onSelect={setValue}
+            itemClassName="dropdown__quantities__item"
+            valueClassName="dropdown__quantities__value"
           />
         </div>
 

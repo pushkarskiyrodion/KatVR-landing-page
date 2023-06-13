@@ -12,6 +12,8 @@ export const SelectLanguage = ({ onSelect, lang }) => {
       parentClassName="select-language"
       valueClassName="select-language__value"
       listClassName="select-language__list"
+      itemClassName="select-language__list--opened"
+      valueClassNameOpened="select-language__value--opened"
     />
   );
 };

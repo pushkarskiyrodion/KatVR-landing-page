@@ -4,7 +4,6 @@ import PropTypes from "prop-types";
 
 import { LangContext } from "context/LangContext";
 
-import { isArrayofObjects } from "@helpers/isArrayOfObjects";
 import { translate } from "helpers/translation";
 
 export const DropDown = ({
@@ -12,6 +11,8 @@ export const DropDown = ({
   parentClassName = "",
   valueClassName = "",
   listClassName = "",
+  itemClassName = "",
+  valueClassNameOpened = "",
   selectedValue = "",
   onSelect,
   handleValidate,
@@ -52,7 +53,7 @@ export const DropDown = ({
   const handleClick = (item) => {
     onSelect(item);
 
-    if (isNeedSearch) {
+    if (toggleSelected) {
       setInputValue(item);
       toggleSelected(false);
       onEmpty(false);
@@ -82,7 +83,9 @@ export const DropDown = ({
         <div className={`dropdown ${parentClassName}`} ref={containerRef}>
           {isNeedSearch ? (
             <input
-              className="dropdown__input"
+              className={classNames("dropdown__input", {
+                "dropdown__input--opened": isOpen,
+              })}
               onClick={toggle}
               value={inputValue.trimStart()}
               onChange={handleChange}
@@ -92,10 +95,15 @@ export const DropDown = ({
             />
           ) : (
             <div
+              tabIndex={0}
               className={classNames(`dropdown__value ${valueClassName}`, {
-                "select-language__value--opened": valueClassName && isOpen,
+                "dropdown__value--opened": isOpen,
+                dropdown__placeholder: !selectedValue,
+                [valueClassNameOpened]: valueClassNameOpened && isOpen
               })}
               onClick={toggle}
+              onFocus={handleResetError}
+              onBlur={handleValidate}
             >
               {selectedValue[0]
                 ? selectedValue[0].toUpperCase() + selectedValue.slice(1)
@@ -103,41 +111,26 @@ export const DropDown = ({
             </div>
           )}
 
-          {isOpen && !isArrayofObjects(visibleItems) && (
+          {isOpen && (
             <ul className={`dropdown__list ${listClassName}`}>
               {visibleItems.map((item) => {
+                const isObject = typeof item === "object" && item !== null && !Array.isArray(item);
+
                 return (
                   <li
                     className={classNames({
                       dropdown__item: !isNeedSearch,
-                      "dropdown__item-input": isNeedSearch,
-                      hidden: selectedValue === item && !isNeedSearch,
+                      "dropdown__item__input": isNeedSearch,
+                      hidden: (!isObject && selectedValue === item) || (isObject && selectedValue === item.value),
+                      [itemClassName]: isOpen,
                     })}
-                    key={item}
-                    onClick={() => handleClick(item)}
+                    key={isObject ? item.id : item}
+                    onClick={() => handleClick(isObject ? item.value : item)}
                   >
-                    {item}
+                    {isObject ? item.text : item}
                   </li>
                 );
               })}
-            </ul>
-          )}
-
-          {isOpen && isArrayofObjects(visibleItems) && (
-            <ul className={`dropdown__list ${listClassName}`}>
-              {visibleItems.map(({ id, value, text }) => (
-                <li
-                  className={classNames({
-                    dropdown__item: !isNeedSearch,
-                    hidden: selectedValue === value && !isNeedSearch,
-                    "select-language__list--opened": isOpen,
-                  })}
-                  key={id}
-                  onClick={() => handleClick(value)}
-                >
-                  {text}
-                </li>
-              ))}
             </ul>
           )}
         </div>
@@ -153,6 +146,8 @@ DropDown.propTypes = {
   parentClassName: PropTypes.string,
   valueClassName: PropTypes.string,
   listClassName: PropTypes.string,
+  itemClassName: PropTypes.string,
+  valueClassNameOpened: PropTypes.string,
   selectedValue: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   onSelect: PropTypes.func,
   handleValidate: PropTypes.func,

@@ -43,6 +43,8 @@ export const PlaceOrder = () => {
                 dropdownList={cities}
                 selectedValue={selectedCity}
                 onSelect={setSelectedCity}
+                itemClassName="dropdown__form__item"
+                valueClassName="dropdown__form__value"
               />
             ),
           };
