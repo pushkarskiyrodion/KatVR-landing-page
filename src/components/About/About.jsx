@@ -21,7 +21,7 @@ export const About = ({ onPlay }) => {
             <h2 className="page__title page__title--before">
               {translate("about__title", lang)}
               <span className="page__title--secondary">
-                &nbsp;{translate("about__title--secondary", lang)}
+                {translate("about__title--secondary", lang)}
               </span>
             </h2>
 
@@ -39,7 +39,7 @@ export const About = ({ onPlay }) => {
                 <h2 className="page__title page__title--after">
                   {translate("about__title", lang)}
                   <span className="page__title--secondary">
-                    &nbsp;{translate("about__title--secondary", lang)}
+                    {translate("about__title--secondary", lang)}
                   </span>
                 </h2>
 
@@ -60,7 +60,7 @@ export const About = ({ onPlay }) => {
             <h2 className="page__title about__greeting__title">
               {translate("about__subtitle", lang)}
               <span className="page__title--secondary">
-                &nbsp;{translate("about__subtitle--secondary", lang)}
+                {translate("about__subtitle--secondary", lang)}
               </span>
             </h2>
 

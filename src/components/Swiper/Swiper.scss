@@ -4,7 +4,6 @@
   position: relative;
   height: 100%;
   padding: 0 38px;
-
   overflow: hidden;
 
   @include onTablet {
@@ -19,7 +18,6 @@
     height: 100%;
     display: flex;
     overflow: hidden;
-
     transition: transform 1s ease;
   }
 
@@ -40,9 +38,7 @@
   &__pagination {
     position: absolute;
     color: $primary-text-color;
-
     left: 0;
-
     z-index: 3;
 
     @include onTablet {

@@ -70,23 +70,20 @@
     position: relative;
 
     &-button {
-      position: fixed;
-      right: 45px;
-      top: 62%;
-
       display: block;
+      position: fixed;
       width: 48px;
       height: 48px;
+      right: 45px;
+      top: 62%;
+      z-index: 5;
 
       border: 1px solid rgba(5, 194, 223, 0.4);
       border-radius: 50%;
-
       background-color: transparent;
       background-image: url(../../public/images/arrowUp.svg);
       background-position: center;
       background-repeat: no-repeat;
-
-      z-index: 5;
 
       @include onMobile {
         display: none !important;
@@ -106,7 +103,6 @@
     width: 248px;
     height: 69px;
     transition: transform 0.5s;
-
     cursor: pointer;
 
     &:hover {
@@ -144,8 +140,13 @@
     }
 
     &--secondary {
+      margin: 0 9px;
       font-weight: 400;
       color: $primary-text-color;
+
+      @include onTablet {
+        margin: 0 7px;
+      }
     }
 
     &--before {
@@ -189,7 +190,6 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
     padding: 10px;
 
     transition: box-shadow 0.3s ease-out;
@@ -206,7 +206,6 @@
     &-image {
       height: 120px;
       object-fit: contain;
-
       margin-bottom: 32px;
 
       @include onMobile {
@@ -221,7 +220,6 @@
       line-height: 19px;
       color: $white-color;
       text-transform: uppercase;
-
       margin-bottom: 20px;
 
       @include onMobile {

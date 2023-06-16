@@ -16,6 +16,12 @@
     @include onMobile {
       margin-bottom: 0;
     }
+
+    &--secondary {
+      @extend .page__title--secondary;
+      margin-left: 0;
+      margin-right: 0;
+    }
   }
 
   @include onTablet {
@@ -205,7 +211,6 @@
   &__bottom {
     &-text {
       color: $white-color;
-
       transition: color 0.3s ease;
       cursor: pointer;
 

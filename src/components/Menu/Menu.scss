@@ -24,7 +24,6 @@
   &__item {
     height: 40px;
     list-style: none;
-
     cursor: pointer;
   }
 
@@ -32,9 +31,7 @@
     display: flex;
     align-items: center;
     height: 100%;
-
     color: $white-color;
-
     transition: color 0.25s ease;
 
     &:hover {

@@ -114,7 +114,7 @@ export const Header = ({ onPlay, onSelect, lang }) => {
               <h1 className="header__title">
                 {translate("header__title", lang)}
 
-                <div className="page__title--secondary">VR Locomotion</div>
+                <div className="header__title--secondary">VR Locomotion</div>
               </h1>
 
               <div className="header__about">

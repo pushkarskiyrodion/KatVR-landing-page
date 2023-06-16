@@ -26,7 +26,7 @@ export const Techspecs = () => {
         <h2 className="page__title techspecs__title">
           {translate("tech__title", lang)}
           <span className="page__title--secondary">
-            &nbsp;{translate("tech__title--secondary", lang)}
+            {translate("tech__title--secondary", lang)}
           </span>
         </h2>
 

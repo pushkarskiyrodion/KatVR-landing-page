@@ -16,7 +16,7 @@ export const More = () => {
           <h2 className="more__title">
             {translate("more__title", lang)}
             <span className="more__title--secondary">
-              &nbsp;{translate("more__title--secondary", lang)}!
+              {translate("more__title--secondary", lang)}!
             </span>
           </h2>
 

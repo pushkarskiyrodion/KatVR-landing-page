@@ -10,7 +10,6 @@
   &__text {
     @extend .page__text;
     width: max-content;
-
     transition: opacity 0.4s;
 
     &:hover {

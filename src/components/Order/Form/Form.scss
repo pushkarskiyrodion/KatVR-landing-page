@@ -28,7 +28,6 @@
 
     font: inherit;
     color: $white-color;
-
     outline: none;
   }
 
@@ -78,10 +77,8 @@
     padding: 6px 0;
     border-bottom: 1px solid #2f2f2f;
     background-color: transparent;
-
     font: inherit;
     color: $white-color;
-
     outline: none;
   }
 
@@ -143,8 +140,12 @@
 
       &-cvv {
         @extend .form__card-input;
-        width: 47px;
+        width: 37px;
         text-indent: 4px;
+
+        &::placeholder {
+          text-indent: 1px;
+        }
 
         @include onMobile {
           text-indent: 3px;

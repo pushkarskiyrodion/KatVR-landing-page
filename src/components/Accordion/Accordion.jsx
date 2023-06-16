@@ -18,8 +18,8 @@ export const Accordion = () => {
   return (
     <>
       <h2 className="page__title">
-        {translate("faqQuestions", lang)}&nbsp;
-        <div className="page__title--secondary">
+        {translate("faqQuestions", lang)}
+        <div className="accordion__title--secondary">
           {translate("faqAnswers", lang)}
         </div>
       </h2>

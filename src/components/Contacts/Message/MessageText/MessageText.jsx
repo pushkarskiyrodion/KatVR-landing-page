@@ -9,7 +9,7 @@ export const MessageText = () => {
   return (
     <div className="message">
       <h3 className="page__title">
-        {translate("sentMessageTitle__primary", lang)}&nbsp;
+        {translate("sentMessageTitle__primary", lang)}
         <span className="page__title--secondary">
           {translate("sentMessageTitle__secondary", lang)}
         </span>

@@ -62,7 +62,6 @@ select:-webkit-autofill:focus {
 
   &__text {
     @extend .page__text;
-
     transition: opacity 0.4s;
 
     &:hover {

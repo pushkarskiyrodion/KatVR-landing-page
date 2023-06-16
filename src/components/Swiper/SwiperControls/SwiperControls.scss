@@ -4,7 +4,7 @@
   position: relative;
   justify-content: space-between;
   padding: $swiper-controls-padding * 1px;
-  border-bottom: $swiper-controls--border solid #212121;
+  border-bottom: $swiper-controls-border solid #212121;
 
   &__button {
     background-color: inherit;
@@ -14,7 +14,6 @@
     color: $white-color;
 
     cursor: pointer;
-
     transition: color 0.3s ease;
 
     &:hover {
@@ -28,15 +27,13 @@
 
   &--border {
     position: absolute;
-    border-bottom: $swiper-controls--border solid $primary-text-color;
+    height: 1px;
+    border-bottom: $swiper-controls-border solid $primary-text-color;
+    transition: left ease-in-out 0.004s;
 
     bottom: -2px;
     width: 25px;
-    height: 1px;
     pointer-events: none;
-
-    transition: left ease-in-out 0.004s;
-
     z-index: 5;
   }
 }

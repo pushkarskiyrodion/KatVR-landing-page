@@ -18,7 +18,7 @@ export const Benefits = () => {
         <h2 className="page__title benefits__title">
           {translate("benefits__title", lang)}
           <span className="page__title--secondary">
-            &nbsp;{translate("benefits__title--secondary", lang)}
+            {translate("benefits__title--secondary", lang)}
           </span>
         </h2>
 

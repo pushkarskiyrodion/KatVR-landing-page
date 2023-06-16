@@ -13,21 +13,21 @@ export const Help = ({ onFAQ, onHelpClose }) => {
   return (
     <>
       <h2 className="page__title">
-        {translate("helpTitle__first", lang)}&nbsp;
+        {translate("helpTitle__first", lang)}
         <span className="page__title--secondary">
           {translate("helpTitle--secondary", lang)}
         </span>
-        &nbsp;{translate("helpTitle__second", lang)}
+        {translate("helpTitle__second", lang)}
       </h2>
 
       <div className="modal__text help__text">
         {translate("help__text", lang)}
         <span className="modal__link" onClick={onFAQ}>
-          &nbsp;FAQs.
+          FAQs.
         </span>
 
         <div className="help__please">
-          {translate("help__please", lang)}&nbsp;
+          {translate("help__please", lang)}
           <HashLink
             onClick={onHelpClose}
             to="./#contacts"
@@ -36,7 +36,7 @@ export const Help = ({ onFAQ, onHelpClose }) => {
             {translate("help__contact", lang)}
           </HashLink>
           <span className="help__you">
-            &nbsp;{translate("help__you", lang)}
+            {translate("help__you", lang)}
           </span>
         </div>
       </div>

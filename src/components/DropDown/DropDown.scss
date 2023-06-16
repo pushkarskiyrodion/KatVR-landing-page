@@ -2,11 +2,9 @@
   position: relative;
   width: 100%;
   background-color: $dark-shade-color;
-
   margin-top: 13px;
 
   cursor: pointer;
-
   transition: opacity 0.3s ease-in;
 
   &__value {
@@ -28,11 +26,9 @@
   &__input {
     @extend .dropdown__value;
     background-color: $dark-shade-color;
-
     text-align: start;
     outline: none;
     border: none;
-
     font: inherit;
     cursor: pointer;
 
@@ -85,7 +81,6 @@
     color: $white-color;
     padding: 8px 24px;
     flex-grow: 1;
-
     text-align: center;
 
     transition-property: color, background-color;
@@ -106,6 +101,10 @@
 
   &__quantities {
     &__item {
+      padding: 8px 0;
+    }
+
+    &__value {
       padding: 8px 0;
     }
   }

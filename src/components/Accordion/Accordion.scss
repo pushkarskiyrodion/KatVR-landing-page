@@ -3,19 +3,16 @@
 
   &__content {
     display: flex;
+    position: relative;
+    max-height: 1000px;
     flex-direction: column;
     border: 1px solid $primary-text-color;
-
-    position: relative;
 
     gap: 20px;
     padding: 20px 29px;
     margin-top: 15px;
     overflow: hidden;
-
     cursor: pointer;
-
-    max-height: 1000px;
     transition: all 1s ease-in-out;
 
     &:hover {
@@ -39,7 +36,6 @@
       content: url(../../../public/images/Polygon.svg);
       right: 3%;
       transform: rotate(0);
-
       transition: transform 0.2s ease-in-out;
     }
 
@@ -62,5 +58,10 @@
   &__subtitle {
     @extend .page__subtitle;
     font-size: 15px;
+  }
+
+  &__title--secondary {
+    @extend .page__title--secondary;
+    margin: 0;
   }
 }

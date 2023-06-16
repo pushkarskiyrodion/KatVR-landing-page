@@ -4,11 +4,11 @@
   bottom: 0;
   right: 0;
   top: 0;
+  z-index: 6;
+  
   animation-name: showUp;
   animation-duration: 0.5s;
   animation-timing-function: ease;
-
-  z-index: 6;
 
   &__container {
     display: flex;
@@ -55,7 +55,6 @@
   &__wrapper {
     display: flex;
     gap: 65px;
-
     margin-top: 25px;
 
     @include onTablet {
@@ -74,6 +73,7 @@
 
   &__link {
     color: $primary-text-color;
+    margin: 0 5px;
     cursor: pointer;
 
     &:hover {

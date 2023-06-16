@@ -3,7 +3,6 @@
 
   &__header {
     text-align: center;
-
     margin-bottom: 130px;
 
     @include onTablet {
@@ -31,7 +30,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-
     gap: 20px;
 
     @include onDesktop-max-1240 {

@@ -131,7 +131,7 @@ export const Contacts = () => {
             <h2 className="contacts__title">
               {translate("contactsTitle", lang)}
               <span className="page__title--secondary">
-                &nbsp;{translate("contactsTitle--secondary", lang)}
+                {translate("contactsTitle--secondary", lang)}
               </span>
             </h2>
 

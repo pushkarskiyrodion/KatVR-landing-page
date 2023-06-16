@@ -11,9 +11,9 @@ export const OrderComplete = () => {
       <h2 className="page__title order__complete__title">
         {translate("orderCompleteTitle__first", lang)}
         <span className="page__title--secondary">
-          &nbsp;
+          
           {translate("orderCompleteTitle--secondary", lang)}
-          &nbsp;
+          
         </span>
         {translate("orderCompleteTitle__second", lang)}
       </h2>

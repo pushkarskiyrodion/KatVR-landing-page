@@ -4,8 +4,6 @@ export const checkValidity = (inputs, setError, data) => {
     const regex = new RegExp(pattern);
     const value = data[name];
 
-    console.log(name)
-
     if (!regex.test(value) || value === "") {
       setError(true);
 
