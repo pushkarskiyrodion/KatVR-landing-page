@@ -4,7 +4,7 @@
 
 KatVR is a personal project that aims to showcase the exciting world of virtual reality (VR) through an engaging landing page. As virtual reality continues to gain popularity, this project serves as a platform to provide information, resources, and inspiration to VR enthusiasts, developers, and curious individuals alike.
 
-[DEMO LINK](https://pushkarskiyrodion.github.io/katVR-landing-page)
+Here is [DEMO LINK](https://pushkarskiyrodion.github.io/katVR-landing-page)
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
@@ -39,3 +39,7 @@ Along with SASS, CSS3 is used for styling the KatVR landing page. CSS3 brings a 
 ### JavaScript
 
 In addition to React, JavaScript is used to enhance interactivity and implement dynamic functionality on the landing page. JavaScript enables features such as smooth scrolling, interactive menus, form validation, and other user interactions.
+
+#
+
+Thank you for checking out the KatVR landing page. If you have any questions or feedback, please don't hesitate to [contact me](mailto:pushkarskiyrodion@gmail.com).
