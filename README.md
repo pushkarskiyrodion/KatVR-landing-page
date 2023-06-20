@@ -46,7 +46,7 @@ In addition to React, JavaScript is used to enhance interactivity and implement 
 
 To run the KatVR landing page locally, follow these steps:
 
-1. Clone the repository: `git clone https://github.com/your-username/katVR-landing-page.git`
+1. Clone the repository: `git clone https://github.com/pushkarskiyrodion/katVR-landing-page.git`
 2. Navigate to the project directory: `cd katVR-landing-page`
 3. Install dependencies: `npm install`
 4. Start the development server: `npm start`
