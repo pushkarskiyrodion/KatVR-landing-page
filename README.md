@@ -4,7 +4,9 @@
 
 KatVR is a personal project that aims to showcase the exciting world of virtual reality (VR) through an engaging landing page. As virtual reality continues to gain popularity, this project serves as a platform to provide information, resources, and inspiration to VR enthusiasts, developers, and curious individuals alike.
 
-[DEMO LINK](https://pushkarskiyrodion.github.io/katVR-landing-page)
+You can view the Figma design [here](https://www.figma.com/file/Blpg4iapsI7fRqJeSp6DvK/KatVR-_FE-students?type=design&node-id=1-370).
+
+Check out the [DEMO LINK](https://pushkarskiyrodion.github.io/katVR-landing-page) to see the live version of the KatVR landing page.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
@@ -39,3 +41,21 @@ Along with SASS, CSS3 is used for styling the KatVR landing page. CSS3 brings a 
 ### JavaScript
 
 In addition to React, JavaScript is used to enhance interactivity and implement dynamic functionality on the landing page. JavaScript enables features such as smooth scrolling, interactive menus, form validation, and other user interactions.
+
+## Installation
+
+To run the KatVR landing page locally, follow these steps:
+
+1. Clone the repository: `git clone https://github.com/your-username/katVR-landing-page.git`
+2. Navigate to the project directory: `cd katVR-landing-page`
+3. Install dependencies: `npm install`
+4. Start the development server: `npm start`
+5. Open your web browser and visit: `http://localhost:3000`
+
+## Usage
+
+Once the development server is running and you have accessed the landing page in your web browser, you can explore the KatVR landing page and interact with its features. Feel free to click on buttons, navigate through sections, and explore the content.
+
+## Feedback
+
+Thank you for checking out the KatVR landing page. If you have any questions or feedback, please don't hesitate to [contact me](mailto:pushkarskiyrodion@gmail.com). Your input is greatly appreciated!
