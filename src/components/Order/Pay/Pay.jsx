@@ -228,7 +228,7 @@ export const Pay = () => {
           />
         </div>
 
-        <div className="form__card-expiration">
+        <div className="form__card-cvv">
           <label
             className={classNames("page__text", {
               form__selected: selectedInput === cvvRef.current,

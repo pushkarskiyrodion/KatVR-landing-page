@@ -98,6 +98,10 @@
       margin-top: 10px;
     }
 
+    @include onSmallScreen {
+      width: 100%;
+    }
+
     &-number {
       display: flex;
       margin: 20px 0 70px;
@@ -130,11 +134,14 @@
 
       @include onTablet {
         letter-spacing: 5px;
-        text-indent: 0;
+        text-indent: 3px;
         margin-right: 11%;
 
         @include onMobile {
+          max-width: 45px;
           margin-right: 4%;
+          text-indent: 0;
+          letter-spacing: 1px;
         }
       }
 
@@ -148,7 +155,8 @@
         }
 
         @include onMobile {
-          text-indent: 3px;
+          text-indent: 7px;
+          letter-spacing: 3px;
         }
       }
     }
@@ -190,6 +198,11 @@
           }
         }
       }
+    }
+
+    &-cvv {
+      @extend .form__card-expiration;
+      align-self: flex-end;
     }
   }
 

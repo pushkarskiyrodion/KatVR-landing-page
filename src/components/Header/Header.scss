@@ -47,7 +47,7 @@
     @include onTablet {
       display: grid;
       grid-template-columns: 150px 1fr $header-icon-size;
-      margin-bottom: 55px;
+      margin-bottom: 5vh;
     }
 
     @include onMobile {
@@ -107,13 +107,13 @@
       width: 50%;
 
       @include onTablet {
+        height: 75%;
         width: auto;
       }
 
       @include onMobile {
-        height: 80%;
         justify-content: space-evenly;
-        margin-top: 40%;
+        margin-top: 45%;
       }
     }
 
@@ -184,14 +184,15 @@
 
       @include onTablet {
         position: absolute;
-        top: 15%;
+        top: 50%;
         left: 40%;
         right: 0;
         background-image: url(../../../public/images/pictures/image-b.png);
         background-repeat: no-repeat;
-        margin-top: 40px;
         background-size: 100%;
         background-position: right;
+        transform: translateY(-50%);
+        margin: 0;
         padding-bottom: 25%;
       }
 
@@ -202,8 +203,9 @@
         padding-bottom: 40%;
         background-position: center;
         background-size: 120%;
+        margin-top: 35px;
 
-        transform: translate(-50%);
+        transform: translate(-53%);
       }
     }
   }
@@ -233,5 +235,11 @@
         left: 40%;
       }
     }
+  }
+}
+
+.header > .container {
+  @include onMobile {
+    padding-bottom: 10px;
   }
 }

@@ -21,3 +21,9 @@
     @content;
   }
 }
+
+@mixin onSmallScreen {
+  @media (max-width: 300px) {
+    @content;
+  }
+}

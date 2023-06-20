@@ -77,6 +77,7 @@ export const PlaceOrder = () => {
     }));
 
     updateInputs();
+    setIsError(false);
   }, [selectedCity, selectedCountry]);
 
   useEffect(() => {

@@ -22,6 +22,7 @@
 
   &__product {
     width: 50%;
+    position: relative;
 
     @include onTablet {
       width: 100%;
@@ -33,7 +34,7 @@
     justify-content: space-between;
 
     & > .logo {
-      display: block;
+      display: inline-block;
     }
 
     @include onTablet {
@@ -159,12 +160,26 @@
     height: 100%;
     flex-direction: column;
     justify-content: center;
+    text-align: center;
     align-items: center;
     gap: 10px;
+
+    @include onTablet {
+      height: 80%;
+    }
 
     &__button {
       @extend .page__button;
       margin-top: 50px;
     }
+  }
+}
+
+@media (max-height: 600px) and (max-width: 1024px) {
+  .order__image {
+    position: absolute;
+    left: 34%;
+    width: 28%;
+    height: 79px;
   }
 }
