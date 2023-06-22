@@ -175,11 +175,8 @@
   }
 }
 
-@media (max-height: 600px) and (max-width: 1024px) {
+@media (max-height: 650px) and (max-width: 1024px) {
   .order__image {
-    position: absolute;
-    left: 34%;
-    width: 28%;
-    height: 79px;
+    display: none;
   }
 }
