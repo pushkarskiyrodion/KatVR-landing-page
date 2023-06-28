@@ -93,7 +93,7 @@ export const Pay = () => {
         })}
         htmlFor="cardNumber-first"
       >
-        {translate("cardNumber", lang)}*
+        {translate(lang, ["CARD", "NUMBER"])}*
       </label>
 
       <div className="form__card-number">
@@ -177,7 +177,7 @@ export const Pay = () => {
         })}
         htmlFor="cardholder-name"
       >
-        {translate("cardHolder", lang)}*
+        {translate(lang, ["CARD", "HOLDER"])}*
       </label>
 
       <input
@@ -203,8 +203,8 @@ export const Pay = () => {
             htmlFor="expiration-date"
           >
             {!isValid
-              ? translate("emailError", lang)
-              : translate("expiration", lang)}
+              ? translate(lang, ["ERROR", "EMAIL"])
+              : translate(lang, ["CARD", "EXPIRATION"])}
             *
           </label>
 
@@ -256,7 +256,9 @@ export const Pay = () => {
         </div>
       </div>
 
-      <button className="order__button">{translate("purchase", lang)}</button>
+      <button className="page__button order__button">
+        {translate(lang, ["PURCHASE"])}
+      </button>
     </form>
   );
 };

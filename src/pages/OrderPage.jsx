@@ -8,7 +8,9 @@ import { Order } from "@components/Order";
 import { Container } from "@components/Container";
 import { CustomNavLink } from "@components/CustomNavLink";
 
-const OrderPage = ({ children }) => {
+import "../components/Order/Order.scss";
+
+const OrderPage = React.memo(({ children }) => {
   const currentUrl = useLocation();
 
   const isComplete = !currentUrl.pathname.includes("order-complete");
@@ -22,12 +24,14 @@ const OrderPage = ({ children }) => {
           <nav className="order__nav">
             <CustomNavLink
               to={"place-order"}
-              classNameForTranslate={"placeOrder"}
+              keysForTranslate={["PLACE_ORDER"]}
             />
-            <CustomNavLink to={"pay"} classNameForTranslate={"pay"} />
+
+            <CustomNavLink to={"pay"} keysForTranslate={["PAY"]} />
+
             <CustomNavLink
               to={"order-complete"}
-              classNameForTranslate={"orderComplete"}
+              keysForTranslate={["COMPLETED"]}
             />
           </nav>
         </header>
@@ -44,7 +48,7 @@ const OrderPage = ({ children }) => {
       </Container>
     </section>
   );
-};
+});
 
 OrderPage.propTypes = {
   children: PropTypes.node,

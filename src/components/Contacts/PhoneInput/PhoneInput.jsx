@@ -8,7 +8,7 @@ import { translate } from "helpers/translation";
 export const PhoneInput = ({
   isInputEmpty,
   pattern,
-  classNameForTranslate,
+  keysForTranslate,
   value,
   onChange,
   name,
@@ -32,7 +32,7 @@ export const PhoneInput = ({
       >
         {isInputEmpty || !isValid || isEmpty
           ? errorMessage
-          : translate(classNameForTranslate, lang)}
+          : translate(lang, keysForTranslate)}
         *
       </label>
     </legend>
@@ -59,7 +59,7 @@ export const PhoneInput = ({
 PhoneInput.propTypes = {
   isInputEmpty: propTypes.bool,
   pattern: propTypes.string,
-  classNameForTranslate: propTypes.string,
+  keysForTranslate: propTypes.array,
   value: propTypes.string,
   onChange: propTypes.func,
   name: propTypes.string,

@@ -1,9 +1,12 @@
 import React from "react";
+
 import { Container } from "@components/Container";
 import { Logo } from "@components/Logo";
 import { ContactUs } from "@components/Contact-us";
 import { Menu } from "@components/Menu";
-import { menuData } from "@data";
+import { menuSections } from "@data/menuSections";
+
+import "./Footer.scss";
 
 export const Footer = () => (
   <footer className="footer">
@@ -16,11 +19,11 @@ export const Footer = () => (
         <div className="footer__wrapper">
           <Logo />
 
-          <Menu menuData={menuData} className="footer__menu" />
+          <Menu menuData={menuSections} className="footer__menu" />
         </div>
 
         <Menu
-          menuData={menuData}
+          menuData={menuSections}
           isOffOnMobile={true}
           className="footer__menu--tablet"
         />

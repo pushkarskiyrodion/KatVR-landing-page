@@ -50,7 +50,7 @@
 
     @include onTablet {
       padding-bottom: 11px;
-      border-bottom: 1px solid #2f2f2f;
+      border-bottom: 1px solid $dark-gray-color;
     }
   }
 
@@ -140,8 +140,6 @@
   }
 
   &__button {
-    @extend .page__button;
-
     @include onTablet {
       position: absolute;
       width: 50%;
@@ -169,7 +167,6 @@
     }
 
     &__button {
-      @extend .page__button;
       margin-top: 50px;
     }
   }

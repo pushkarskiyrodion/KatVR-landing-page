@@ -14,18 +14,6 @@
     }
   }
 
-  &__title {
-    @extend .page__title;
-
-    &--secondary {
-      @extend .page__title--secondary;
-    }
-  }
-
-  &__subtitle {
-    @extend .page__subtitle;
-  }
-
   &__content {
     display: flex;
     align-items: center;
@@ -46,8 +34,6 @@
   }
 
   &__card {
-    @extend .page__card;
-
     @include onDesktop-max-1240 {
       flex-basis: 40%;
     }

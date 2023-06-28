@@ -1,6 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
+
 import { Modal } from "@components/Modal";
+import "./Video.scss";
 
 export const Video = ({ onClose, isClick }) => (
   <Modal isOpen={isClick} onClose={onClose} className="modal--video">

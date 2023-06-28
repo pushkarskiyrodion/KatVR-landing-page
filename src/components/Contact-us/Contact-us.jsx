@@ -1,6 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
 
+import "./Contact-us.scss";
+
 export const ContactUs = ({ className = "contact-us" }) => (
   <div className={className}>
     <a href="tel: +86-0571-86105373" className="contact-us__text">

@@ -11,37 +11,39 @@ import { checkValidity } from "@helpers/checkValidity";
 import { translate } from "@helpers/translation";
 import { LangContext } from "@context/LangContext";
 
+import "./Contacts.scss";
+
 const inputs = [
   {
     id: 1,
-    classNameForTranslate: "name",
+    keysForTranslate: ["NAME"],
     name: "name",
     type: "text",
     isEmpty: false,
-    classNameForTranslateError: "nameError",
+    keysForTranslateError: ["ERROR", "NAME"],
     pattern: "^[A-Za-zА-Яа-яЁёІіЇїЄєҐґ]{3,16}$",
   },
   {
     id: 2,
-    classNameForTranslate: "email",
+    keysForTranslate: ["EMAIL"],
     name: "email",
     type: "email",
     isEmpty: false,
-    classNameForTranslateError: "emailError",
+    keysForTranslateError: ["ERROR", "EMAIL"],
     pattern: "^[a-zA-Z0-9]+(?:.[a-zA-Z0-9]+)*@[a-zA-Z0-9.]+$",
   },
   {
     id: 3,
-    classNameForTranslate: "phone",
+    keysForTranslate: ["PHONE"],
     name: "phone",
     type: "number",
     isEmpty: false,
     pattern: "^.{19}$",
-    classNameForTranslateError: "phoneError",
+    keysForTranslateError: ["ERROR", "PHONE"],
   },
 ];
 
-export const Contacts = () => {
+export const Contacts = React.memo(() => {
   const [formField, setFormFields] = useState(inputs);
   const [isError, setIsError] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -56,7 +58,7 @@ export const Contacts = () => {
   });
 
   const isMessage = info.message === "" && isSubmitClicked;
-  const messageTextClass = isMessage ? "errorFillInput" : "message";
+  const messageText = isMessage ? ["ERROR", "INPUT_FILL"] : ["MESSAGE"];
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -124,19 +126,19 @@ export const Contacts = () => {
       <Container>
         <div className="contacts__wrapper">
           <div className="contacts__info">
-            <p className="contacts__subtitle">
-              {translate("contacts__questions", lang)}
+            <p className="page__subtitle contacts__subtitle">
+              {translate(lang, ["CONTACTS", "QUESTIONS"])}
             </p>
 
-            <h2 className="contacts__title">
-              {translate("contactsTitle", lang)}
+            <h2 className="page__title contacts__title">
+              {translate(lang, ["CONTACTS", "TITLE"])}
               <span className="page__title--secondary">
-                {translate("contactsTitle--secondary", lang)}
+                {translate(lang, ["CONTACTS", "TITLE_SECONDARY"])}
               </span>
             </h2>
 
             <p className="contacts__callback page__text contacts__callback--before">
-              {translate("contacts__reply", lang)}
+              {translate(lang, ["CONTACTS", "REPLY"])}
             </p>
 
             <ContactUs />
@@ -148,21 +150,21 @@ export const Contacts = () => {
                 ({
                   id,
                   name,
-                  classNameForTranslate,
+                  keysForTranslate,
                   type,
                   pattern,
-                  classNameForTranslateError,
+                  keysForTranslateError,
                   isEmpty,
                 }) => (
                   <FormInput
                     name={name}
                     key={id}
-                    classNameForTranslate={classNameForTranslate}
+                    keysForTranslate={keysForTranslate}
                     type={type}
                     onChange={handleChange}
                     isInputEmpty={isEmpty}
                     pattern={pattern}
-                    classNameForTranslateError={classNameForTranslateError}
+                    keysForTranslateError={keysForTranslateError}
                     value={info[name]}
                     lang={lang}
                   />
@@ -178,7 +180,7 @@ export const Contacts = () => {
                       "text-error": isMessage,
                     })}
                   >
-                    {translate(messageTextClass, lang)}*
+                    {translate(lang, messageText)}*
                   </label>
                 </legend>
 
@@ -201,16 +203,16 @@ export const Contacts = () => {
 
               {isError && (
                 <span className="form__error">
-                  {translate("errorFill", lang)}
+                  {translate(lang, ["ERROR", "FILL"])}
                 </span>
               )}
 
-              <button className="contacts__button" type="submit">
-                {translate("contactsUs", lang)}
+              <button className="page__button contacts__button" type="submit">
+                {translate(lang, ["CONTACTS", "US"])}
               </button>
 
               <p className="contacts__callback page__text contacts__callback--after">
-                {translate("contacts__reply", lang)}
+                {translate(lang, ["CONTACTS", "REPLY"])}
               </p>
             </form>
           </div>
@@ -224,4 +226,4 @@ export const Contacts = () => {
       </Container>
     </section>
   );
-};
+});

@@ -1,7 +1,7 @@
 .sidebar {
   width: 100%;
   height: 100%;
-  background: #191536;
+  background: $dark-shade-color;
 
   @include onMobile {
     height: 100vh;

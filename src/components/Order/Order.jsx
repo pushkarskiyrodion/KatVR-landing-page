@@ -21,7 +21,7 @@ export const Order = () => {
       <div className="order__info">
         <div className="order__quantity">
           <span className="order__info-text">
-            {translate("quantity", lang)}
+            {translate(lang, ["QUANTITY"])}
           </span>
 
           <DropDown
@@ -34,7 +34,7 @@ export const Order = () => {
         </div>
 
         <div className="order__price">
-          <span className="order__info-text">{translate("price", lang)}</span>
+          <span className="order__info-text">{translate(lang, ["PRICE"])}</span>
 
           <div className="order__price-text">{PRICE * parseInt(value)}$</div>
         </div>

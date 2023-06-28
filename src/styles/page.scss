@@ -1,3 +1,5 @@
+@use "./shared.scss";
+
 .page {
   font-family: Inter, Arial, sans-serif;
   font-size: 16px;
@@ -61,7 +63,7 @@
       }
 
       &:active {
-        color: #2f2f2f;
+        color: $dark-gray-color;
       }
     }
   }
@@ -78,7 +80,7 @@
       top: 62%;
       z-index: 5;
 
-      border: 1px solid rgba(5, 194, 223, 0.4);
+      border: 1px solid $alpha-blue-light-color;
       border-radius: 50%;
       background-color: transparent;
       background-image: url(../../public/images/arrowUp.svg);
@@ -94,7 +96,7 @@
       }
 
       &:active {
-        background-color: rgba(5, 194, 223, 0.4);
+        background-color: $alpha-blue-light-color;
       }
     }
   }
@@ -141,7 +143,6 @@
 
     &--secondary {
       margin: 0 9px;
-      font-weight: 400;
       color: $primary-text-color;
 
       @include onTablet {
@@ -167,7 +168,6 @@
   }
 
   &__subtitle {
-    font-weight: 400;
     font-size: 16px;
     line-height: 17px;
     color: $primary-text-color;
@@ -239,7 +239,6 @@
 
   &__text {
     font-size: $text-font-size;
-    font-weight: 400;
     line-height: 150%;
     color: $secondary-text-color;
   }

@@ -4,12 +4,14 @@ import PropsTypes from "prop-types";
 
 import { PhoneInput } from "@components/Contacts/PhoneInput";
 
+import "./Form.scss";
 import { translate } from "@helpers/translation";
 
 export const FormInput = ({
   onChange,
-  classNameForTranslate,
-  classNameForTranslateError,
+  keysForTranslate,
+  keysForTranslateError,
+  keysForTranslatePlaceholder,
   type,
   name,
   children,
@@ -22,7 +24,7 @@ export const FormInput = ({
   const [isEmpty, setIsEmpty] = useState(false);
   const [isSelected, setIsSelected] = useState(false);
   const uniqueId = useId();
-  const errorFill = translate("errorFillInput", lang);
+  const errorFill = translate(lang, ["ERROR", "INPUT_FILL"]);
   const [errorMessage, setErrorMessage] = useState(errorFill);
 
   useEffect(() => {
@@ -34,7 +36,7 @@ export const FormInput = ({
     const regex = new RegExp(pattern);
 
     if (!regex.test(value)) {
-      const errorValidation = translate(classNameForTranslateError, lang);
+      const errorValidation = translate(lang, keysForTranslateError);
       setIsValid(false);
       setErrorMessage(errorValidation);
     } else {
@@ -62,7 +64,7 @@ export const FormInput = ({
         name={name}
         lang={lang}
         isInputEmpty={isInputEmpty}
-        classNameForTranslate={classNameForTranslate}
+        keysForTranslate={keysForTranslate}
         onChange={onChange}
         value={value}
         isSelected={isSelected}
@@ -87,7 +89,7 @@ export const FormInput = ({
         >
           {isInputEmpty || !isValid || isEmpty
             ? errorMessage
-            : translate(classNameForTranslate, lang)}
+            : translate(lang, keysForTranslate)}
           *
         </label>
       </legend>
@@ -98,6 +100,7 @@ export const FormInput = ({
           handleResetError,
           toggleSelected: setIsSelected,
           onEmpty: setIsEmpty,
+          keysForTranslatePlaceholder,
         })
       ) : (
         <input
@@ -121,8 +124,9 @@ export const FormInput = ({
 
 FormInput.propTypes = {
   onChange: PropsTypes.func,
-  classNameForTranslate: PropsTypes.string,
-  classNameForTranslateError: PropsTypes.string,
+  keysForTranslate: PropsTypes.array,
+  keysForTranslateError: PropsTypes.array,
+  keysForTranslatePlaceholder: PropsTypes.array,
   type: PropsTypes.string,
   name: PropsTypes.string,
   children: PropsTypes.node,

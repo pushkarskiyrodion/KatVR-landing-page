@@ -9,20 +9,20 @@ export const OrderComplete = () => {
   return (
     <>
       <h2 className="page__title order__complete__title">
-        {translate("orderCompleteTitle__first", lang)}
+        {translate(lang, ["ORDER_COMPLETE", "TITLE"])}
         <span className="page__title--secondary">
-          
-          {translate("orderCompleteTitle--secondary", lang)}
-          
+          {translate(lang, ["ORDER_COMPLETE", "TITLE_SECONDARY"])}
         </span>
-        {translate("orderCompleteTitle__second", lang)}
+        {translate(lang, ["ORDER_COMPLETE", "TITLE_END"])}
       </h2>
 
-      <p className="page__text">{translate("orderCompleteText", lang)}</p>
+      <p className="page__text">
+        {translate(lang, ["ORDER_COMPLETE", "TEXT"])}
+      </p>
 
-      <button className="order__complete__button">
+      <button className="page__button order__complete__button">
         <Link to="/" className="page__button-link">
-          {translate("BackToHomepage", lang)}
+          {translate(lang, ["BACK_TO_HOMEPAGE"])}
         </Link>
       </button>
     </>

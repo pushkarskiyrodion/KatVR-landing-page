@@ -6,9 +6,10 @@
       "@components": ["./components"],
       "@pages": ["./pages"],
       "@context": ["./context"],
-      "@data": ["./data/data"],
       "@helpers": ["./helpers"],
-      "@api": ["./api"]
+      "@api": ["./api"],
+      "@data": ["./data"],
+      "@styles": ["./styles/page.scss"]
     }
   },
   "exclude": ["node_modules"]

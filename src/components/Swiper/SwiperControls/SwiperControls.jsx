@@ -1,7 +1,7 @@
 import React, { useContext, useRef, useState } from "react";
 import PropTypes from "prop-types";
 
-import SCSSVariables from "../../../styles/utils/variables.module.scss";
+import SCSSVariables from "./SwiperControls.scss";
 import { LangContext } from "@context/LangContext";
 import { translate } from "@helpers/translation";
 
@@ -35,11 +35,11 @@ export const SwiperControls = ({ onPrev, onNext, className }) => {
       ref={containerRef}
     >
       <button className="swiper-controls__button prev" onClick={onPrev}>
-        {translate("prev", lang)}
+        {translate(lang, ["PREV_BUTTON"])}
       </button>
 
       <button className="swiper-controls__button next" onClick={onNext}>
-        {translate("next", lang)}
+        {translate(lang, ["NEXT_BUTTON"])}
       </button>
 
       {isHovering && (

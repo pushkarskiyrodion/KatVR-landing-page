@@ -23,7 +23,7 @@
     border: none;
     width: 100%;
     padding: 6px 0;
-    border-bottom: 1px solid #2f2f2f;
+    border-bottom: 1px solid $dark-gray-color;
     background-color: transparent;
 
     font: inherit;
@@ -75,7 +75,7 @@
     border: none;
     width: 100%;
     padding: 6px 0;
-    border-bottom: 1px solid #2f2f2f;
+    border-bottom: 1px solid $dark-gray-color;
     background-color: transparent;
     font: inherit;
     color: $white-color;
@@ -96,6 +96,10 @@
     @include onTablet {
       width: 75%;
       margin-top: 10px;
+    }
+
+    @include onMobile {
+      width: 85%;
     }
 
     @include onSmallScreen {
@@ -148,7 +152,8 @@
       &-cvv {
         @extend .form__card-input;
         width: 37px;
-        text-indent: 4px;
+        text-indent: 1px;
+        letter-spacing: 4px;
 
         &::placeholder {
           text-indent: 1px;

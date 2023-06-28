@@ -50,18 +50,11 @@
     color: #545454;
   }
 
-  &__title {
-    @extend .page__text;
-    line-height: 24px;
-  }
-
   &__subtitle {
-    @extend .page__subtitle;
     font-size: 15px;
   }
 
   &__title--secondary {
-    @extend .page__title--secondary;
     margin: 0;
   }
 }

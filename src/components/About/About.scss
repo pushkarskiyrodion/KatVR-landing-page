@@ -3,6 +3,10 @@
 
   &__wrapper {
     margin-bottom: 80px;
+
+    @include onMobile {
+      margin-bottom: 50px;
+    }
   }
 
   &__bottom {
@@ -49,7 +53,9 @@
   }
 
   &__text {
-    @extend .page__text;
+    font-size: $text-font-size;
+    line-height: 150%;
+    color: $secondary-text-color;
     margin: 30px 0;
 
     @include onDesktop-max-1240 {
@@ -57,7 +63,7 @@
     }
 
     @include onMobile {
-      margin: 15px 0 50px;
+      margin: 15px 0 40px;
     }
   }
 

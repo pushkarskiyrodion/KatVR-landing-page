@@ -12,7 +12,8 @@
   },
   "plugins": ["react"],
   "rules": {
-    "no-useless-escape": "off"
+    "no-useless-escape": "off",
+    "react/display-name": "off"
   },
   "settings": {
     "import/resolver": {

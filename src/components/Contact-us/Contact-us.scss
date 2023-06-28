@@ -8,7 +8,9 @@
   }
 
   &__text {
-    @extend .page__text;
+    font-size: $text-font-size;
+    line-height: 150%;
+    color: $secondary-text-color;
     width: max-content;
     transition: opacity 0.4s;
 

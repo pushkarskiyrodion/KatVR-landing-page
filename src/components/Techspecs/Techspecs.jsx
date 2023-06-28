@@ -4,15 +4,16 @@ import classNames from "classnames";
 import { Container } from "@components/Container";
 import { CloseIcon } from "@components/Icons/CloseIcon";
 
+import "./Techspecs.scss";
 import { LangContext } from "@context/LangContext";
 import { translate } from "@helpers/translation";
-import { touchIcons } from "@data";
+import { touchIcons } from "@data/images";
 
 const SENSOR_ID = 1;
 const CONNECTION_ID = 2;
 const BATTERIES_ID = 3;
 
-export const Techspecs = () => {
+export const Techspecs = React.memo(() => {
   const [opened, setOpened] = useState(0);
   const lang = useContext(LangContext);
 
@@ -24,16 +25,16 @@ export const Techspecs = () => {
     <section className="techspecs page__section" id="tech">
       <Container>
         <h2 className="page__title techspecs__title">
-          {translate("tech__title", lang)}
+          {translate(lang, ["TECH", "TITLE"])}
           <span className="page__title--secondary">
-            {translate("tech__title--secondary", lang)}
+            {translate(lang, ["TECH", "TITLE_SECONDARY"])}
           </span>
         </h2>
 
         <div className="techspecs__content">
-          {touchIcons.map(({ id, nameOfClass }) => (
+          {touchIcons.map(({ id, className }) => (
             <i
-              className={`techspecs__touch ${nameOfClass}`}
+              className={`techspecs__touch ${className}`}
               key={id}
               onClick={() => setOpened(id)}
             />
@@ -51,13 +52,13 @@ export const Techspecs = () => {
             </i>
 
             <h3 className="techspecs__description-title">
-              {translate("tech__sensor", lang)}
+              {translate(lang, ["TECH", "SENSOR", "TITLE"])}
             </h3>
 
             <p
               className="page__text"
               dangerouslySetInnerHTML={{
-                __html: translate("tech__sensor-text", lang),
+                __html: translate(lang, ["TECH", "SENSOR", "TEXT"]),
               }}
             />
           </div>
@@ -74,13 +75,13 @@ export const Techspecs = () => {
             </i>
 
             <h3 className="techspecs__description-title">
-              {translate("tech__connection", lang)}
+              {translate(lang, ["TECH", "CONNECTION", "TITLE"])}
             </h3>
 
             <p
               className="page__text"
               dangerouslySetInnerHTML={{
-                __html: translate("tech__connection-text", lang),
+                __html: translate(lang, ["TECH", "CONNECTION", "TEXT"]),
               }}
             />
           </div>
@@ -97,13 +98,13 @@ export const Techspecs = () => {
             </i>
 
             <h3 className="techspecs__description-title">
-              {translate("tech__battery", lang)}
+              {translate(lang, ["TECH", "BATTERY", "TITLE"])}
             </h3>
 
             <p
               className="page__text"
               dangerouslySetInnerHTML={{
-                __html: translate("tech__battery-text", lang),
+                __html: translate(lang, ["TECH", "BATTERY", "TEXT"]),
               }}
             />
           </div>
@@ -118,4 +119,4 @@ export const Techspecs = () => {
       </Container>
     </section>
   );
-};
+});

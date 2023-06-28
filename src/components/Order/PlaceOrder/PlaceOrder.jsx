@@ -8,7 +8,7 @@ import { FormInput } from "../Form";
 import { getCities, getCountries } from "@api/CountriesAndCities";
 import { checkValidity } from "@helpers/checkValidity";
 import { translate } from "@helpers/translation";
-import { placeOrderInputs } from "@data";
+import { placeOrderInputs } from "@data/placeOrderInputs";
 
 export const PlaceOrder = () => {
   const [countries, setCountries] = useState(null);
@@ -25,8 +25,8 @@ export const PlaceOrder = () => {
     phone: "",
     country: selectedCountry,
     city: selectedCity,
-    shipAddres__first: "",
-    shipAddres__second: "",
+    shipAddressFirst: "",
+    shipAddressSecond: "",
   });
   const lang = useContext(LangContext);
   const navigate = useNavigate();
@@ -180,21 +180,23 @@ export const PlaceOrder = () => {
           ({
             id,
             name,
-            classNameForTranslate,
             type,
             children,
             pattern,
             isEmpty,
-            classNameForTranslateError,
+            keysForTranslate,
+            keysForTranslateError,
+            keysForTranslatePlaceholder,
           }) => (
             <FormInput
               name={name}
               key={id}
-              classNameForTranslate={classNameForTranslate}
+              keysForTranslate={keysForTranslate}
+              keysForTranslateError={keysForTranslateError}
+              keysForTranslatePlaceholder={keysForTranslatePlaceholder}
               type={type}
               onChange={handleChange}
               pattern={pattern}
-              classNameForTranslateError={classNameForTranslateError}
               isInputEmpty={isEmpty}
               value={info[name]}
               lang={lang}
@@ -206,16 +208,20 @@ export const PlaceOrder = () => {
       </div>
 
       <div className="form__controls">
-        <button className="order__button">{translate("purchase", lang)}</button>
+        <button className="page__button order__button">
+          {translate(lang, ["PURCHASE"])}
+        </button>
 
         {isError && (
-          <span className="form__error">{translate("errorFill", lang)}</span>
+          <span className="form__error">
+            {translate(lang, ["ERROR", "FILL"])}
+          </span>
         )}
 
         {isRequestError && (
           <div className="form__error">
-            {translate("requestError__first", lang)}
-            <div>{translate("requestError__second", lang)}</div>
+            {translate(lang, ["ERROR", "REQUEST_FIRST"])}
+            <div>{translate(lang, ["ERROR", "REQUEST_SECOND"])}</div>
           </div>
         )}
       </div>

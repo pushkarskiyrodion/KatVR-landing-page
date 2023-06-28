@@ -2,13 +2,13 @@ import React, { useContext } from "react";
 import PropTypes from "prop-types";
 
 import { LangContext } from "@context/LangContext";
-
 import { Container } from "@components/Container";
 import { PlayButton } from "@components/PlayButton";
 import { Swiper } from "@components/Swiper";
-
-import { pictures } from "@data";
+import { slideImages } from "@data/images";
 import { translate } from "@helpers/translation";
+
+import "./About.scss";
 
 export const About = ({ onPlay }) => {
   const lang = useContext(LangContext);
@@ -19,15 +19,15 @@ export const About = ({ onPlay }) => {
         <div className="about__wrapper">
           <div className="grid grid--switch">
             <h2 className="page__title page__title--before">
-              {translate("about__title", lang)}
+              {translate(lang, ["ABOUT", "TITLE"])}
               <span className="page__title--secondary">
-                {translate("about__title--secondary", lang)}
+                {translate(lang, ["ABOUT", "TITLE_SECONDARY"])}
               </span>
             </h2>
 
             <div className="grid__swiper grid__item--onDesktopMax1240-1-4 grid__item--onDesktopMin1240-2-6">
               <Swiper
-                items={pictures}
+                items={slideImages}
                 controlsClassName={"swiper-controls__grid"}
                 isPaginationVisible={true}
                 swiperClassName={"grid__item--mobile-1-7"}
@@ -37,13 +37,15 @@ export const About = ({ onPlay }) => {
             <div className="grid__item--onDesktopMax1240-5-8 grid__item--onDesktopMin1240-8-12">
               <div className="about__header-wrapper">
                 <h2 className="page__title page__title--after">
-                  {translate("about__title", lang)}
+                  {translate(lang, ["ABOUT", "TITLE"])}
                   <span className="page__title--secondary">
-                    {translate("about__title--secondary", lang)}
+                    {translate(lang, ["ABOUT", "TITLE_SECONDARY"])}
                   </span>
                 </h2>
 
-                <p className="about__text">{translate("about__text", lang)}</p>
+                <p className="about__text">
+                  {translate(lang, ["ABOUT", "TEXT"])}
+                </p>
 
                 <PlayButton onPlay={onPlay} />
               </div>
@@ -54,17 +56,19 @@ export const About = ({ onPlay }) => {
         <div className="about__bottom">
           <div className="about__greeting">
             <span className="page__subtitle">
-              {translate("about__hello", lang)}
+              {translate(lang, ["ABOUT", "HELLO"])}
             </span>
 
             <h2 className="page__title about__greeting__title">
-              {translate("about__subtitle", lang)}
+              {translate(lang, ["ABOUT", "SUBTITLE"])}
               <span className="page__title--secondary">
-                {translate("about__subtitle--secondary", lang)}
+                {translate(lang, ["ABOUT", "SUBTITLE_SECONDARY"])}
               </span>
             </h2>
 
-            <p className="page__text">{translate("about__subtext", lang)}</p>
+            <p className="page__text">
+              {translate(lang, ["ABOUT", "SUBTEXT"])}
+            </p>
           </div>
 
           <div className="about__us">

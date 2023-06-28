@@ -1,4 +1,4 @@
-import React from "react"
+import React from "react";
 
 export const Button = () => (
   <svg
@@ -162,4 +162,4 @@ export const Button = () => (
     <path opacity="0.45" d="M234 56.5H233V57.5H234V56.5Z" fill="#05C2DF" />
     <path opacity="0.45" d="M221 56.5H220V57.5H221V56.5Z" fill="#05C2DF" />
   </svg>
-)
+);

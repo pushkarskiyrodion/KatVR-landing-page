@@ -7,26 +7,28 @@ import { Menu } from "@components/Menu";
 import { Submenu } from "@components/Menu/Submenu";
 import { BackIcone } from "@components/Icons/BackIcon";
 
-import { languages, menuData } from "../../data/data";
+import "./Sidebar.scss";
+import { languages } from "@data/languages";
+import { menuSections } from "@data/menuSections";
 
 const sidebarData = [
-  ...menuData,
+  ...menuSections,
   {
     id: 5,
     href: null,
-    classNameForTranslate: "menu__language",
+    keysForTranslate: ["MENU", "LANGUAGE"],
     children: languages,
   },
   {
     id: 6,
     href: null,
-    classNameForTranslate: "menu__faq",
+    keysForTranslate: ["MENU", "FAQ"],
     modal: "faq",
   },
   {
     id: 7,
     href: null,
-    classNameForTranslate: "menu__help",
+    keysForTranslate: ["MENU", "HELP"],
     modal: "help",
   },
 ];

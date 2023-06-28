@@ -19,7 +19,7 @@
     background-position-x: 90%;
 
     &--opened {
-      background-image: none
+      background-image: none;
     }
   }
 
@@ -39,7 +39,7 @@
     }
 
     &--opened {
-      background-image: none
+      background-image: none;
     }
   }
 
@@ -58,6 +58,7 @@
     left: 0;
     right: 0;
     background-color: $dark-shade-color;
+    overflow-x: hidden;
 
     @include onTablet {
       max-height: 118px;

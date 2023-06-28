@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames";
 
-import SCSSVariables from "../../styles/utils/variables.module.scss";
-
 import { CloseIcon } from "@components/Icons/CloseIcon";
+
+import SCSSVariables from "./Modal.scss";
 
 export const Modal = ({ onClose, isOpen, children, className }) => {
   const [isVisible, setIsVisible] = useState(isOpen);

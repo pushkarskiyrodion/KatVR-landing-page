@@ -6,7 +6,7 @@ import PropTypes from "prop-types";
 import { LangContext } from "@context/LangContext";
 import { translate } from "@helpers/translation";
 
-export const CustomNavLink = ({ to, classNameForTranslate }) => {
+export const CustomNavLink = ({ to, keysForTranslate }) => {
   const lang = useContext(LangContext);
 
   return (
@@ -19,12 +19,12 @@ export const CustomNavLink = ({ to, classNameForTranslate }) => {
       }
       onClick={(e) => e.preventDefault()}
     >
-      {translate(classNameForTranslate, lang)}
+      {translate(lang, keysForTranslate)}
     </NavLink>
   );
 };
 
 CustomNavLink.propTypes = {
   to: PropTypes.string,
-  classNameForTranslate: PropTypes.string,
+  keysForTranslate: PropTypes.array,
 };

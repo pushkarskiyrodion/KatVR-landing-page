@@ -14,12 +14,15 @@ import { Help } from "@components/Help";
 import { Swiper } from "@components/Swiper";
 import { Logo } from "@components/Logo";
 
+import "./Header.scss";
+
 import { translate } from "@helpers/translation";
-import { menuData, productPhotos } from "@data";
+import { productPhotos } from "@data/images";
+import { menuSections } from "@data/menuSections";
 
 export const Header = ({ onPlay, onSelect, lang }) => {
   const [photos] = useState(productPhotos);
-  const [menuItems] = useState(menuData);
+  const [menuItems] = useState(menuSections);
   const [isFaqOpen, setIsFaqOpen] = useState(false);
   const [isHelpOpen, setIsHelpOpen] = useState(false);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -103,7 +106,7 @@ export const Header = ({ onPlay, onSelect, lang }) => {
 
               <button className="page__button page__button--switch">
                 <Link to="order/place-order" className="page__button-link">
-                  {translate("buy-now", lang)}
+                  {translate(lang, ["BUY_NOW"])}
                 </Link>
               </button>
             </div>
@@ -111,15 +114,17 @@ export const Header = ({ onPlay, onSelect, lang }) => {
 
           <div className="header__content">
             <div className="header__content-wrapper">
-              <h1 className="header__title">
-                {translate("header__title", lang)}
+              <h1 className="page__title header__title">
+                {translate(lang, ["HEADER_TITLE"])}
 
-                <div className="header__title--secondary">VR Locomotion</div>
+                <div className="page__title--secondary header__title--secondary">
+                  VR Locomotion
+                </div>
               </h1>
 
               <div className="header__about">
                 <p className="header__about-paragraph">
-                  {translate("header__about-paragraph", lang)}
+                  {translate(lang, ["HEADER_ABOUT"])}
                 </p>
 
                 <span className="header__about-price">1200$</span>
@@ -134,11 +139,11 @@ export const Header = ({ onPlay, onSelect, lang }) => {
                     id="faq"
                     onClick={handleFaqOpen}
                   >
-                    {translate("menu__faq", lang)}
+                    {translate(lang, ["MENU", "FAQ"])}
                   </div>
 
                   <div className="header__bottom-text" onClick={handleHelpOpen}>
-                    {translate("menu__help", lang)}
+                    {translate(lang, ["MENU", "HELP"])}
                   </div>
                 </div>
                 <div className="header__bottom-wrapper header__content-bottom--center">
@@ -146,7 +151,7 @@ export const Header = ({ onPlay, onSelect, lang }) => {
                     to="#more"
                     className="header__bottom-advanced icon--polygon"
                   >
-                    {translate("menu__more", lang)}
+                    {translate(lang, ["MENU", "MORE"])}
                     <svg
                       className="header__bottom-advanced--icon"
                       width="9"

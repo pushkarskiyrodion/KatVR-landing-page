@@ -66,10 +66,11 @@
 
   &__contacts {
     display: none;
-    @extend .contacts__contacts-us;
 
     @include onMobile {
       display: flex;
+      flex-direction: column;
+      gap: 11px;
     }
   }
 
