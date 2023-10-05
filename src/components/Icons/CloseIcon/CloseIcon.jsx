@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-export const CloseIcon = ({ onClose, className }) => (
+export const CloseIcon = ({ onClose, className = '' }) => (
   <i onClick={onClose} className={`icon icon--close ${className}`}>
     <svg
       width="19"

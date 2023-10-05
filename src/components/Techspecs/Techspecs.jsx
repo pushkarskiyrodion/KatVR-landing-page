@@ -32,7 +32,7 @@ export const Techspecs = React.memo(() => {
         </h2>
 
         <div className="techspecs__content">
-          {touchIcons.map(({ id, className }) => (
+          {touchIcons.map(({ id, className = '' }) => (
             <i
               className={`techspecs__touch ${className}`}
               key={id}
