@@ -11,6 +11,7 @@ const expirationDateRegex = /^(0[1-9]|1[0-2])\/?([0-9]{4}|[0-9]{2})$/;
 
 export const Pay = () => {
   const [expirationDate, setExpirationDate] = useState("");
+  const [isSubmitted, setIsSubmitted] = useState(false);
   const [isValid, setIsValid] = useState(true);
   const [firstCardNumber, setFirstCardNumber] = useState("");
   const [selectedInput, setSelectedInput] = useState(null);
@@ -25,9 +26,26 @@ export const Pay = () => {
     (ref) => ref === selectedInput
   );
 
+  const getCardRef = (index) => cardNumbersRef.current[index];
+
+  const checkLength = (event) => {
+    const inputValue = event.target.value;
+    const index = cardNumbersRef.current.findIndex(input => (
+      input.name === event.target.name
+    ));
+
+    if (inputValue.length === 4) {
+      return true;
+    } else {
+      getCardRef(index).value = inputValue.slice(0, 4)
+
+      return false;
+    }
+  }
+
   const handleInputChange = (event, nexInputIndex) => {
-    if (event.target.value.length === event.target.maxLength) {
-      cardNumbersRef.current[nexInputIndex].focus();
+    if (checkLength(event)) {
+      getCardRef(nexInputIndex).focus();
     }
   };
 
@@ -40,6 +58,12 @@ export const Pay = () => {
   const handleFirstCardInputChange = (e) => {
     handleInputChange(e, 1);
     setFirstCardNumber(e.target.value);
+  };
+
+  const handleLastCardInputChange = (e, ref) => {
+    if (checkLength(e)) {
+      handleNextInputFocus(e, ref);
+    }
   };
 
   const handleExpirationChange = (e) => {
@@ -56,12 +80,16 @@ export const Pay = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    setIsSubmitted(true);
 
-    if (expirationDateRegex.test(expirationDate)) {
+    const isFill = cardNumbersRef.current.every(input => input.value.length === 4);
+
+    if (expirationDateRegex.test(expirationDate) && isFill) {
       setExpirationDate("");
 
       e.target.reset();
       navigate("../order-complete");
+      setIsSubmitted(false);
     }
   };
 
@@ -103,8 +131,9 @@ export const Pay = () => {
             id="cardNumber-first"
             name="cardNumber-first"
             className={classNames("form__card-input", {
+              "input-error": getCardRef(0)?.value.length < 4 && isSubmitted,
               "form__selected-input":
-                selectedInput === cardNumbersRef.current[0],
+                selectedInput === getCardRef(0),
             })}
             placeholder="0000"
             value={firstCardNumber}
@@ -121,8 +150,9 @@ export const Pay = () => {
             id="cardNumber-second"
             name="cardNumber-second"
             className={classNames("form__card-input", {
+              "input-error": getCardRef(1)?.value.length < 4 && isSubmitted,
               "form__selected-input":
-                selectedInput === cardNumbersRef.current[1],
+                selectedInput === getCardRef(1),
             })}
             placeholder="0000"
             required
@@ -138,8 +168,9 @@ export const Pay = () => {
             id="cardNumber-third"
             name="cardNumber-third"
             className={classNames("form__card-input", {
+              "input-error": getCardRef(2)?.value.length < 4 && isSubmitted,
               "form__selected-input":
-                selectedInput === cardNumbersRef.current[2],
+                selectedInput === getCardRef(2),
             })}
             placeholder="0000"
             required
@@ -155,14 +186,15 @@ export const Pay = () => {
             id="cardNumber-fourth"
             name="cardNumber-fourth"
             className={classNames("form__card-input", {
+              "input-error": getCardRef(3)?.value.length < 4 && isSubmitted,
               "form__selected-input":
-                selectedInput === cardNumbersRef.current[3],
+                selectedInput === getCardRef(3),
             })}
             placeholder="0000"
             required
             maxLength="4"
             ref={(el) => (cardNumbersRef.current[3] = el)}
-            onChange={(e) => handleNextInputFocus(e, cardholderNameRef)}
+            onChange={(e) => handleLastCardInputChange(e, cardholderNameRef)}
             onFocus={(e) => handleCardFocus(e, cardNumbersRef.current[3])}
             onBlur={handleBlur}
           />

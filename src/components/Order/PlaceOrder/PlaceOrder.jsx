@@ -1,22 +1,26 @@
 import React, { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import PropTypes from 'prop-types';
 
 import { LangContext } from "@context/LangContext";
 import { DropDown } from "@components/DropDown";
 import { FormInput } from "../Form";
 
-import { getCities, getCountries } from "@api/CountriesAndCities";
+import { getCities } from "@api/CountriesAndCities";
 import { checkValidity } from "@helpers/checkValidity";
 import { translate } from "@helpers/translation";
 import { placeOrderInputs } from "@data/placeOrderInputs";
 
-export const PlaceOrder = () => {
-  const [countries, setCountries] = useState(null);
+export const PlaceOrder = ({
+  countries,
+  isRequestError,
+  setIsRequestError,
+}) => {
   const [cities, setCities] = useState(null);
-  const [selectedCountry, setSelectedCountry] = useState("");
+  const [selectedCountry, setSelectedCountry] = useState(countries
+    .find(country => country.toLowerCase().includes("ukr")
+  ));
   const [selectedCity, setSelectedCity] = useState("");
-  const [isError, setIsError] = useState(false);
-  const [isRequestError, setIsRequestError] = useState(false);
   const [formFields, setFormFields] = useState(placeOrderInputs);
   const [info, setInfo] = useState({
     firstName: "",
@@ -77,30 +81,7 @@ export const PlaceOrder = () => {
     }));
 
     updateInputs();
-    setIsError(false);
   }, [selectedCity, selectedCountry]);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const { data } = await getCountries();
-
-        const countries = data.map((item) => item.country);
-        const country = countries.find((country) =>
-          country.toLowerCase().includes("ukr")
-        );
-
-        const uniqueCountries = Array.from(new Set(countries));
-
-        setCountries(uniqueCountries);
-        setSelectedCountry(country);
-      } catch (error) {
-        setIsRequestError(true);
-      }
-    };
-
-    fetchData();
-  }, []);
 
   useEffect(() => {
     updateInputs();
@@ -149,14 +130,12 @@ export const PlaceOrder = () => {
         return input;
       });
     });
-
-    setIsError(false);
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (checkValidity(formFields, setIsError, info)) {
+    if (checkValidity(formFields, info)) {
       navigate("../pay");
     } else {
       Object.entries(info).forEach(([prop, value]) => {
@@ -212,12 +191,6 @@ export const PlaceOrder = () => {
           {translate(lang, ["PURCHASE"])}
         </button>
 
-        {isError && (
-          <span className="form__error">
-            {translate(lang, ["ERROR", "FILL"])}
-          </span>
-        )}
-
         {isRequestError && (
           <div className="form__error">
             {translate(lang, ["ERROR", "REQUEST_FIRST"])}
@@ -227,4 +200,10 @@ export const PlaceOrder = () => {
       </div>
     </form>
   );
+};
+
+PlaceOrder.propTypes = {
+  countries: PropTypes.array,
+  isRequestError: PropTypes.bool,
+  setIsRequestError: PropTypes.func,
 };

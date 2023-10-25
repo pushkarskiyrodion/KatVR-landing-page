@@ -10,7 +10,10 @@ export const More = () => {
   const lang = useContext(LangContext);
 
   return (
-    <section className="more page__section" id="more">
+    <section
+      className="more page__section more--tablet-padding"
+      id="more"
+    >
       <Container>
         <div className="more__header">
           <h2 className="page__title">
